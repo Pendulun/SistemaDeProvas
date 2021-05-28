@@ -5,4 +5,5 @@ O objetivo desse trabalho é desenvolver um sistema simples em C++ onde um profe
 
 Integrantes do grupo:
 - Daniel Souza de Campos (Pendulun)
+- Letícia da Silva Macedo Alves (leticiasma)
 - Marcos Vinícius de Carvalho Ribeiro (marcosmoade)
