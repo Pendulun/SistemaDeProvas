@@ -10,3 +10,6 @@ Integrantes do grupo:
 - Felipe Machado Cordeiro (felipemcord)
 - Letícia da Silva Macedo Alves (leticiasma)
 - Marcos Vinícius de Carvalho Ribeiro (marcosmoade)
+
+Quadro de tarefas:
+https://github.com/Pendulun/SistemaDeProvas/projects/1
