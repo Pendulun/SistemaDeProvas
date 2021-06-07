@@ -13,3 +13,11 @@ Integrantes do grupo:
 
 Quadro de tarefas:
 https://github.com/Pendulun/SistemaDeProvas/projects/1
+
+## Arquitetura Básica
+
+![Arquitetura básica do sistema](Diagramas/arquiteturaBasica.png)
+
+## Fluxo Usuários
+
+![Fluxo dos usuários](Diagramas/FluxoUsuários.png)
