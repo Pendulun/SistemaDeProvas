@@ -6,10 +6,10 @@ O objetivo desse trabalho é desenvolver um sistema simples onde um professor co
 O Sistema será desenvolvido na linguagem C++, terá uma interface no terminal e, como forma de persistência de dados, usaremos arquivos JSON.
 
 Integrantes do grupo:
-- Daniel Souza de Campos (Pendulun)
-- Felipe Machado Cordeiro (felipemcord)
-- Letícia da Silva Macedo Alves (leticiasma)
-- Marcos Vinícius de Carvalho Ribeiro (marcosmoade)
+- Daniel Souza de Campos (Pendulun) (Frontend + Regras de Negócio)
+- Felipe Machado Cordeiro (felipemcord) (Persistência)
+- Letícia da Silva Macedo Alves (leticiasma) (Frontend)
+- Marcos Vinícius de Carvalho Ribeiro (marcosmoade) (Regras de Negócio)
 
 Quadro de tarefas:
 https://github.com/Pendulun/SistemaDeProvas/projects/1
