@@ -152,6 +152,54 @@ src/business/application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/application.cpp.s
 .PHONY : src/business/application.cpp.s
 
+src/business/gui/UserGUI.obj: src/business/gui/UserGUI.cpp.obj
+.PHONY : src/business/gui/UserGUI.obj
+
+# target to build an object file
+src/business/gui/UserGUI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/gui/UserGUI.cpp.obj
+.PHONY : src/business/gui/UserGUI.cpp.obj
+
+src/business/gui/UserGUI.i: src/business/gui/UserGUI.cpp.i
+.PHONY : src/business/gui/UserGUI.i
+
+# target to preprocess a source file
+src/business/gui/UserGUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/gui/UserGUI.cpp.i
+.PHONY : src/business/gui/UserGUI.cpp.i
+
+src/business/gui/UserGUI.s: src/business/gui/UserGUI.cpp.s
+.PHONY : src/business/gui/UserGUI.s
+
+# target to generate assembly for a file
+src/business/gui/UserGUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/gui/UserGUI.cpp.s
+.PHONY : src/business/gui/UserGUI.cpp.s
+
+src/gui/UserTerminalGUI.obj: src/gui/UserTerminalGUI.cpp.obj
+.PHONY : src/gui/UserTerminalGUI.obj
+
+# target to build an object file
+src/gui/UserTerminalGUI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/UserTerminalGUI.cpp.obj
+.PHONY : src/gui/UserTerminalGUI.cpp.obj
+
+src/gui/UserTerminalGUI.i: src/gui/UserTerminalGUI.cpp.i
+.PHONY : src/gui/UserTerminalGUI.i
+
+# target to preprocess a source file
+src/gui/UserTerminalGUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/UserTerminalGUI.cpp.i
+.PHONY : src/gui/UserTerminalGUI.cpp.i
+
+src/gui/UserTerminalGUI.s: src/gui/UserTerminalGUI.cpp.s
+.PHONY : src/gui/UserTerminalGUI.s
+
+# target to generate assembly for a file
+src/gui/UserTerminalGUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/UserTerminalGUI.cpp.s
+.PHONY : src/gui/UserTerminalGUI.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -188,6 +236,12 @@ help:
 	@echo ... src/business/application.obj
 	@echo ... src/business/application.i
 	@echo ... src/business/application.s
+	@echo ... src/business/gui/UserGUI.obj
+	@echo ... src/business/gui/UserGUI.i
+	@echo ... src/business/gui/UserGUI.s
+	@echo ... src/gui/UserTerminalGUI.obj
+	@echo ... src/gui/UserTerminalGUI.i
+	@echo ... src/gui/UserTerminalGUI.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

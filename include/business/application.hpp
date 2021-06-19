@@ -6,11 +6,11 @@ namespace Business{
     class Application{
         public:
             void start();
-            Application(GUI::UserGUI& userGUI);
+            Application(UserGUI* userGUI);
             Application();
             ~Application();
         private:
-            GUI::UserGUI* userGUI;
+            UserGUI* userGUI;
     };
 }
 

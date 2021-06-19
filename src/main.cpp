@@ -1,15 +1,15 @@
 #include "business/application.hpp"
+#include "gui/UserTerminalGUI.hpp"
 
-
-void config(Business::Application* app){
-    //cria um novo app passando uma classe concreta de UserGUI e 
-    //classes concretas de DAO's. Para isso, deve ter um construtor equivalente
+Business::Application* config(){
+    GUI::UserTerminalGUI* userTerminal = new GUI::UserTerminalGUI();
+    return new Business::Application(userTerminal);
 }
 
 
 int main(int argc, char *argv[]){
-    Business::Application* app;
-    config(app);
+    Business::Application* app = nullptr;
+    app = config();
     app->start();
     delete app;
     return 0;  
