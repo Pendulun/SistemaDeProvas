@@ -10,6 +10,7 @@ enum Status
 };
 
 #include "business/Modelo/question.hpp"
+#include <string>
 #include <list>
 #include <iterator>
 
@@ -21,20 +22,25 @@ class Test {
         list<Question>* questionList;
         int startDate;
         int endDate;
+        string name;
+
     public:
-        Test(); //prova sem data definida
-        Test(int,int); //prova com data definida
-        Test(int,int,list<Question>*); //reutilizar questões
+        Test(string); //prova sem data definida
+        Test(int,int,string); //prova com data definida
+        Test(int,int,list<Question>*,string); //reutilizar questões
         ~Test();
 
-        list<Question>* getQuestion();
-        void RemoveQuestion(Question);
+        list<Question>* getQuestions();
         void setQuestion(Question,Question);
+        void RemoveQuestion(Question);
+        void InsertQuestion(Question);
         auto getStartDate();
         void setStartDate(int);
         auto getEndDate();
         void setEndDate(int);
         Status getStatus();
+        string getName();
+        string setName(string);
 };
 
 

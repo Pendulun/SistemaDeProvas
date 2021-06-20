@@ -1,4 +1,5 @@
 #include "business/application.hpp"
+#include <string>
 
 namespace Business{
 

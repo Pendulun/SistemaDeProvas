@@ -1,5 +1,9 @@
 #ifndef __USERGUI_H__
 #define __USERGUI_H__
+
+#include "business/Modelo/test.hpp"
+#include "business/Modelo/question.hpp"
+
 namespace Business{
     class UserGUI{
         public:
