@@ -12,6 +12,8 @@ add_executable(sistema_provas
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
+    src/business/Modelo/usuario.cpp
+    src/business/Modelo/aluno.cpp
     src/gui/UserTerminalGUI.cpp)
 #Aqui está indicado aonde estarão os arquivos .hpp do projeto, não é necessário mudar
 target_include_directories(sistema_provas 
