@@ -23,7 +23,7 @@ namespace GUI
         std::cout << "Closing GUI\n";
     }
 
-    Test *CreateTest(){
+    Test* UserTerminalGUI::CreateTest(){
         std::cout << "Enter a name for this Test:" << std::endl;
         string name;
         std::cin >> name;
@@ -43,7 +43,7 @@ namespace GUI
         return t;
     }
 
-    void addQuestion(Test *t){
+    void UserTerminalGUI::addQuestion(Test *t){
         string placeholder;
         std::cout<<"Type the placeholder:"<<std::endl;
         std::cin>>placeholder;

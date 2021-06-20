@@ -2,6 +2,7 @@
 #include <chrono>
 #include <ctime>
 
+namespace GUI{
 Test::Test(string name){
     this->name=name;
     this->startDate=0;
@@ -29,4 +30,5 @@ Test::~Test(){
 
 void Test::InsertQuestion(Question q){
     this->questionList->push_back(q);
+}
 }

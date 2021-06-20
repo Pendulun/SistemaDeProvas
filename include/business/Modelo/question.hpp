@@ -4,8 +4,8 @@
 
 class Question{
     public:
-        Question(string);
-        string placeholder;
+        Question(std::string);
+        std::string placeholder;
 };
 
 #endif

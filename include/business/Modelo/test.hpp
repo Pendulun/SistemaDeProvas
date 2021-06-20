@@ -17,6 +17,7 @@ enum Status
 using namespace std;
 
 //por enquanto, estou pensando apenas no professor
+namespace GUI{
 class Test {
     private:
         list<Question>* questionList;
@@ -34,14 +35,14 @@ class Test {
         void setQuestion(Question,Question);
         void RemoveQuestion(Question);
         void InsertQuestion(Question);
-        auto getStartDate();
+        int getStartDate();
         void setStartDate(int);
-        auto getEndDate();
+        int getEndDate();
         void setEndDate(int);
         Status getStatus();
         string getName();
         string setName(string);
 };
-
+}
 
 #endif

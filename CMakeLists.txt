@@ -6,12 +6,15 @@ project(sistema_provas)
 
 # Define a versão do C++ para C++ 11
 set(CMAKE_CXX_STANDARD 11)
-
+#Adiciona flags para o comando de compilação
+add_compile_options(-Wall)
 # Aqui adicionamos TODOS os arquivos .cpp do projeto
 add_executable(sistema_provas 
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
+    src/business/Modelo/test.cpp
+    src/business/Modelo/question.cpp
     src/business/Modelo/usuario.cpp
     src/business/Modelo/aluno.cpp
     src/gui/UserTerminalGUI.cpp)
