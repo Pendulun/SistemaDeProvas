@@ -28,12 +28,17 @@ https://github.com/Pendulun/SistemaDeProvas/projects/1
 - Eu, como Aluno, quero poder ver as notas das minhas Provas assim que possível
 - Eu, como Aluno, quero poder ver a correção da minha tentativa após a liberação da mesma
 - Eu, como Aluno, quero poder ver todas as minhas Provas feitas
+- Eu, como Usuário, quero poder criar uma conta
 - Eu, como Usuário, quero poder alterar o meu perfil
 - Eu, como Professor, quero pode aleatorizar a ordem das Questões das Provas e suas Alternativas
 - Eu, como Professor, quero definir um tempo máximo para realização das Provas
 
 ## Backlog da Sprint
 
+- Eu, como Usuário, quero poder criar uma conta e acessar o sistema com ela
+  - Desenvolver uma interface de cadastro e login de usuário (Letícia)
+  - Implementar lógica de cadastro e login de usuário (Daniel)
+  - Persistir um Usuário (Professor ou Aluno) (Felipe)
 - Eu, como Professor, quero poder criar uma Turma/Matéria nova
   - Desenvolver uma interface para cadastro de Turma/Matéria nova (Letícia)
   - Desenvolver uma interface com menu para professores (Daniel)
