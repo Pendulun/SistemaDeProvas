@@ -11,6 +11,7 @@ namespace GUI{
 
         private:
             void cadastrar();
+            void fazLogin();
 
     };
 }
