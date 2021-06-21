@@ -128,6 +128,150 @@ sistema_provas/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/build
 .PHONY : sistema_provas/fast
 
+src/business/Modelo/aluno.obj: src/business/Modelo/aluno.cpp.obj
+.PHONY : src/business/Modelo/aluno.obj
+
+# target to build an object file
+src/business/Modelo/aluno.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/aluno.cpp.obj
+.PHONY : src/business/Modelo/aluno.cpp.obj
+
+src/business/Modelo/aluno.i: src/business/Modelo/aluno.cpp.i
+.PHONY : src/business/Modelo/aluno.i
+
+# target to preprocess a source file
+src/business/Modelo/aluno.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/aluno.cpp.i
+.PHONY : src/business/Modelo/aluno.cpp.i
+
+src/business/Modelo/aluno.s: src/business/Modelo/aluno.cpp.s
+.PHONY : src/business/Modelo/aluno.s
+
+# target to generate assembly for a file
+src/business/Modelo/aluno.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/aluno.cpp.s
+.PHONY : src/business/Modelo/aluno.cpp.s
+
+src/business/Modelo/professor.obj: src/business/Modelo/professor.cpp.obj
+.PHONY : src/business/Modelo/professor.obj
+
+# target to build an object file
+src/business/Modelo/professor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/professor.cpp.obj
+.PHONY : src/business/Modelo/professor.cpp.obj
+
+src/business/Modelo/professor.i: src/business/Modelo/professor.cpp.i
+.PHONY : src/business/Modelo/professor.i
+
+# target to preprocess a source file
+src/business/Modelo/professor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/professor.cpp.i
+.PHONY : src/business/Modelo/professor.cpp.i
+
+src/business/Modelo/professor.s: src/business/Modelo/professor.cpp.s
+.PHONY : src/business/Modelo/professor.s
+
+# target to generate assembly for a file
+src/business/Modelo/professor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/professor.cpp.s
+.PHONY : src/business/Modelo/professor.cpp.s
+
+src/business/Modelo/question.obj: src/business/Modelo/question.cpp.obj
+.PHONY : src/business/Modelo/question.obj
+
+# target to build an object file
+src/business/Modelo/question.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.obj
+.PHONY : src/business/Modelo/question.cpp.obj
+
+src/business/Modelo/question.i: src/business/Modelo/question.cpp.i
+.PHONY : src/business/Modelo/question.i
+
+# target to preprocess a source file
+src/business/Modelo/question.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.i
+.PHONY : src/business/Modelo/question.cpp.i
+
+src/business/Modelo/question.s: src/business/Modelo/question.cpp.s
+.PHONY : src/business/Modelo/question.s
+
+# target to generate assembly for a file
+src/business/Modelo/question.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.s
+.PHONY : src/business/Modelo/question.cpp.s
+
+src/business/Modelo/test.obj: src/business/Modelo/test.cpp.obj
+.PHONY : src/business/Modelo/test.obj
+
+# target to build an object file
+src/business/Modelo/test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.obj
+.PHONY : src/business/Modelo/test.cpp.obj
+
+src/business/Modelo/test.i: src/business/Modelo/test.cpp.i
+.PHONY : src/business/Modelo/test.i
+
+# target to preprocess a source file
+src/business/Modelo/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.i
+.PHONY : src/business/Modelo/test.cpp.i
+
+src/business/Modelo/test.s: src/business/Modelo/test.cpp.s
+.PHONY : src/business/Modelo/test.s
+
+# target to generate assembly for a file
+src/business/Modelo/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.s
+.PHONY : src/business/Modelo/test.cpp.s
+
+src/business/Modelo/turma.obj: src/business/Modelo/turma.cpp.obj
+.PHONY : src/business/Modelo/turma.obj
+
+# target to build an object file
+src/business/Modelo/turma.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/turma.cpp.obj
+.PHONY : src/business/Modelo/turma.cpp.obj
+
+src/business/Modelo/turma.i: src/business/Modelo/turma.cpp.i
+.PHONY : src/business/Modelo/turma.i
+
+# target to preprocess a source file
+src/business/Modelo/turma.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/turma.cpp.i
+.PHONY : src/business/Modelo/turma.cpp.i
+
+src/business/Modelo/turma.s: src/business/Modelo/turma.cpp.s
+.PHONY : src/business/Modelo/turma.s
+
+# target to generate assembly for a file
+src/business/Modelo/turma.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/turma.cpp.s
+.PHONY : src/business/Modelo/turma.cpp.s
+
+src/business/Modelo/usuario.obj: src/business/Modelo/usuario.cpp.obj
+.PHONY : src/business/Modelo/usuario.obj
+
+# target to build an object file
+src/business/Modelo/usuario.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/usuario.cpp.obj
+.PHONY : src/business/Modelo/usuario.cpp.obj
+
+src/business/Modelo/usuario.i: src/business/Modelo/usuario.cpp.i
+.PHONY : src/business/Modelo/usuario.i
+
+# target to preprocess a source file
+src/business/Modelo/usuario.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/usuario.cpp.i
+.PHONY : src/business/Modelo/usuario.cpp.i
+
+src/business/Modelo/usuario.s: src/business/Modelo/usuario.cpp.s
+.PHONY : src/business/Modelo/usuario.s
+
+# target to generate assembly for a file
+src/business/Modelo/usuario.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/usuario.cpp.s
+.PHONY : src/business/Modelo/usuario.cpp.s
+
 src/business/application.obj: src/business/application.cpp.obj
 .PHONY : src/business/application.obj
 
@@ -175,6 +319,30 @@ src/business/gui/UserGUI.s: src/business/gui/UserGUI.cpp.s
 src/business/gui/UserGUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/gui/UserGUI.cpp.s
 .PHONY : src/business/gui/UserGUI.cpp.s
+
+src/gui/TelaLogin.obj: src/gui/TelaLogin.cpp.obj
+.PHONY : src/gui/TelaLogin.obj
+
+# target to build an object file
+src/gui/TelaLogin.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/TelaLogin.cpp.obj
+.PHONY : src/gui/TelaLogin.cpp.obj
+
+src/gui/TelaLogin.i: src/gui/TelaLogin.cpp.i
+.PHONY : src/gui/TelaLogin.i
+
+# target to preprocess a source file
+src/gui/TelaLogin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/TelaLogin.cpp.i
+.PHONY : src/gui/TelaLogin.cpp.i
+
+src/gui/TelaLogin.s: src/gui/TelaLogin.cpp.s
+.PHONY : src/gui/TelaLogin.s
+
+# target to generate assembly for a file
+src/gui/TelaLogin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/gui/TelaLogin.cpp.s
+.PHONY : src/gui/TelaLogin.cpp.s
 
 src/gui/UserTerminalGUI.obj: src/gui/UserTerminalGUI.cpp.obj
 .PHONY : src/gui/UserTerminalGUI.obj
@@ -233,12 +401,33 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... sistema_provas
+	@echo ... src/business/Modelo/aluno.obj
+	@echo ... src/business/Modelo/aluno.i
+	@echo ... src/business/Modelo/aluno.s
+	@echo ... src/business/Modelo/professor.obj
+	@echo ... src/business/Modelo/professor.i
+	@echo ... src/business/Modelo/professor.s
+	@echo ... src/business/Modelo/question.obj
+	@echo ... src/business/Modelo/question.i
+	@echo ... src/business/Modelo/question.s
+	@echo ... src/business/Modelo/test.obj
+	@echo ... src/business/Modelo/test.i
+	@echo ... src/business/Modelo/test.s
+	@echo ... src/business/Modelo/turma.obj
+	@echo ... src/business/Modelo/turma.i
+	@echo ... src/business/Modelo/turma.s
+	@echo ... src/business/Modelo/usuario.obj
+	@echo ... src/business/Modelo/usuario.i
+	@echo ... src/business/Modelo/usuario.s
 	@echo ... src/business/application.obj
 	@echo ... src/business/application.i
 	@echo ... src/business/application.s
 	@echo ... src/business/gui/UserGUI.obj
 	@echo ... src/business/gui/UserGUI.i
 	@echo ... src/business/gui/UserGUI.s
+	@echo ... src/gui/TelaLogin.obj
+	@echo ... src/gui/TelaLogin.i
+	@echo ... src/gui/TelaLogin.s
 	@echo ... src/gui/UserTerminalGUI.obj
 	@echo ... src/gui/UserTerminalGUI.i
 	@echo ... src/gui/UserTerminalGUI.s

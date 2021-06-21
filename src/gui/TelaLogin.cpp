@@ -20,7 +20,7 @@ namespace GUI{
 
         while(!sair){
             limparTerminal();
-            std::cout<<std::endl;
+            std::cout<<"---------------------------------\n";
             std::cout<<"BEM VINDO AO SISTEMA DE PROVAS!!!\n";
             std::cout<<"---------------------------------\n\n";
             std::cout<<"Escolha o numero da opcao desejada:\n";
@@ -34,8 +34,8 @@ namespace GUI{
                 std::cin>>opcao;
 
                 if(opcao.compare("1")==0){
-                    std::cout<<"FAZER LOGIN!!!\n";
                     limparTerminal();
+                    fazLogin();
                     break;
                 }
                 else if (opcao.compare("2")==0){
@@ -55,6 +55,67 @@ namespace GUI{
         } 
     }
 
+    void TelaLogin::fazLogin(){
+
+        bool voltar = false;
+
+        while(!voltar){
+            std::cout<<"-------------------\n";
+            std::cout<<"LOGIN DE USUARIO\n";
+            std::cout<<"-------------------\n\n"; 
+
+            bool dadosCorretos = false;
+
+            while(!dadosCorretos){
+                std::string login;
+                std::string senha;
+
+                std::cout<<"Digite seu login: \n";
+                std::cin>>login;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+                std::cout<<"Digite sua senha: \n";
+                std::cin>>senha;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+                //TODO - Tentar encontrar o usuário na base de dados
+                dadosCorretos = false;
+
+                if(dadosCorretos){
+                    limparTerminal();
+                    std::cout<<"ENTROU NO SISTEMA!!! \n";
+                }
+                else{
+                    limparTerminal();
+                    std::cout<<"Login invalido. Escolha a opcao:\n";
+                    std::cout<<"1 - Tentar login novamente\n";
+                    std::cout<<"2 - Voltar \n";
+                }
+
+                std::string opcao;
+
+                while(true){
+                    std::cin>>opcao;
+
+                    if(opcao.compare("1")==0){
+                        limparTerminal();
+                        break;
+                    }
+                    else if (opcao.compare("2")==0){
+                        voltar = true;
+                        dadosCorretos = true;
+                        break;
+                    }
+                    else{
+                        std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
+                    }
+                }
+            }
+        }
+    }
+
     void TelaLogin::cadastrar(){ 
         std::string nome;
         std::string login;
@@ -64,6 +125,7 @@ namespace GUI{
         bool dadosCorretos = false;
 
         while(!dadosCorretos){
+            std::cout<<"-------------------\n";
             std::cout<<"CADASTRO DE USUARIO\n";
             std::cout<<"-------------------\n\n";
 

@@ -17,6 +17,8 @@ add_executable(sistema_provas
     src/business/Modelo/question.cpp
     src/business/Modelo/usuario.cpp
     src/business/Modelo/aluno.cpp
+    src/business/Modelo/professor.cpp
+    src/business/Modelo/turma.cpp
     src/gui/UserTerminalGUI.cpp
     src/gui/TelaLogin.cpp)
 #Aqui está indicado aonde estarão os arquivos .hpp do projeto, não é necessário mudar
