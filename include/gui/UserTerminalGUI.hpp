@@ -2,6 +2,7 @@
 #define __USERTERMINALGUI_H__
 #include <iostream>
 #include "business/gui/UserGUI.hpp"
+#include "gui/TelaLogin.hpp"
 
 namespace GUI{
     class UserTerminalGUI :public Business::UserGUI{

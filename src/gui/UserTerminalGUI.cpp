@@ -4,7 +4,12 @@
 namespace GUI
 {
     void UserTerminalGUI::show(){
-        std::cout << "Showing GUI\n";
+        TelaLogin telaLogin;
+        telaLogin.show();
+
+        
+
+        /*std::cout << "Showing GUI\n";
         std::cout << "Choose an option:" << std::endl;
         std::cout << "1 - Create Test" << std::endl;
         std::cout << "0 - Exit" << std::endl;
@@ -19,7 +24,7 @@ namespace GUI
                 CreateTest();
                 break;
             }
-        }
+        }*/
         std::cout << "Closing GUI\n";
     }
 
