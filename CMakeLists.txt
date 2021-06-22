@@ -13,8 +13,8 @@ add_executable(sistema_provas
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
-    src/business/Modelo/test.cpp
-    src/business/Modelo/question.cpp
+    src/business/Modelo/prova.cpp
+    src/business/Modelo/questao.cpp
     src/business/Modelo/usuario.cpp
     src/business/Modelo/aluno.cpp
     src/business/Modelo/professor.cpp

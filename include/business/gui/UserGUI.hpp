@@ -1,8 +1,8 @@
 #ifndef __USERGUI_H__
 #define __USERGUI_H__
 
-#include "business/Modelo/test.hpp"
-#include "business/Modelo/question.hpp"
+#include "business/Modelo/prova.hpp"
+#include "business/Modelo/questao.hpp"
 
 namespace Business{
     class UserGUI{

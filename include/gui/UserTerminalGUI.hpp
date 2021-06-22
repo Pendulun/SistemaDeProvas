@@ -10,8 +10,8 @@ namespace GUI{
             void show() override;
             ~UserTerminalGUI() override;
         private:
-            Test *CreateTest();
-            void addQuestion(Test *t);
+            Prova *CreateProva();
+            void addQuestao(Prova *t);
     };
 }
 #endif

@@ -11,7 +11,7 @@ namespace GUI
 
         /*std::cout << "Showing GUI\n";
         std::cout << "Choose an option:" << std::endl;
-        std::cout << "1 - Create Test" << std::endl;
+        std::cout << "1 - Create Prova" << std::endl;
         std::cout << "0 - Exit" << std::endl;
         int option;
         std::cin >> option;
@@ -21,39 +21,36 @@ namespace GUI
             switch (option)
             {
             case 1:
-                CreateTest();
+                CreateProva();
                 break;
             }
         }*/
         std::cout << "Closing GUI\n";
     }
 
-    Test* UserTerminalGUI::CreateTest(){
-        std::cout << "Enter a name for this Test:" << std::endl;
+    Prova* UserTerminalGUI::CreateProva(){
+        std::cout << "Entre um nome para essa Prova:" << std::endl;
         string name;
         std::cin >> name;
-        Test *t = new Test(name);
-        std::cout << "Add a question to this test?" << std::endl;
-        std::cout << "1 - Yes" << std::endl;
-        std::cout << "2 - No" << std::endl;
-        int addQuestionToTest;
-        std::cin >> addQuestionToTest;
-        while (addQuestionToTest != 2){
-            addQuestion(t);
-            std::cout << "Add another question to this test?" << std::endl;
-            std::cout << "1 - Yes" << std::endl;
-            std::cout << "2 - No" << std::endl;
-            std::cin >> addQuestionToTest;
+        Prova *t = new Prova(name);
+        std::cout << "Adicionar uma questão a essa prova?" << std::endl;
+        std::cout << "1 - Sim" << std::endl;
+        std::cout << "2 - Não" << std::endl;
+        int addQuestaoToProva;
+        std::cin >> addQuestaoToProva;
+        while (addQuestaoToProva != 2){
+            addQuestao(t);
+            std::cout << "Adicionar outra questão a essa prova?" << std::endl;
+            std::cout << "1 - Sim" << std::endl;
+            std::cout << "2 - Não" << std::endl;
+            std::cin >> addQuestaoToProva;
         }
         return t;
     }
 
-    void UserTerminalGUI::addQuestion(Test *t){
-        string placeholder;
-        std::cout<<"Type the placeholder:"<<std::endl;
-        std::cin>>placeholder;
-        Question q=Question(placeholder);
-        t->InsertQuestion(q);
+    void UserTerminalGUI::addQuestao(Prova *t){
+        Questao q=Questao("a","1","2","3","4",1);
+        t->InsertQuestao(q);
     }
 
     UserTerminalGUI::~UserTerminalGUI(){
