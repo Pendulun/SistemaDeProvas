@@ -13,6 +13,7 @@ add_executable(sistema_provas
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
+    src/business/fachadas/manterUsuario.cpp
     src/business/Modelo/prova.cpp
     src/business/Modelo/questao.cpp
     src/business/Modelo/usuario.cpp

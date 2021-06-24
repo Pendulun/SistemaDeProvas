@@ -176,53 +176,53 @@ src/business/Modelo/professor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/professor.cpp.s
 .PHONY : src/business/Modelo/professor.cpp.s
 
-src/business/Modelo/question.obj: src/business/Modelo/question.cpp.obj
-.PHONY : src/business/Modelo/question.obj
+src/business/Modelo/prova.obj: src/business/Modelo/prova.cpp.obj
+.PHONY : src/business/Modelo/prova.obj
 
 # target to build an object file
-src/business/Modelo/question.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.obj
-.PHONY : src/business/Modelo/question.cpp.obj
+src/business/Modelo/prova.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/prova.cpp.obj
+.PHONY : src/business/Modelo/prova.cpp.obj
 
-src/business/Modelo/question.i: src/business/Modelo/question.cpp.i
-.PHONY : src/business/Modelo/question.i
+src/business/Modelo/prova.i: src/business/Modelo/prova.cpp.i
+.PHONY : src/business/Modelo/prova.i
 
 # target to preprocess a source file
-src/business/Modelo/question.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.i
-.PHONY : src/business/Modelo/question.cpp.i
+src/business/Modelo/prova.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/prova.cpp.i
+.PHONY : src/business/Modelo/prova.cpp.i
 
-src/business/Modelo/question.s: src/business/Modelo/question.cpp.s
-.PHONY : src/business/Modelo/question.s
+src/business/Modelo/prova.s: src/business/Modelo/prova.cpp.s
+.PHONY : src/business/Modelo/prova.s
 
 # target to generate assembly for a file
-src/business/Modelo/question.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/question.cpp.s
-.PHONY : src/business/Modelo/question.cpp.s
+src/business/Modelo/prova.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/prova.cpp.s
+.PHONY : src/business/Modelo/prova.cpp.s
 
-src/business/Modelo/test.obj: src/business/Modelo/test.cpp.obj
-.PHONY : src/business/Modelo/test.obj
+src/business/Modelo/questao.obj: src/business/Modelo/questao.cpp.obj
+.PHONY : src/business/Modelo/questao.obj
 
 # target to build an object file
-src/business/Modelo/test.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.obj
-.PHONY : src/business/Modelo/test.cpp.obj
+src/business/Modelo/questao.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/questao.cpp.obj
+.PHONY : src/business/Modelo/questao.cpp.obj
 
-src/business/Modelo/test.i: src/business/Modelo/test.cpp.i
-.PHONY : src/business/Modelo/test.i
+src/business/Modelo/questao.i: src/business/Modelo/questao.cpp.i
+.PHONY : src/business/Modelo/questao.i
 
 # target to preprocess a source file
-src/business/Modelo/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.i
-.PHONY : src/business/Modelo/test.cpp.i
+src/business/Modelo/questao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/questao.cpp.i
+.PHONY : src/business/Modelo/questao.cpp.i
 
-src/business/Modelo/test.s: src/business/Modelo/test.cpp.s
-.PHONY : src/business/Modelo/test.s
+src/business/Modelo/questao.s: src/business/Modelo/questao.cpp.s
+.PHONY : src/business/Modelo/questao.s
 
 # target to generate assembly for a file
-src/business/Modelo/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/test.cpp.s
-.PHONY : src/business/Modelo/test.cpp.s
+src/business/Modelo/questao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/Modelo/questao.cpp.s
+.PHONY : src/business/Modelo/questao.cpp.s
 
 src/business/Modelo/turma.obj: src/business/Modelo/turma.cpp.obj
 .PHONY : src/business/Modelo/turma.obj
@@ -295,6 +295,30 @@ src/business/application.s: src/business/application.cpp.s
 src/business/application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/application.cpp.s
 .PHONY : src/business/application.cpp.s
+
+src/business/fachadas/manterUsuario.obj: src/business/fachadas/manterUsuario.cpp.obj
+.PHONY : src/business/fachadas/manterUsuario.obj
+
+# target to build an object file
+src/business/fachadas/manterUsuario.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/fachadas/manterUsuario.cpp.obj
+.PHONY : src/business/fachadas/manterUsuario.cpp.obj
+
+src/business/fachadas/manterUsuario.i: src/business/fachadas/manterUsuario.cpp.i
+.PHONY : src/business/fachadas/manterUsuario.i
+
+# target to preprocess a source file
+src/business/fachadas/manterUsuario.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/fachadas/manterUsuario.cpp.i
+.PHONY : src/business/fachadas/manterUsuario.cpp.i
+
+src/business/fachadas/manterUsuario.s: src/business/fachadas/manterUsuario.cpp.s
+.PHONY : src/business/fachadas/manterUsuario.s
+
+# target to generate assembly for a file
+src/business/fachadas/manterUsuario.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/fachadas/manterUsuario.cpp.s
+.PHONY : src/business/fachadas/manterUsuario.cpp.s
 
 src/business/gui/UserGUI.obj: src/business/gui/UserGUI.cpp.obj
 .PHONY : src/business/gui/UserGUI.obj
@@ -407,12 +431,12 @@ help:
 	@echo ... src/business/Modelo/professor.obj
 	@echo ... src/business/Modelo/professor.i
 	@echo ... src/business/Modelo/professor.s
-	@echo ... src/business/Modelo/question.obj
-	@echo ... src/business/Modelo/question.i
-	@echo ... src/business/Modelo/question.s
-	@echo ... src/business/Modelo/test.obj
-	@echo ... src/business/Modelo/test.i
-	@echo ... src/business/Modelo/test.s
+	@echo ... src/business/Modelo/prova.obj
+	@echo ... src/business/Modelo/prova.i
+	@echo ... src/business/Modelo/prova.s
+	@echo ... src/business/Modelo/questao.obj
+	@echo ... src/business/Modelo/questao.i
+	@echo ... src/business/Modelo/questao.s
 	@echo ... src/business/Modelo/turma.obj
 	@echo ... src/business/Modelo/turma.i
 	@echo ... src/business/Modelo/turma.s
@@ -422,6 +446,9 @@ help:
 	@echo ... src/business/application.obj
 	@echo ... src/business/application.i
 	@echo ... src/business/application.s
+	@echo ... src/business/fachadas/manterUsuario.obj
+	@echo ... src/business/fachadas/manterUsuario.i
+	@echo ... src/business/fachadas/manterUsuario.s
 	@echo ... src/business/gui/UserGUI.obj
 	@echo ... src/business/gui/UserGUI.i
 	@echo ... src/business/gui/UserGUI.s
