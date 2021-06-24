@@ -8,9 +8,12 @@ namespace Business{
     class Application{
         public:
             void start();
-            Application(UserGUI* userGUI);
-            Application();
-            ~Application();
+            static Application* getInstance();
+            static void createNewInstanceIfPossible(UserGUI*);
+            ~Application();   
+        protected:
+            Application(UserGUI*);
+            static Application* instance;
         private:
             UserGUI* userGUI;
     };

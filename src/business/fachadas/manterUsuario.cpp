@@ -1,7 +1,8 @@
 #include "business/fachadas/manterUsuario.hpp"
 
-namespace Fachadas{
+namespace Business{
     bool ManterUsuario::cadastrarUsuario(){
+        Application* app = Application::getInstance();
         return true;
     }
 
