@@ -4,15 +4,15 @@
 
 class Questao{
     private:
-        string enunciado;
-        string textoAlternativas[4];
+        std::string enunciado;
+        std::string textoAlternativas[4];
         int alternativaCorreta;
     public:
-        Questao(string,string,string,string,string,int);
-        string getEnunciado();
-        void setEnunciado(string);
-        string getTextoAlternativa(int);
-        void setTextoAlternativa(int,string);
+        Questao(std::string, std::string, std::string, std::string, std::string,int);
+        std::string getEnunciado();
+        void setEnunciado(std::string);
+        std::string getTextoAlternativa(int);
+        void setTextoAlternativa(int,std::string);
         int getAlternativaCorreta();
         void setAlternativaCorreta(int);
 };
