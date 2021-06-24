@@ -128,6 +128,30 @@ sistema_provas/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/build
 .PHONY : sistema_provas/fast
 
+src/business/DAO/UsuarioDAO.obj: src/business/DAO/UsuarioDAO.cpp.obj
+.PHONY : src/business/DAO/UsuarioDAO.obj
+
+# target to build an object file
+src/business/DAO/UsuarioDAO.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/DAO/UsuarioDAO.cpp.obj
+.PHONY : src/business/DAO/UsuarioDAO.cpp.obj
+
+src/business/DAO/UsuarioDAO.i: src/business/DAO/UsuarioDAO.cpp.i
+.PHONY : src/business/DAO/UsuarioDAO.i
+
+# target to preprocess a source file
+src/business/DAO/UsuarioDAO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/DAO/UsuarioDAO.cpp.i
+.PHONY : src/business/DAO/UsuarioDAO.cpp.i
+
+src/business/DAO/UsuarioDAO.s: src/business/DAO/UsuarioDAO.cpp.s
+.PHONY : src/business/DAO/UsuarioDAO.s
+
+# target to generate assembly for a file
+src/business/DAO/UsuarioDAO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistema_provas.dir\build.make CMakeFiles/sistema_provas.dir/src/business/DAO/UsuarioDAO.cpp.s
+.PHONY : src/business/DAO/UsuarioDAO.cpp.s
+
 src/business/Modelo/aluno.obj: src/business/Modelo/aluno.cpp.obj
 .PHONY : src/business/Modelo/aluno.obj
 
@@ -425,6 +449,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... sistema_provas
+	@echo ... src/business/DAO/UsuarioDAO.obj
+	@echo ... src/business/DAO/UsuarioDAO.i
+	@echo ... src/business/DAO/UsuarioDAO.s
 	@echo ... src/business/Modelo/aluno.obj
 	@echo ... src/business/Modelo/aluno.i
 	@echo ... src/business/Modelo/aluno.s

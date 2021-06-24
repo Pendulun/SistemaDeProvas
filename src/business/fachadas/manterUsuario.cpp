@@ -3,7 +3,8 @@
 namespace Business{
     bool ManterUsuario::cadastrarUsuario(){
         Application* app = Application::getInstance();
-        return true;
+        //TODO
+        return app->getUsuarioDAO()->cadastrar();
     }
 
     bool ManterUsuario::login(){

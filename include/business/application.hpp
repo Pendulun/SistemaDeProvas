@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include "business/gui/UserGUI.hpp"
+#include "business/DAO/UsuarioDAO.hpp"
 #include <iostream>
 
 namespace Business{
@@ -10,12 +11,14 @@ namespace Business{
             void start();
             static Application* getInstance();
             static void createNewInstanceIfPossible(UserGUI*);
+            UsuarioDAO* getUsuarioDAO();
             ~Application();   
         protected:
             Application(UserGUI*);
             static Application* instance;
         private:
-            UserGUI* userGUI;
+        UsuarioDAO* usuarioDAO;
+        UserGUI* userGUI;
     };
 }
 

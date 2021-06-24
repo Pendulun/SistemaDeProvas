@@ -15,6 +15,10 @@ namespace Business{
         std::cout<<"Closing Application\n";
     }
 
+    UsuarioDAO* Application::getUsuarioDAO(){
+        return this->usuarioDAO;
+    }
+
     void Application::createNewInstanceIfPossible(UserGUI* userGUI){
         if(Application::instance == nullptr){
             Application::instance = new Application(userGUI);;
@@ -27,13 +31,17 @@ namespace Business{
 
     Application::Application(Business::UserGUI* userGUI){
         this->userGUI = userGUI;
+        this->usuarioDAO = nullptr;
     }
 
     Application::~Application(){
         std::cout<<"Destroying Application\n";
         if(this->userGUI){
             delete this->userGUI;
-            std::cout<<"Destroyed userGUI\n";
         }  
+
+        if(this->usuarioDAO != nullptr){
+            delete this->usuarioDAO;
+        }
     }
 }
