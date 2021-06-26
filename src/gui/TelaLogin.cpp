@@ -113,7 +113,8 @@ namespace GUI{
         std::string nome;
         std::string login;
         std::string senha;
-        std::string tipoUsuario;
+        std::string opcaoTipoUsuario;
+        Modelo::TipoUsuario tipoUsuario;
 
         bool dadosCorretos = false;
 
@@ -127,12 +128,14 @@ namespace GUI{
             std::cout<<"2 - Sou professor \n";        
 
             while(true){
-                std::cin>>tipoUsuario;
+                std::cin>>opcaoTipoUsuario;
 
-                if(tipoUsuario.compare("1")==0){
+                if(opcaoTipoUsuario.compare("1")==0){
+                    tipoUsuario = Modelo::TipoUsuario::ALUNO;
                     break;
                 }
-                else if (tipoUsuario.compare("2")==0){
+                else if (opcaoTipoUsuario.compare("2")==0){
+                    tipoUsuario = Modelo::TipoUsuario::PROFESSOR;
                     break;
                 }
                 else{
@@ -155,7 +158,7 @@ namespace GUI{
             util.limparTerminal();
 
             std::cout<<"SUAS INFORMACOES SAO:\n\n";
-            if(tipoUsuario.compare("1")==0){
+            if(opcaoTipoUsuario.compare("1")==0){
                 std::cout<<"Tipo de usuario: ALUNO\n";
             }
             else{
@@ -178,6 +181,13 @@ namespace GUI{
                     std::cout<<"DADOS CORRETOS!!!\n";
                     dadosCorretos = true;
                     //TODO - CADASTRO NO BANCO
+                    Business::ManterUsuario manterUsuario;
+                    if(manterUsuario.cadastrarUsuario()){
+                        std::cout<<"Cadastro realizado com sucesso!\n";
+                    }
+                    else{
+                        std::cout<<"Nao foi possivel concluir o cadastro.\n";
+                    }
                     break;
                 }
                 else if (opcao.compare("2")==0){
