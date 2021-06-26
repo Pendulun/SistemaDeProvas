@@ -22,7 +22,9 @@ add_executable(sistema_provas
     src/business/Modelo/professor.cpp
     src/business/Modelo/turma.cpp
     src/gui/UserTerminalGUI.cpp
-    src/gui/TelaLogin.cpp)
+    src/gui/TelaLogin.cpp
+    src/gui/SistemaUsuario.cpp
+    src/gui/TerminalUteis.cpp)
 #Aqui está indicado aonde estarão os arquivos .hpp do projeto, não é necessário mudar
 target_include_directories(sistema_provas 
     PUBLIC ${PROJECT_SOURCE_DIR}/include/)
