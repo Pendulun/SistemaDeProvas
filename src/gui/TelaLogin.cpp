@@ -1,25 +1,15 @@
 #include "gui/TelaLogin.hpp"
-
-void limparTerminal(){
-    #if defined _WIN32
-        system("cls");
-        system("cls");
-    #elif defined (__LINUX__) || defined(__gnu_linux__) || defined (__linux__)
-        system("clear");
-        system("clear");
-    #elif defined (__APPLE__)
-        system("clear");
-        system("clear");
-    #endif 
-}
+#include "gui/TerminalUteis.hpp"
 
 namespace GUI{
     void TelaLogin::show(){
 
+        TerminalUteis util;
+
         bool sair = false;
 
         while(!sair){
-            limparTerminal();
+            util.limparTerminal();
             std::cout<<"---------------------------------\n";
             std::cout<<"BEM VINDO AO SISTEMA DE PROVAS!!!\n";
             std::cout<<"---------------------------------\n\n";
@@ -34,18 +24,18 @@ namespace GUI{
                 std::cin>>opcao;
 
                 if(opcao.compare("1")==0){
-                    limparTerminal();
+                    util.limparTerminal();
                     fazLogin();
                     break;
                 }
                 else if (opcao.compare("2")==0){
-                    limparTerminal();
+                    util.limparTerminal();
                     cadastrar();
                     break;
                 }
                 else if(opcao.compare("3")==0){
                     sair = true;
-                    limparTerminal();
+                    util.limparTerminal();
                     break;
                 }
                 else{
@@ -56,6 +46,8 @@ namespace GUI{
     }
 
     void TelaLogin::fazLogin(){
+
+        TerminalUteis util;
 
         bool voltar = false;
 
@@ -72,23 +64,21 @@ namespace GUI{
 
                 std::cout<<"Digite seu login: \n";
                 std::cin>>login;
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                util.limparEntrada();
 
                 std::cout<<"Digite sua senha: \n";
                 std::cin>>senha;
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                util.limparEntrada();
 
                 //TODO - Tentar encontrar o usuário na base de dados
                 dadosCorretos = false;
 
                 if(dadosCorretos){
-                    limparTerminal();
+                    util.limparTerminal();
                     std::cout<<"ENTROU NO SISTEMA!!! \n";
                 }
                 else{
-                    limparTerminal();
+                    util.limparTerminal();
                     std::cout<<"Login invalido. Escolha a opcao:\n";
                     std::cout<<"1 - Tentar login novamente\n";
                     std::cout<<"2 - Voltar \n";
@@ -100,7 +90,7 @@ namespace GUI{
                     std::cin>>opcao;
 
                     if(opcao.compare("1")==0){
-                        limparTerminal();
+                        util.limparTerminal();
                         break;
                     }
                     else if (opcao.compare("2")==0){
@@ -117,6 +107,9 @@ namespace GUI{
     }
 
     void TelaLogin::cadastrar(){ 
+
+        TerminalUteis util;
+
         std::string nome;
         std::string login;
         std::string senha;
@@ -153,15 +146,13 @@ namespace GUI{
 
             std::cout<<"Digite seu login (SEM ESPACOS): \n";
             std::cin>>login;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            util.limparEntrada();
 
             std::cout<<"Digite sua senha (SEM ESPACOS): \n";
             std::cin>>senha;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            util.limparEntrada();
 
-            limparTerminal();
+            util.limparTerminal();
 
             std::cout<<"SUAS INFORMACOES SAO:\n\n";
             if(tipoUsuario.compare("1")==0){
@@ -190,7 +181,7 @@ namespace GUI{
                     break;
                 }
                 else if (opcao.compare("2")==0){
-                    limparTerminal();
+                    util.limparTerminal();
                     break;
                 }
                 else{
