@@ -8,9 +8,12 @@ namespace Business{
         return true;
     }
 
-    bool ManterUsuario::login(){
+    Modelo::Usuario ManterUsuario::login(std::string login,std::string senha){
         // TODO
         // app->getUsuarioDAO()->login()
-        return true;
+        if(true){
+            throw Business::UserNotFoundException("Usuario nao encontrado");
+        }
+        return ;
     }
 }
