@@ -71,7 +71,16 @@ namespace GUI{
                 util.limparEntrada();
 
                 //TODO - Tentar encontrar o usuário na base de dados
-                dadosCorretos = false;
+                Business::ManterUsuario manterUsuario;
+
+                Modelo::Usuario* user;
+                
+                try{
+                    user = manterUsuario.login(login, senha);
+                } catch (const Business::UserNotFoundException& e){
+                    std::cout<<e.what()<<std::endl;
+                    dadosCorretos = false;
+                } 
 
                 if(dadosCorretos){
                     util.limparTerminal();
@@ -82,26 +91,27 @@ namespace GUI{
                     std::cout<<"Login invalido. Escolha a opcao:\n";
                     std::cout<<"1 - Tentar login novamente\n";
                     std::cout<<"2 - Voltar \n";
+
+                    std::string opcao;
+
+                    while(true){
+                        std::cin>>opcao;
+
+                        if(opcao.compare("1")==0){
+                            util.limparTerminal();
+                            break;
+                        }
+                        else if (opcao.compare("2")==0){
+                            voltar = true;
+                            dadosCorretos = true;
+                            break;
+                        }
+                        else{
+                            std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
+                        }
+                    }
                 }
 
-                std::string opcao;
-
-                while(true){
-                    std::cin>>opcao;
-
-                    if(opcao.compare("1")==0){
-                        util.limparTerminal();
-                        break;
-                    }
-                    else if (opcao.compare("2")==0){
-                        voltar = true;
-                        dadosCorretos = true;
-                        break;
-                    }
-                    else{
-                        std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
-                    }
-                }
             }
         }
     }
@@ -182,7 +192,7 @@ namespace GUI{
                     dadosCorretos = true;
                     //TODO - CADASTRO NO BANCO
                     Business::ManterUsuario manterUsuario;
-                    if(manterUsuario.cadastrarUsuario()){
+                    if(manterUsuario.cadastrarUsuario(nome, login, senha, tipoUsuario)){
                         std::cout<<"Cadastro realizado com sucesso!\n";
                     }
                     else{

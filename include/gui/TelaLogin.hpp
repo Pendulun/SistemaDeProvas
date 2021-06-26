@@ -3,6 +3,8 @@
 #include <iostream>
 #include "business/Modelo/tipoUsuario.hpp"
 #include "business/fachadas/manterUsuario.hpp"
+#include "business/Modelo/usuario.hpp"
+#include "business/fachadas/excecoes/UserNotFoundException.hpp"
 
 namespace GUI{
     class TelaLogin{
