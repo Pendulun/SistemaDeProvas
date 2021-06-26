@@ -4,6 +4,7 @@ namespace Business{
     class UsuarioDAO{
         public:
             virtual bool cadastrar() = 0;
+            virtual bool login() = 0;
             virtual ~UsuarioDAO() = 0;
     };
 }
