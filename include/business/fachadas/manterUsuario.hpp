@@ -10,7 +10,7 @@ namespace Business{
     class ManterUsuario{
         public:
             bool cadastrarUsuario(std::string, std::string, std::string, Modelo::TipoUsuario);
-            Modelo::Usuario login(std::string login,std::string senha);
+            Modelo::Usuario* login(std::string login,std::string senha);
     };
 }
 #endif
