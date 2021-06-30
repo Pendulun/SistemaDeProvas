@@ -2,3 +2,7 @@
 /build/CMakeFiles
 CMakeCache.txt
 settings.json
+.idea
+cmake-build-debug
+.idea/*
+cmake-build-debug/*
