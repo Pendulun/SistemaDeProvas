@@ -1,14 +1,14 @@
 #include "business/Modelo/turma.hpp"
 
 namespace Modelo{
-    Turma::Turma(){
-        this->id = -1;
+    Turma::Turma(int id){
+        this->id = id;
         this->nome = "";
     }
 
-    Turma::Turma(int id){
+    Turma::Turma(int id, std::string nome){
          this->id = id;
-        this->nome = "";
+        this->nome = nome;
     }
 
     void Turma::cadastrarAluno(int idAluno){
@@ -21,10 +21,6 @@ namespace Modelo{
 
     int Turma::getId(){
         return this->id;
-    }
-
-    void Turma::setId(int id){
-        this->id = id;
     }
 
     void Turma::setNome(std::string nome){
