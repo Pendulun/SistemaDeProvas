@@ -8,27 +8,16 @@ namespace GUI{
 
 
     void SistemaProfessor::show(){
-        OpcaoMenuInicial opcaoEscolhida;
-        while(opcaoEscolhida != OpcaoMenuInicial::SAIR){
+        bool sair = false;
+        while(!sair){
+            OpcaoMenuInicial opcaoEscolhida;
             this->mostrarSaudacoes();
             opcaoEscolhida = this->mostrarOpcoesMenu();
-            switch (opcaoEscolhida)
-            {
-            case SistemaProfessor::OpcaoMenuInicial::TURMAS:
-                std::cout<<"Ir para turmas\n";
-                break;
-            case SistemaProfessor::OpcaoMenuInicial::PROVAS:
-                std::cout<<"Ir para provas\n";
-                break;
-            case SistemaProfessor::OpcaoMenuInicial::PERFIL :
-                std::cout<<"Ir para perfil\n";
-                break;
-            case SistemaProfessor::OpcaoMenuInicial::SAIR:
-                std::cout<<"Ir para sair\n";
-                break;
-            default:
-                break;
-            }
+            if(opcaoEscolhida != SistemaProfessor::OpcaoMenuInicial::SAIR){
+                mapeiaEntrada(opcaoEscolhida);
+            }else{
+                sair=true;
+            } 
         }
     }
 
@@ -60,6 +49,30 @@ namespace GUI{
         }
     }
     
+    void SistemaProfessor::mapeiaEntrada(SistemaProfessor::OpcaoMenuInicial opcaoEscolhida){
+        switch (opcaoEscolhida)
+            {
+            case OpcaoMenuInicial::TURMAS:
+            {
+                TelaTurmasProfessor* telaTurmasProfessor = new TelaTurmasProfessor(this->professor);
+                telaTurmasProfessor->show();
+                delete telaTurmasProfessor;
+                break;
+            }
+            case OpcaoMenuInicial::PROVAS:
+            {
+                std::cout<<"Ir para provas\n";
+                break;
+            }
+            case OpcaoMenuInicial::PERFIL:
+            {
+                std::cout<<"Ir para perfil\n";
+                break;
+            }
+            default:
+                break;
+            }
+    }
 
     SistemaProfessor::~SistemaProfessor(){
         std::cout<<"Destruindo Sistema Professor"<<std::endl;

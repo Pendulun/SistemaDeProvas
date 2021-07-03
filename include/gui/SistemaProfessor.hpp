@@ -1,8 +1,9 @@
 #ifndef __SISTEMAPROFESSOR_H__
 #define __SISTEMAPROFESSOR_H__
-#include "gui/SistemaUsuario.hpp"
 #include "business/Modelo/professor.hpp"
+#include "gui/SistemaUsuario.hpp"
 #include "gui/TerminalUteis.hpp"
+#include "gui/TelaTurmasProfessor.hpp"
 
 namespace GUI{
     class SistemaProfessor : public SistemaUsuario{
@@ -15,6 +16,7 @@ namespace GUI{
             Modelo::Professor* professor;
             void mostrarSaudacoes();
             OpcaoMenuInicial mostrarOpcoesMenu();
+            void mapeiaEntrada(OpcaoMenuInicial);
     };
 }
 #endif
