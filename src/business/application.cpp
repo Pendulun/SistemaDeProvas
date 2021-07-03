@@ -19,6 +19,10 @@ namespace Business{
         return this->usuarioDAO;
     }
 
+    ProfessorDAO* Application::getProfessorDAO(){
+        return this->professorDAO;
+    }
+
     void Application::createNewInstanceIfPossible(UserGUI* userGUI){
         if(Application::instance == nullptr){
             Application::instance = new Application(userGUI);;
