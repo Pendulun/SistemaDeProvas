@@ -4,25 +4,31 @@
 namespace GUI
 {
     void UserTerminalGUI::show(){
-        TelaLogin* telaLogin = new TelaLogin();
-        telaLogin->show();
 
-        SistemaUsuario* sistemaUsuario = nullptr;
-        Modelo::Usuario* user = telaLogin->getUser();
-        
-        if(user!=nullptr){
-            try{
-                sistemaUsuario = configSistema(user);
+        while(true){
+            TelaLogin* telaLogin = new TelaLogin();
+            telaLogin->show();
+
+            SistemaUsuario* sistemaUsuario = nullptr;
+            Modelo::Usuario* user = telaLogin->getUser();
+            
+            if(user!=nullptr){
+                try{
+                    sistemaUsuario = configSistema(user);
+                    delete telaLogin;
+                    sistemaUsuario->show();
+                    delete sistemaUsuario;
+                }catch(const Business::ProfessorNotFoundException& e){
+                    std::cout<<e.what()<<std::endl;
+                }catch(const Business::AlunoNotFoundException& e){
+                    std::cout<<e.what()<<std::endl;
+                }
+            }else{
                 delete telaLogin;
-                sistemaUsuario->show();
-            }catch(const Business::ProfessorNotFoundException& e){
-                std::cout<<e.what()<<std::endl;
-            }catch(const Business::AlunoNotFoundException& e){
-                std::cout<<e.what()<<std::endl;
+                break;
             }
-        }else{
-            delete telaLogin;
         }
+        
         std::cout << "Closing GUI\n";
     }
 

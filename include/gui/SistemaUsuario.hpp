@@ -1,6 +1,7 @@
 #ifndef __SISTEMAUSUARIO_H__
 #define __SISTEMAUSUARIO_H__
 #include <iostream>
+#include <string>
 
 namespace GUI{
     class SistemaUsuario{
