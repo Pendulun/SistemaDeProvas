@@ -8,4 +8,21 @@ namespace Business{
         return dummyProfessor;
     }
 
+    bool ManterProfessor::cadastrarNovaTurma(std::string nomeTurma, Modelo::Professor* professor){
+        bool cadastrou = false;
+        if(!professor->possuiTurma(nomeTurma)){
+            Modelo::Turma* novaTurma = Application::getInstance()->getProfessorDAO()->cadastrarTurma(*professor, nomeTurma);
+            if(novaTurma!=nullptr){
+                professor->adicionarTurma(*novaTurma);
+                return true;
+            }else{
+                return false;
+            }
+        
+        }else{
+            cadastrou = false;
+        }
+        return cadastrou;
+    }
+
 }
