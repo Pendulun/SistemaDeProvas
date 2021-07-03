@@ -6,7 +6,118 @@ namespace GUI{
     } 
 
     void TelaTurmasProfessor::show(){
-        std::cout<<"Tela de turmas Professor\n";
+        bool voltar = false;
+        while(!voltar){
+            this->mostrarCabecalhoMenuInicial();
+            OpcoesMenuTurmasProfessor opcaoEscolhida;
+            opcaoEscolhida = this->mostrarOpcoesMenu();
+            if(opcaoEscolhida != OpcoesMenuTurmasProfessor::VOLTAR){
+                mapeiaEntrada(opcaoEscolhida);
+            }else if(opcaoEscolhida == OpcoesMenuTurmasProfessor::OPERRADA){
+                //roda o while de novo
+            }
+            else if(opcaoEscolhida == OpcoesMenuTurmasProfessor::VOLTAR){
+                voltar = true;
+            }
+        }
+       
     }
 
+    void TelaTurmasProfessor::mostrarCabecalhoMenuInicial(){
+        std::cout<<"------------------------\n";
+        std::cout<<"Tela de Turmas Professor\n";
+        std::cout<<"------------------------\n";
+    }
+
+    TelaTurmasProfessor::OpcoesMenuTurmasProfessor TelaTurmasProfessor::mostrarOpcoesMenu(){
+        std::string opcaoEscolhida = "";
+        std::cout<<"Escolha o numero da opcao desejada:\n";
+        std::cout<<OpcoesMenuTurmasProfessor::CADASTRAR<<" - Cadastrar Turma\n";
+        std::cout<<OpcoesMenuTurmasProfessor::LISTAR<<" - Listar Turmas\n";
+        std::cout<<OpcoesMenuTurmasProfessor::VOLTAR<<" - Voltar\n";
+        std::cin>>opcaoEscolhida;
+        GUI::TerminalUteis terminalUtil;
+        terminalUtil.limparTerminalEEntrada();
+        if(opcaoEscolhida.compare(std::to_string(OpcoesMenuTurmasProfessor::CADASTRAR))==0){
+            return OpcoesMenuTurmasProfessor::CADASTRAR;
+        }else if(opcaoEscolhida.compare(std::to_string(OpcoesMenuTurmasProfessor::LISTAR))==0){
+            return OpcoesMenuTurmasProfessor::LISTAR;
+        }else if(opcaoEscolhida.compare(std::to_string(OpcoesMenuTurmasProfessor::VOLTAR))==0){
+            return OpcoesMenuTurmasProfessor::VOLTAR;
+        }else{
+            return OpcoesMenuTurmasProfessor::OPERRADA;
+        }
+    }
+
+    void TelaTurmasProfessor::mapeiaEntrada(OpcoesMenuTurmasProfessor opcaoEscolhida){
+        switch (opcaoEscolhida)
+            {
+            case OpcoesMenuTurmasProfessor::CADASTRAR :
+            {
+                this->cadastrarNovaTurma();
+                break;
+            }
+            case OpcoesMenuTurmasProfessor::LISTAR :
+            {
+                std::cout<<"Listar todas as turmas\n";
+                break;
+            }
+            default:
+                break;
+            }
+    }
+
+    void TelaTurmasProfessor::cadastrarNovaTurma(){
+        std::string nomeTurma = "";
+        bool voltar = false;
+        while(!voltar){
+            this->mostrarCabecalhoCadastroNovaTurma();
+            std::cout<<"Digite o nome da nova turma ou \""<<OpcoesMenuTurmasProfessor::VOLTAR<<"\" para voltar\n";
+            std::cin>>nomeTurma;
+            GUI::TerminalUteis terminalUtil;
+            terminalUtil.limparTerminalEEntrada();
+
+            if(nomeTurma.compare(std::to_string(OpcoesMenuTurmasProfessor::VOLTAR))!=0){
+                if(this->confirmarNomeNovaTurma(nomeTurma)){
+                    //Tentar turma com o manterProfessor
+                    voltar = true;
+                }else{
+                    //roda o while de novo
+                }
+            }else{
+                voltar=true;
+            }
+        }
+    }
+
+    void TelaTurmasProfessor::mostrarCabecalhoCadastroNovaTurma(){
+        std::cout<<"----------------------\n";
+        std::cout<<"Cadastro de nova Turma\n";
+        std::cout<<"----------------------\n";
+    }
+
+    bool TelaTurmasProfessor::confirmarNomeNovaTurma(std::string nomeTurma){
+        bool resposta = false;
+        while(true){
+            GUI::TerminalUteis terminalUtil;
+            terminalUtil.limparTerminal();
+            std::string opcao="";
+            std::cout<<"Tem certeza que deseja cadastrar uma nova turma de nome: "<<nomeTurma<<" ?\n";
+            std::cout<<"1 - Sim\n";
+            std::cout<<"2 - Nao\n";
+            std::cin>>opcao;
+            terminalUtil.limparTerminalEEntrada();
+            if(opcao.compare("1")==0){
+                resposta=true;
+                break;
+            }else if(opcao.compare("2")==0){
+                resposta=false;
+                break;
+            }else{
+                //roda o while mais uma vez
+            }
+        }
+
+        return resposta;
+    }
 }
