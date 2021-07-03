@@ -12,6 +12,7 @@ namespace Modelo{
             Professor(int id, TipoUsuario tipoUsuario) : Usuario(id, tipoUsuario){};
             Professor(int id, TipoUsuario tipoUsuario, std::string nome, std::string login, std::string senha) : Usuario(id, tipoUsuario, nome, login, senha){};
             Professor(int id, TipoUsuario tipoUsuario, std::string login, std::string senha) : Usuario(id, tipoUsuario, login, senha){};
+            bool possuiTurma(std::string);
             void adicionarTurma(Turma);
             void removerTurma(int id);
         private:
