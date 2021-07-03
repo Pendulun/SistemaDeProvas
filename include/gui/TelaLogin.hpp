@@ -13,6 +13,10 @@ namespace GUI{
         public:
             void show();
 
+            Modelo::Usuario* getUser();
+
+            ~TelaLogin();
+
         private:
             Modelo::Usuario* user = nullptr;
 

@@ -210,4 +210,12 @@ namespace GUI{
             }
         }
     }
+
+    Modelo::Usuario* TelaLogin::getUser(){
+        return this->user;
+    }
+
+    TelaLogin::~TelaLogin(){
+        delete user;
+    }
 }
