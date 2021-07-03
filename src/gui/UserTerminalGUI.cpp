@@ -4,28 +4,40 @@
 namespace GUI
 {
     void UserTerminalGUI::show(){
-        TelaLogin telaLogin;
-        telaLogin.show();
+        TelaLogin* telaLogin = new TelaLogin();
+        telaLogin->show();
 
+        SistemaUsuario* sistemaUsuario = nullptr;
+        Modelo::Usuario* user = telaLogin->getUser();
         
-
-        /*std::cout << "Showing GUI\n";
-        std::cout << "Choose an option:" << std::endl;
-        std::cout << "1 - Create Prova" << std::endl;
-        std::cout << "0 - Exit" << std::endl;
-        int option;
-        std::cin >> option;
-        while (option != 0)
-        {
-
-            switch (option)
-            {
-            case 1:
-                CreateProva();
-                break;
+        if(user!=nullptr){
+            try{
+                sistemaUsuario = configSistema(user);
+                delete telaLogin;
+                sistemaUsuario->show();
+            }catch(const Business::ProfessorNotFoundException& e){
+                std::cout<<e.what()<<std::endl;
+            }catch(const Business::AlunoNotFoundException& e){
+                std::cout<<e.what()<<std::endl;
             }
-        }*/
+        }else{
+            delete telaLogin;
+        }
         std::cout << "Closing GUI\n";
+    }
+
+    GUI::SistemaUsuario* UserTerminalGUI::configSistema(Modelo::Usuario* user){
+        if(user->isProfessor()){
+            Business::ManterProfessor manterProfessor;
+            Modelo::Professor* professor = manterProfessor.pesquisarProfessor(user->getId());
+            return new SistemaProfessor(professor);
+        }else if(user->isAluno()){
+            Business::ManterAluno manterAluno;
+            Modelo::Aluno* aluno = manterAluno.pesquisarAluno(user->getId());
+            return new SistemaAluno(aluno);
+        }else{
+            return nullptr;
+        }
     }
 
     Prova* UserTerminalGUI::CreateProva(){
