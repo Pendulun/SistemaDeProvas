@@ -13,11 +13,13 @@ namespace GUI{
             OpcaoMenuInicial opcaoEscolhida;
             this->mostrarSaudacoes();
             opcaoEscolhida = this->mostrarOpcoesMenu();
-            if(opcaoEscolhida != SistemaProfessor::OpcaoMenuInicial::SAIR){
-                mapeiaEntrada(opcaoEscolhida);
-            }else{
+            if(opcaoEscolhida == SistemaProfessor::OpcaoMenuInicial::SAIR){
                 sair=true;
-            } 
+            }else if(opcaoEscolhida == SistemaProfessor::OpcaoMenuInicial::OPERRADA){
+                //roda o while de novo
+            }else{
+                mapeiaEntrada(opcaoEscolhida);
+            }
         }
     }
 
@@ -46,6 +48,8 @@ namespace GUI{
             return OpcaoMenuInicial::PERFIL;
         }else if(opcaoEscolhida.compare(std::to_string(OpcaoMenuInicial::SAIR))==0){
             return OpcaoMenuInicial::SAIR;
+        }else{
+            return OpcaoMenuInicial::OPERRADA;
         }
     }
     
@@ -54,9 +58,8 @@ namespace GUI{
             {
             case OpcaoMenuInicial::TURMAS:
             {
-                TelaTurmasProfessor* telaTurmasProfessor = new TelaTurmasProfessor(this->professor);
-                telaTurmasProfessor->show();
-                delete telaTurmasProfessor;
+                TelaTurmasProfessor telaTurmasProfessor(this->professor);
+                telaTurmasProfessor.show();
                 break;
             }
             case OpcaoMenuInicial::PROVAS:
