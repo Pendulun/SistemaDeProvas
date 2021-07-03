@@ -15,6 +15,8 @@ add_executable(sistema_provas
     src/business/gui/UserGUI.cpp
     src/business/DAO/UsuarioDAO.cpp
     src/business/fachadas/manterUsuario.cpp
+    src/business/fachadas/manterAluno.cpp
+    src/business/fachadas/manterProfessor.cpp
     src/business/fachadas/excecoes/UserNotFoundException.cpp
     src/business/fachadas/excecoes/AlunoNotFoundException.cpp
     src/business/fachadas/excecoes/ProfessorNotFoundException.cpp
