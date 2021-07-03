@@ -5,6 +5,8 @@
 #include "business/fachadas/manterUsuario.hpp"
 #include "business/Modelo/usuario.hpp"
 #include "business/fachadas/excecoes/UserNotFoundException.hpp"
+#include "business/fachadas/manterAluno.hpp"
+#include "business/fachadas/manterProfessor.hpp"
 
 namespace GUI{
     class TelaLogin{
@@ -12,6 +14,8 @@ namespace GUI{
             void show();
 
         private:
+            Modelo::Usuario* user = nullptr;
+
             void cadastrar();
             void fazLogin();
     };

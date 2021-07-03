@@ -72,8 +72,6 @@ namespace GUI{
 
                 //TODO - Tentar encontrar o usuário na base de dados
                 Business::ManterUsuario manterUsuario;
-
-                Modelo::Usuario* user;
                 
                 try{
                     user = manterUsuario.login(login, senha);
@@ -84,6 +82,7 @@ namespace GUI{
 
                 if(dadosCorretos){
                     util.limparTerminal();
+                    
                     std::cout<<"ENTROU NO SISTEMA!!! \n";
                 }
                 else{
@@ -112,6 +111,7 @@ namespace GUI{
                     }
                 }
 
+                delete(user);
             }
         }
     }
