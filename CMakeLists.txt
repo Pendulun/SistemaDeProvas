@@ -13,7 +13,9 @@ add_executable(sistema_provas
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
+    src/business/DAO/BaseDAO.cpp
     src/business/DAO/UsuarioDAO.cpp
+    src/business/DAO/ProfessorDAO.cpp
     src/business/fachadas/manterUsuario.cpp
     src/business/fachadas/manterAluno.cpp
     src/business/fachadas/manterProfessor.cpp
