@@ -58,6 +58,14 @@ namespace Modelo{
         this->tipoUsuario = tipoUsuario;
     }
 
+    bool Usuario::isAluno(){
+        return this->tipoUsuario == Modelo::TipoUsuario::ALUNO;
+    }
+
+    bool Usuario::isProfessor(){
+        return this->tipoUsuario == Modelo::TipoUsuario::PROFESSOR;
+    }
+
     int Usuario::getId(){
         int idCopia = this->id;
         return idCopia;

@@ -19,6 +19,8 @@ namespace Modelo{
             void setSenha(std::string);
             TipoUsuario getTipoUsuario();
             void setTipoUsuario(TipoUsuario);
+            bool isAluno();
+            bool isProfessor();
             int getId();
             Usuario(int id, TipoUsuario);
             Usuario(int id, TipoUsuario, std::string nome, std::string login, std::string senha);
