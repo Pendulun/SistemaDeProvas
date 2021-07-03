@@ -17,6 +17,8 @@ namespace GUI{
             void mostrarSaudacoes();
             OpcaoMenuInicial mostrarOpcoesMenu();
             void mapeiaEntrada(OpcaoMenuInicial);
+
+            bool alterarPerfil();
     };
 }
 #endif
