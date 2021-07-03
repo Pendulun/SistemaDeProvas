@@ -29,6 +29,8 @@ add_executable(sistema_provas
     src/gui/UserTerminalGUI.cpp
     src/gui/TelaLogin.cpp
     src/gui/SistemaUsuario.cpp
+    src/gui/SistemaAluno.cpp
+    src/gui/SistemaProfessor.cpp
     src/gui/TerminalUteis.cpp
     src/persistence/DAO/UsuarioDAOJSON.cpp
     src/persistence/Inicializador.cpp

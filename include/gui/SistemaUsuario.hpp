@@ -5,10 +5,8 @@
 namespace GUI{
     class SistemaUsuario{
         public:
-            void show();
-
-        private:
-
+            virtual void show() = 0;
+            virtual ~SistemaUsuario() = 0;
     };
 }
 #endif
