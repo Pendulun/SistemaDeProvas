@@ -9,15 +9,21 @@ namespace GUI{
         bool sair = false;
         bool loginSucesso = false;
 
+        bool cadastrou = false; 
+
         while(!sair && !loginSucesso){
-            util.limparTerminal();
+            
+            if(!cadastrou){
+                util.limparTerminal();
+            }
+            
             std::cout<<"---------------------------------\n";
             std::cout<<"BEM VINDO AO SISTEMA DE PROVAS!!!\n";
             std::cout<<"---------------------------------\n\n";
             std::cout<<"Escolha o numero da opcao desejada:\n";
             std::cout<<"1 - Fazer Login\n";
             std::cout<<"2 - Cadastrar\n";
-            std::cout<<"3 - Sair\n";
+            std::cout<<"3 - Sair\n\n";
 
             std::string opcao;
 
@@ -32,7 +38,7 @@ namespace GUI{
                 }
                 else if (opcao.compare("2")==0){
                     util.limparTerminal();
-                    cadastrar();
+                    cadastrou = cadastrar();
                     break;
                 }
                 else if(opcao.compare("3")==0){
@@ -41,7 +47,7 @@ namespace GUI{
                     break;
                 }
                 else{
-                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
+                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
                 }
             }
         } 
@@ -113,9 +119,11 @@ namespace GUI{
         }
     }
 
-    void TelaLogin::cadastrar(){ 
+    bool TelaLogin::cadastrar(){ 
 
         TerminalUteis util;
+
+        bool voltar = false;
 
         std::string nome;
         std::string login;
@@ -124,88 +132,142 @@ namespace GUI{
         Modelo::TipoUsuario tipoUsuario;
 
         bool dadosCorretos = false;
+        bool cadastrou = false;
 
-        while(!dadosCorretos){
+        while(!dadosCorretos && !voltar){
             std::cout<<"-------------------\n";
             std::cout<<"CADASTRO DE USUARIO\n";
             std::cout<<"-------------------\n\n";
 
             std::cout<<"Escolha a opcao: \n";
             std::cout<<"1 - Sou aluno \n";
-            std::cout<<"2 - Sou professor \n";        
+            std::cout<<"2 - Sou professor \n"; 
+            std::cout<<"3 - Voltar \n\n";       
 
-            while(true){
+            while(!cadastrou){
+
                 std::cin>>opcaoTipoUsuario;
 
                 if(opcaoTipoUsuario.compare("1")==0){
                     tipoUsuario = Modelo::TipoUsuario::ALUNO;
-                    break;
+
+                    pedirDados(nome, login, senha);
+                    util.limparTerminal();
+
+                    bool checagem = checarDados(tipoUsuario, nome, login, senha);
+
+                    if (checagem){
+                        cadastrou = true;
+                        dadosCorretos = true;
+                    }
+                    else{
+                        break;
+                    }
                 }
                 else if (opcaoTipoUsuario.compare("2")==0){
                     tipoUsuario = Modelo::TipoUsuario::PROFESSOR;
-                    break;
-                }
-                else{
-                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
-                }
-            }   
 
-            std::cout<<"Digite seu nome completo: \n";
-            std::cin.ignore();
-            std::getline(std::cin, nome);
+                    pedirDados(nome, login, senha);
+                    util.limparTerminal();
 
-            std::cout<<"Digite seu login (SEM ESPACOS): \n";
-            std::cin>>login;
-            util.limparEntrada();
+                    bool checagem = checarDados(tipoUsuario, nome, login, senha);
 
-            std::cout<<"Digite sua senha (SEM ESPACOS): \n";
-            std::cin>>senha;
-            util.limparEntrada();
-
-            util.limparTerminal();
-
-            std::cout<<"SUAS INFORMACOES SAO:\n\n";
-            if(opcaoTipoUsuario.compare("1")==0){
-                std::cout<<"Tipo de usuario: ALUNO\n";
-            }
-            else{
-                std::cout<<"Tipo de usuario: PROFESSOR\n";
-            }
-            std::cout<<"Nome: "<<nome<<"\n";
-            std::cout<<"Login: "<<login<<"\n";
-            std::cout<<"Senha: "<<senha<<"\n\n";
-
-            std::cout<<"Os dados estao corretos?\n";
-            std::cout<<"1 - Sim\n";
-            std::cout<<"2 - Nao\n";
-
-            std::string opcao;
-            
-            while(true){
-                std::cin>>opcao;
-
-                if(opcao.compare("1")==0){
-                    std::cout<<"DADOS CORRETOS!!!\n";
-                    dadosCorretos = true;
-                    //TODO - CADASTRO NO BANCO
-                    Business::ManterUsuario manterUsuario;
-                    if(manterUsuario.cadastrarUsuario(nome, login, senha, tipoUsuario)){
-                        std::cout<<"Cadastro realizado com sucesso!\n";
+                    if (checagem){
+                        cadastrou = true;
+                        dadosCorretos = true;
                     }
                     else{
-                        std::cout<<"Nao foi possivel concluir o cadastro.\n";
+                        break;
                     }
-                    break;
                 }
-                else if (opcao.compare("2")==0){
-                    util.limparTerminal();
+                else if (opcaoTipoUsuario.compare("3")==0){
+                    voltar = true;
                     break;
                 }
                 else{
-                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
+                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
                 }
             }
         }
+
+        return cadastrou;
+    }
+
+    void TelaLogin::pedirDados(std::string& nome, std::string& login, std::string& senha){
+
+        TerminalUteis util;
+
+        util.limparTerminal();
+
+        std::cout<<"\nDigite seu nome completo: \n";
+        std::cin.ignore();
+        std::getline(std::cin, nome);
+
+        std::cout<<"\nDigite seu login (SEM ESPACOS): \n";
+        std::cin>>login;
+        util.limparEntrada();
+
+        std::cout<<"\nDigite sua senha (SEM ESPACOS): \n";
+        std::cin>>senha;
+        util.limparEntrada();
+    }
+
+    bool TelaLogin::checarDados(Modelo::TipoUsuario& opcaoTipoUsuario, std::string& nome, std::string& login, std::string& senha){
+        
+        TerminalUteis util;
+
+        std::cout<<"SUAS INFORMACOES SAO:\n\n";
+
+        if(opcaoTipoUsuario==Modelo::TipoUsuario::ALUNO){
+            std::cout<<"Tipo de usuario: ALUNO\n";
+        }
+        else{
+            std::cout<<"Tipo de usuario: PROFESSOR\n";
+        }
+                    
+        std::cout<<"Nome: "<<nome<<"\n";
+        std::cout<<"Login: "<<login<<"\n";
+        std::cout<<"Senha: "<<senha<<"\n\n";
+
+        std::cout<<"Os dados estao corretos?\n";
+        std::cout<<"1 - Sim\n";
+        std::cout<<"2 - Nao\n\n";
+
+        std::string opcao;
+                    
+        while(true){
+            std::cin>>opcao;
+
+            if(opcao.compare("1")==0){
+                //cadastrou = true;
+                //TODO - CADASTRO NO BANCO
+                Business::ManterUsuario manterUsuario;
+
+                if(manterUsuario.cadastrarUsuario(nome, login, senha, opcaoTipoUsuario)){
+                    util.limparTerminal();
+                    std::cout<<"Cadastro realizado com sucesso!\n\n";
+
+                    return true;
+                }
+                else{
+                    util.limparTerminal();
+                    std::cout<<"Nao foi possivel concluir o cadastro.\n";
+
+                    return false;
+                }
+                break;
+            }
+            else if (opcao.compare("2")==0){
+                util.limparTerminal();
+                std::cout<<"Para tentar cadastrar novamente, selecione a opcao 2.\n\n";
+
+                break;
+            }
+            else{
+                std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n";
+            }
+        }
+        return true;
     }
 
     Modelo::Usuario* TelaLogin::getUser(){

@@ -20,8 +20,11 @@ namespace GUI{
         private:
             Modelo::Usuario* user = nullptr;
 
-            void cadastrar();
+            bool cadastrar();
             void fazLogin();
+
+            void pedirDados(std::string& nome, std::string& login, std::string& senha);
+            bool checarDados(Modelo::TipoUsuario& opcaoTipoUsuario, std::string& nome, std::string& login, std::string& senha);       
     };
 }
 #endif
