@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 #nome do projeto
 project(sistema_provas)
 
-# Define a versão do C++ para C++ 11
+# Define a versão do C++ para C++ 17
 set(CMAKE_CXX_STANDARD 17)
 #Adiciona flags para o comando de compilação
 add_compile_options(-Wall)
@@ -13,9 +13,11 @@ add_executable(sistema_provas
     src/main.cpp
     src/business/application.cpp
     src/business/gui/UserGUI.cpp
-        src/business/DAO/UsuarioDAO.cpp
+    src/business/DAO/UsuarioDAO.cpp
     src/business/fachadas/manterUsuario.cpp
     src/business/fachadas/excecoes/UserNotFoundException.cpp
+    src/business/fachadas/excecoes/AlunoNotFoundException.cpp
+    src/business/fachadas/excecoes/ProfessorNotFoundException.cpp
     src/business/Modelo/prova.cpp
     src/business/Modelo/questao.cpp
     src/business/Modelo/usuario.cpp
