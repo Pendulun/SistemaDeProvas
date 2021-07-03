@@ -11,9 +11,15 @@ namespace Business{
     Modelo::Usuario* ManterUsuario::login(std::string login,std::string senha){
         // TODO
         // app->getUsuarioDAO()->login()
-        if(true){
+        int idUser = 1;
+        std::string nomeUser = "Professor Teste";
+        std::string loginUser = login;
+        std::string senhaUser = senha;
+        Modelo::Usuario* dummyUser = new Modelo::Usuario(idUser, Modelo::TipoUsuario::PROFESSOR, nomeUser , loginUser, senhaUser);
+        if(dummyUser == nullptr){
             throw Business::UserNotFoundException("Usuario nao encontrado");
+        }else{
+            return dummyUser;
         }
-        return nullptr;
     }
 }
