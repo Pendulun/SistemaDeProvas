@@ -9,6 +9,7 @@ namespace GUI{
         public:
             void limparTerminal();
             void limparEntrada();
+            void limparTerminalEEntrada();
     };
 }
 

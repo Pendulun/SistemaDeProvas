@@ -17,5 +17,10 @@ namespace GUI{
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     }
 
+    void TerminalUteis::limparTerminalEEntrada(){
+        limparTerminal();
+        limparEntrada();
+    }
+
 }
 
