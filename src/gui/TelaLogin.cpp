@@ -7,8 +7,9 @@ namespace GUI{
         TerminalUteis util;
 
         bool sair = false;
+        bool loginSucesso = false;
 
-        while(!sair){
+        while(!sair && !loginSucesso){
             util.limparTerminal();
             std::cout<<"---------------------------------\n";
             std::cout<<"BEM VINDO AO SISTEMA DE PROVAS!!!\n";
@@ -26,6 +27,7 @@ namespace GUI{
                 if(opcao.compare("1")==0){
                     util.limparTerminal();
                     fazLogin();
+                    loginSucesso = true;
                     break;
                 }
                 else if (opcao.compare("2")==0){
@@ -50,14 +52,12 @@ namespace GUI{
         TerminalUteis util;
 
         bool voltar = false;
+        bool dadosCorretos = false;
 
-        while(!voltar){
+        while(!voltar && !dadosCorretos){
             std::cout<<"-------------------\n";
             std::cout<<"LOGIN DE USUARIO\n";
             std::cout<<"-------------------\n\n"; 
-
-            bool dadosCorretos = false;
-
             while(!dadosCorretos){
                 std::string login;
                 std::string senha;
@@ -71,10 +71,10 @@ namespace GUI{
                 util.limparEntrada();
 
                 //TODO - Tentar encontrar o usuário na base de dados
-                Business::ManterUsuario manterUsuario;
-                
                 try{
-                    user = manterUsuario.login(login, senha);
+                    Business::ManterUsuario manterUsuario;
+                    this->user = manterUsuario.login(login, senha);
+                    dadosCorretos=true;
                 } catch (const Business::UserNotFoundException& e){
                     std::cout<<e.what()<<std::endl;
                     dadosCorretos = false;
@@ -82,7 +82,6 @@ namespace GUI{
 
                 if(dadosCorretos){
                     util.limparTerminal();
-                    
                     std::cout<<"ENTROU NO SISTEMA!!! \n";
                 }
                 else{
@@ -110,8 +109,6 @@ namespace GUI{
                         }
                     }
                 }
-
-                delete(user);
             }
         }
     }
