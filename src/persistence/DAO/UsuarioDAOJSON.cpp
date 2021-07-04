@@ -18,6 +18,7 @@ namespace Persistence{
         if (loginExiste(usuario.getLogin()) )
             throw std::invalid_argument( "Login já existe" );
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "nome"},usuario.getNome());
+        jsonObject->setStringPropertyByPath({usuario.getLogin(), "login"},usuario.getLogin());
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "senha"},usuario.getSenha());
         jsonObject->setIntPropertyByPath({usuario.getLogin(), "id"},usuario.getId());
         jsonObject->setIntPropertyByPath({usuario.getLogin(), "tipoUsuario"},(int)usuario.getTipoUsuario());
@@ -41,8 +42,37 @@ namespace Persistence{
         return false;
     }
 
-    Modelo::Usuario UsuarioDAOJSON::pesquisar(int id) {
-        return Modelo::Usuario();
+    Modelo::Usuario* UsuarioDAOJSON::pesquisar(int id) {
+        Modelo::Usuario* usuario = new Modelo::Usuario();
+        std::string key = jsonObject->pesquisar("id",id);
+        if(key != "") {
+            usuario->setNome(jsonObject->getStringPropertyByPath({key, "nome"}));
+            usuario->setSenha(jsonObject->getStringPropertyByPath({key, "senha"}));
+            usuario->setLogin(jsonObject->getStringPropertyByPath({key, "login"}));
+            usuario->setId(jsonObject->getNumberPropertyByPath({key, "id"}));
+            usuario->setTipoUsuario((Modelo::TipoUsuario)jsonObject->getNumberPropertyByPath({key, "tipoUsuario"}));
+
+            return usuario;
+        }
+        else {
+
+            return nullptr;
+        }
+    }
+
+    std::list<Modelo::Usuario> UsuarioDAOJSON::pesquisar(const std::list<int> ids)  {
+        std::list<Modelo::Usuario> lista;
+        for (int id : ids) {
+            auto aux = pesquisar(id);
+            if(aux != nullptr) {
+                lista.push_back(*aux);
+            }
+        }
+        return lista;
+    }
+
+    bool UsuarioDAOJSON::remover(Modelo::Usuario) {
+        return false;
     }
 
     int UsuarioDAOJSON::getMaxId() {
@@ -60,14 +90,6 @@ namespace Persistence{
         catch (...) {
             jsonObject->setIntPropertyByPath({"maxId"},0);
         }
-    }
-
-    std::list<Modelo::Usuario> UsuarioDAOJSON::pesquisar(const std::list<int>) {
-        return std::list<Modelo::Usuario>();
-    }
-
-    bool UsuarioDAOJSON::remover(Modelo::Usuario) {
-        return false;
     }
 
 }
