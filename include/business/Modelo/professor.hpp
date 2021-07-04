@@ -14,6 +14,7 @@ namespace Modelo{
             bool possuiTurma(int);
             void adicionarTurma(int);
             void removerTurma(int);
+            const std::list<int> getTurmas();
         private:
             std::list<int> turmas;
     };

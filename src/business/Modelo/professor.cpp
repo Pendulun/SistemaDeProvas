@@ -2,6 +2,10 @@
 
 namespace Modelo{
 
+    const std::list<int> Professor::getTurmas(){
+        return this->turmas;
+    }
+    
     bool Professor::possuiTurma(const int idTurma){
         for(int idMinhaTurma : this->turmas){
             if(idMinhaTurma == idTurma){
