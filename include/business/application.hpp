@@ -4,6 +4,7 @@
 #include "business/gui/UserGUI.hpp"
 #include "business/DAO/UsuarioDAO.hpp"
 #include "business/DAO/ProfessorDAO.hpp"
+#include "business/DAO/AlunoDAO.hpp"
 #include <iostream>
 
 namespace Business{
@@ -14,6 +15,7 @@ namespace Business{
             static void createNewInstanceIfPossible(UserGUI*);
             UsuarioDAO* getUsuarioDAO();
             ProfessorDAO* getProfessorDAO();
+            AlunoDAO* getAlunoDAO();
             ~Application();   
         protected:
             Application(UserGUI*);
@@ -21,6 +23,7 @@ namespace Business{
         private:
         UsuarioDAO* usuarioDAO;
         ProfessorDAO* professorDAO;
+        AlunoDAO* alunoDAO;
         UserGUI* userGUI;
     };
 }

@@ -23,6 +23,10 @@ namespace Business{
         return this->professorDAO;
     }
 
+    AlunoDAO* Application::getAlunoDAO(){
+        return this->alunoDAO;
+    }
+
     void Application::createNewInstanceIfPossible(UserGUI* userGUI){
         if(Application::instance == nullptr){
             Application::instance = new Application(userGUI);;
@@ -50,6 +54,10 @@ namespace Business{
 
         if(this->professorDAO != nullptr){
             delete this->professorDAO;
+        }
+
+        if(this->alunoDAO != nullptr){
+            delete this->alunoDAO;
         }
     }
 }
