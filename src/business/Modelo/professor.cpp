@@ -2,9 +2,9 @@
 
 namespace Modelo{
 
-    bool Professor::possuiTurma(const std::string nomeTurma){
-        for(Turma turma : this->turmas){
-            if(turma.getNome().compare(nomeTurma)==0){
+    bool Professor::possuiTurma(const int idTurma){
+        for(int idMinhaTurma : this->turmas){
+            if(idMinhaTurma == idTurma){
                 return true;
             }
         }
@@ -12,16 +12,16 @@ namespace Modelo{
         return false;
     }
 
-    void Professor::adicionarTurma(Turma turma){
-        if(!this->possuiTurma(turma.getNome())){
-            this->turmas.push_back(turma);
+    void Professor::adicionarTurma(int idTurma){
+        if(!this->possuiTurma(idTurma)){
+            this->turmas.push_back(idTurma);
         }
     }
 
     void Professor::removerTurma(int id){
-        std::list<Turma>::iterator turmaIterator;
+        std::list<int>::iterator turmaIterator;
         for(turmaIterator = this->turmas.begin(); turmaIterator != this->turmas.end(); turmaIterator++){
-            if(turmaIterator->getId() == id){
+            if(*turmaIterator == id){
                 this->turmas.erase(turmaIterator);
                 break;
             }
