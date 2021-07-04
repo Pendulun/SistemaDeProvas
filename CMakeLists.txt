@@ -6,8 +6,6 @@ project(sistema_provas)
 
 # Define a versão do C++ para C++ 17
 set(CMAKE_CXX_STANDARD 17)
-#Adiciona flags para o comando de compilação
-add_compile_options(-Wall)
 # Aqui adicionamos TODOS os arquivos .cpp do projeto
 add_executable(sistema_provas 
     src/main.cpp
