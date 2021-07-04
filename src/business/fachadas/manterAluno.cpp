@@ -5,6 +5,9 @@ namespace Business{
         Application* app = Application::getInstance();
         // TODO - Pegar do banco
         Modelo::Aluno* dummyAluno = new Modelo::Aluno(idAluno, Modelo::TipoUsuario::ALUNO);
+        dummyAluno->setNome("Aluno Teste");
+        dummyAluno->setLogin("alunoTest");
+        dummyAluno->setSenha("123Teste");
         return dummyAluno;
     }
 
