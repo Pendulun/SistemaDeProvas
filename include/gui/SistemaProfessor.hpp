@@ -4,6 +4,7 @@
 #include "gui/SistemaUsuario.hpp"
 #include "gui/TerminalUteis.hpp"
 #include "gui/TelaTurmasProfessor.hpp"
+#include "business/Modelo/prova.hpp"
 
 namespace GUI{
     class SistemaProfessor : public SistemaUsuario{
@@ -18,6 +19,7 @@ namespace GUI{
             OpcaoMenuInicial mostrarOpcoesMenu();
             void mapeiaEntrada(OpcaoMenuInicial);
 
+            void cadastrarProva();
             bool alterarPerfil();
     };
 }

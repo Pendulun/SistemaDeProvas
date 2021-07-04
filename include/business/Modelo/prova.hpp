@@ -17,7 +17,7 @@ enum Status
 using namespace std;
 
 //por enquanto, estou pensando apenas no professor
-namespace GUI{
+namespace Modelo{
     class Prova{
     private:
         list<Questao> *listaQuestoes;
@@ -42,6 +42,8 @@ namespace GUI{
         Status getStatus();
         string getNome();
         void setNome(string);
+
+        void mostrarProva();
     };
 }
 

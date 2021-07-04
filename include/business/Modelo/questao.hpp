@@ -8,7 +8,7 @@ class Questao{
         std::string textoAlternativas[4];
         int alternativaCorreta;
     public:
-        Questao(std::string, std::string, std::string, std::string, std::string,int);
+        Questao(std::string, std::string, std::string, std::string, std::string, int);
         std::string getEnunciado();
         void setEnunciado(std::string);
         std::string getTextoAlternativa(int);

@@ -46,11 +46,11 @@ namespace GUI
         }
     }
 
-    Prova* UserTerminalGUI::CreateProva(){
+    Modelo::Prova* UserTerminalGUI::CreateProva(){
         std::cout << "Entre um nome para essa Prova:" << std::endl;
         string name;
         std::cin >> name;
-        Prova *t = new Prova(name);
+        Modelo::Prova *t = new Modelo::Prova(name);
         std::cout << "Adicionar uma questão a essa prova?" << std::endl;
         std::cout << "1 - Sim" << std::endl;
         std::cout << "2 - Não" << std::endl;
@@ -66,7 +66,7 @@ namespace GUI
         return t;
     }
 
-    void UserTerminalGUI::addQuestao(Prova *t){
+    void UserTerminalGUI::addQuestao(Modelo::Prova *t){
         Questao q=Questao("a","1","2","3","4",1);
         t->InsertQuestao(q);
     }

@@ -2,7 +2,7 @@
 #include <chrono>
 #include <ctime>
 
-namespace GUI
+namespace Modelo
 {
     Prova::Prova(string name){
         this->nome = name;
@@ -43,5 +43,9 @@ namespace GUI
 
     void Prova::setNome(string name){
         this->nome=name;
+    }
+
+    void Prova::mostrarProva(){
+        
     }
 }
