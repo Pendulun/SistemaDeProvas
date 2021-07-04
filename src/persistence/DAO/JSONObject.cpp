@@ -3,6 +3,8 @@
 //
 
 #include "persistence/DAO/JSONObject.hpp"
+
+#include <utility>
 #include "persistence/DAO/JSONFileHandler.hpp"
 
 namespace Persistence  {
@@ -12,54 +14,72 @@ namespace Persistence  {
 
     JSONObject::JSONObject(std::string Arquivo) {
         JsonHandler jsonHandler;
-        document = jsonHandler.LerArquivo(Arquivo);
+        document = jsonHandler.LerArquivo(std::move(Arquivo));
     }
 
     JSONObject::JSONObject(nlohmann::json doc) {
-        document = doc;
+        document = std::move(doc);
     }
 
-    void JSONObject::setStringPropertyByPath(std::vector<std::string> Path, std::string property) {
+    void JSONObject::setStringPropertyByPath(const std::vector<std::string>& Path, const std::string& property) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = property;
     }
 
-    void JSONObject::setIntPropertyByPath(std::vector<std::string> Path,int property) {
+    void JSONObject::setIntPropertyByPath(const std::vector<std::string>& Path,int property) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = property;
     }
 
-    void JSONObject::setBoolPropertyByPath(std::vector<std::string> Path, bool property) {
+    void JSONObject::setBoolPropertyByPath(const std::vector<std::string>& Path, bool property) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = property;
     }
 
-    nlohmann::json JSONObject::getObjectPropertyByPath(std::vector<std::string> Path) {
+    nlohmann::json JSONObject::getObjectPropertyByPath(const std::vector<std::string>& Path) {
         std::string path = getPathFromVector(Path);
         nlohmann::json Property = document[nlohmann::json::json_pointer(path)];
 
         return Property;
     }
 
-    std::string JSONObject::getStringPropertyByPath(std::vector<std::string> Path) {
+    std::string JSONObject::getStringPropertyByPath(const std::vector<std::string>& Path) {
         nlohmann::json Property = getObjectPropertyByPath(Path);
 
         if (Property.is_string())
             return Property;
         else
-            return "";
+            throw std::exception("Invalid Path");
     }
 
-    std::string JSONObject::getPathFromVector(std::vector<std::string> Steps) {
-        std::string path = "";
-        for (auto step : Steps) {
-            path = path + "/" + step;
+    double JSONObject::getNumberPropertyByPath(const std::vector<std::string>& Path) {
+        nlohmann::json Property = getObjectPropertyByPath(Path);
+
+        if (Property.is_number())
+            return Property;
+        else
+            throw std::exception("Invalid Path");
+    }
+
+    bool JSONObject::getBoolPropertyByPath(const std::vector<std::string>& Path) {
+        nlohmann::json Property = getObjectPropertyByPath(Path);
+
+        if (Property.is_boolean())
+            return Property;
+        else
+            throw std::exception("Invalid Path");
+    }
+
+    std::string JSONObject::getPathFromVector(const std::vector<std::string>& Steps) {
+        std::string path;
+        for (const auto& step : Steps) {
+            path += + "/" + step;
         }
         return path;
     }
 
     void JSONObject::setDocument(nlohmann::json doc) {
-        document = doc;
+        document = std::move(doc);
     }
 
     nlohmann::json JSONObject::getDocument() {
@@ -68,7 +88,7 @@ namespace Persistence  {
 
     void JSONObject::salvarNoArquivo(std::string Arquivo) {
         JsonHandler jsonHandler;
-        jsonHandler.SalvarEmArquivo(Arquivo,document);
+        jsonHandler.SalvarEmArquivo(std::move(Arquivo),document);
     }
 
 

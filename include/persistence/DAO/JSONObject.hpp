@@ -13,18 +13,20 @@ namespace Persistence {
         JSONObject(nlohmann::json);
         void setDocument(nlohmann::json);
         nlohmann::json getDocument();
-        std::string getStringPropertyByPath(std::vector<std::string>);
-        nlohmann::json getObjectPropertyByPath(std::vector<std::string>);
+        std::string getStringPropertyByPath(const std::vector<std::string>&);
+        double getNumberPropertyByPath(const std::vector<std::string>& Path);
+        bool getBoolPropertyByPath(const std::vector<std::string>&);
+        nlohmann::json getObjectPropertyByPath(const std::vector<std::string>&);
 
-        void setStringPropertyByPath(std::vector<std::string> , std::string);
-        void setIntPropertyByPath(std::vector<std::string> , int);
-        void setBoolPropertyByPath(std::vector<std::string> , bool);
+        void setStringPropertyByPath(const std::vector<std::string>& , const std::string&);
+        void setIntPropertyByPath(const std::vector<std::string>& , int);
+        void setBoolPropertyByPath(const std::vector<std::string>& , bool);
 
         void salvarNoArquivo(std::string);
 
     private:
         nlohmann::json document;
-        std::string getPathFromVector(std::vector<std::string>);
+        static std::string getPathFromVector(const std::vector<std::string>&);
     };
 }
 
