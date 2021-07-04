@@ -150,7 +150,7 @@ namespace GUI{
         std::string opcao;
 
         while(true){
-            std::cout<<"Digite 1 para voltar ao menu principal.\n";
+            std::cout<<"Digite 1 para voltar.\n";
 
             std::cin>>opcao;
             util.limparEntrada();
