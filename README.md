@@ -16,12 +16,12 @@ https://github.com/Pendulun/SistemaDeProvas/projects/1
 
 ## Backlog do Produto
 
-- Eu, como Professor, quero poder criar uma Turma/Matéria nova
-- Eu, como Aluno, quero poder me cadastrar em uma Matéria
-- Eu, como Professor, quero poder criar Provas e salvá-las na minha conta
-- Eu, como Professor, quero poder disponibilizar uma prova para meus Alunos em uma Turma/Matéria
+- Eu, como Professor, quero poder criar uma Turma nova
+- Eu, como Aluno, quero poder me cadastrar em uma Turma
+- Eu, como Professor, quero poder criar Provas e disponibilizá-la em uma Turma
+- Eu, como Professor, quero poder criar uma Prova com base em outras Provas já criadas
 - Eu, como Professor, quero poder controlar quando a prova pode ser realizada pelos meus Alunos
-- Eu, como Aluno, quero poder ver as provas disponíveis para serem feitas nas minhas Matérias
+- Eu, como Aluno, quero poder ver as provas disponíveis para serem feitas nas minhas Turmas
 - Eu, como Aluno, quero poder olhar quais conteúdos devo estudar para as Provas
 - Eu, como Professor, quero poder controlar quando os Alunos podem ver a nota deles na Prova
 - Eu, como Professor, quero poder ver as notas dos Alunos nas minhas Provas
@@ -39,31 +39,31 @@ https://github.com/Pendulun/SistemaDeProvas/projects/1
   - Desenvolver uma interface de cadastro e login de usuário (Letícia)
   - Implementar lógica de cadastro e login de usuário (Daniel)
   - Persistir um Usuário (Professor ou Aluno) (Felipe)
-- Eu, como Professor, quero poder criar uma Turma/Matéria nova
-  - Desenvolver uma interface para cadastro de Turma/Matéria nova (Letícia)
+- Eu, como Professor, quero poder criar uma Turma nova
+  - Desenvolver uma interface para cadastro de Turma nova (Letícia)
   - Desenvolver uma interface com menu para professores (Daniel)
-  - Implementar lógica para cadastro de Turma/Matéria nova (Daniel)
-  - Persistir Turma/Matéria nova (Felipe)
-- Eu, como Aluno, quero poder me cadastrar em uma Matéria
-  - Desenvolver uma interface de cadastro em Matéria (Letícia)
+  - Implementar lógica para cadastro de Turma nova (Daniel)
+  - Persistir Turma nova (Felipe)
+- Eu, como Aluno, quero poder me cadastrar em uma Turma
+  - Desenvolver uma interface de cadastro em Turma (Letícia)
   - Desenvolver uma interface com menu para Alunos (Daniel)
-  - Implementar lógica de cadastro de Aluno em Matéria (Daniel)
-  - Persistir o cadastro do aluno em uma Matéria (Felipe)
-- Eu, como Professor, quero poder criar Provas e salvá-las na minha conta
+  - Implementar lógica de cadastro de Aluno em Turma (Daniel)
+  - Persistir o cadastro do aluno em uma Turma (Felipe)
+- Eu, como Professor, quero poder criar Provas e disponibilizá-la em uma Turma
   - Desenvolver uma interface de criação de Provas (Letícia)
   - Implementar a lógica de criação de Provas (Marcos)
   - Persistir uma nova Prova em uma conta de Professor (Felipe)
-- Eu, como Professor, quero poder disponibilizar uma prova para meus Alunos em uma Turma/Matéria
-  - Desenvolver interface que permita disponibilizar uma prova em uma matéria (Daniel)
-  - Implementar lógica de disponibilização de provas em uma matéria (Marcos)
-  - Persistir uma Prova postada em uma Matéria (Felipe)
+- Eu, como Professor, quero poder criar uma Prova com base em outras Provas já criadas
+  - Desenvolver interface que permita copiar uma Prova e postá-la em outra Turma (Daniel)
+  - Implementar lógica de cópia de provas (Marcos)
+  - Persistir uma Prova postada em uma Turma (Felipe)
 - Eu, como Professor, quero poder controlar quando a prova pode ser realizada pelos meus Alunos
   - Desenvolver interface que permita escolher quando uma prova postada pode ser resolvida (Daniel)
-  - Implementar lógica de disponibilização de provas em uma matéria (Marcos)
+  - Implementar lógica de disponibilização de provas em uma Turma (Marcos)
 - Eu, como Professor, quero poder controlar quando os Alunos podem ver a nota deles na Prova
   - Desenvolver interface que permita controle de visualização de notas pelo professor (Daniel)
   - Implementar lógica de controle de visualização de notas (Daniel)
-- Eu, como Aluno, quero poder ver as provas disponíveis para serem feitas nas minhas Matérias
+- Eu, como Aluno, quero poder ver as provas disponíveis para serem feitas nas minhas Turmas
   - Desenvolver interface que permite o Aluno ver as provas disponíveis para serem feitas (Letícia)
   - Implementar lógica de recuperação de Provas disponíveis (Marcos)
   - Persistir uma Prova resolvida por um Aluno (Felipe)
