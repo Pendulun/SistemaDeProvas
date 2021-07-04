@@ -7,7 +7,7 @@
 namespace Business{
     class ProfessorDAO : public BaseDAO<Modelo::Professor>{
         public:
-            virtual Modelo::Turma* cadastrarTurma(Modelo::Professor, std::string) = 0;
+            virtual Modelo::Turma cadastrarTurma(Modelo::Professor, std::string) = 0;
             virtual ~ProfessorDAO() = 0;
     };
 }
