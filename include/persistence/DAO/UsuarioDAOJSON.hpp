@@ -15,10 +15,16 @@ namespace Persistence {
 
         bool loginExiste(std::string);
         Modelo::Usuario* cadastrar(Modelo::Usuario ) override;
-        bool login(std::string, std::string);
-        ~UsuarioDAOJSON();
+        Modelo::Usuario* pesquisar(int ) override;
+        bool login(std::string, std::string) override;
+        std::list<Modelo::Usuario> pesquisar(const std::list<int>) override;
+        bool remover(Modelo::Usuario) override;
+        ~UsuarioDAOJSON() override;
 
     private:
+        void checkMaxId();
+        int getMaxId();
+        void setMaxId(int);
         JSONObject* jsonObject;
     };
 }
