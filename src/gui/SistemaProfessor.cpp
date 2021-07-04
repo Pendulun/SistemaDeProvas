@@ -152,9 +152,9 @@ void SistemaProfessor::cadastrarProva(){
         bool adicionando = true;
 
         //Se der tempo, dar opcao de reutilizar prova
-        std::cout<<"Digite o dia de inicio (um número inteiro): \n";
+        std::cout<<"Digite o dia de inicio (um numero inteiro): \n";
         std::cin>>inicio;
-        std::cout<<"Digite o dia de termino (um número inteiro): \n";
+        std::cout<<"Digite o dia de termino (um numero inteiro): \n";
         std::cin>>fim;
         std::cout<<"Digite o titulo da prova: \n";
         std::cin.ignore();
@@ -165,6 +165,7 @@ void SistemaProfessor::cadastrarProva(){
         util.limparTerminal();
 
         std::string enunciado;
+        std::string alternativa;
         std::string alternativas[4];
         int alternativaCerta;
 
@@ -172,19 +173,25 @@ void SistemaProfessor::cadastrarProva(){
             util.limparTerminal();
 
             std::cout<<"Digite o enunciado da questao: \n";
-            std::cin>>enunciado;
+            std::getline(std::cin, enunciado);
+            std::cout<<"\n";
 
-            std::cout<<"Digite a alterativa 1: \n";
-            std::cin>>alternativas[0];
+            std::cout<<"Digite a alternativa 1: \n";
+            std::getline(std::cin, alternativa);
+            alternativas[0] = alternativa;
+            std::cout<<"\n";
 
-            std::cout<<"Digite a alterativa 2: \n";
-            std::cin>>alternativas[1];
+            std::cout<<"Digite a alternativa 2: \n";
+            std::getline(std::cin, alternativas[1]);
+            std::cout<<"\n";
 
-            std::cout<<"Digite a alterativa 3: \n";
-            std::cin>>alternativas[2];
+            std::cout<<"Digite a alternativa 3: \n";
+            std::getline(std::cin, alternativas[2]);
+            std::cout<<"\n";
 
-            std::cout<<"Digite a alterativa 4: \n";
-            std::cin>>alternativas[3];
+            std::cout<<"Digite a alternativa 4: \n";
+            std::getline(std::cin, alternativas[3]);
+            std::cout<<"\n";
 
             std::cout<<"Digite o numero da alternativa correta (1, 2, 3 ou 4): \n";
             std::cin>>alternativaCerta;
@@ -208,15 +215,33 @@ void SistemaProfessor::cadastrarProva(){
                 }
                 else if (opcao.compare("2")==0){
                     util.limparTerminal();
-                    std::cout<<"Prova criada com sucesso!!\n";
+                    std::cout<<"Prova criada com sucesso!!\n\n";
                     //TODO - Persistir prova
-                    adicionando = false;
-                    prova.mostrarProva();
+                    adicionando = false;            
                     break;
                 }
                 else{
                     std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
                 }
+            }
+        }
+            
+        prova.mostrarProva();
+
+        std::string opcao;
+
+        while(true){
+            std::cout<<"Digite 1 para voltar ao menu principal.\n";
+
+            std::cin>>opcao;
+            util.limparEntrada();
+
+            if(opcao.compare("1")==0){
+                util.limparTerminal();
+                break;
+            }
+            else{
+                std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
             }
         }
 }

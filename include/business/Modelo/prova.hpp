@@ -13,6 +13,7 @@ enum Status
 #include <string>
 #include <list>
 #include <iterator>
+#include <iostream>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ using namespace std;
 namespace Modelo{
     class Prova{
     private:
-        list<Questao> *listaQuestoes;
+        list<Questao> listaQuestoes;
         int dataInicio;
         int dataFinal;
         string nome;
@@ -28,10 +29,10 @@ namespace Modelo{
     public:
         Prova(string);                             //prova sem data definida
         Prova(int, int, string);                   //prova com data definida
-        Prova(int, int, list<Questao> *, string); //reutilizar questões
+        Prova(int, int, list<Questao>, string); //reutilizar questões
         ~Prova();
 
-        list<Questao> *getQuestaos();
+        list<Questao> getQuestaos();
         void setQuestao(Questao, Questao);
         void RemoveQuestao(Questao);
         void InsertQuestao(Questao);
