@@ -1,18 +1,20 @@
 #include "persistence/DAO/UsuarioDAOJSON.hpp"
 
 namespace Persistence{
-    UsuarioDAOJSON::~UsuarioDAOJSON(){}
+    UsuarioDAOJSON::~UsuarioDAOJSON(){
+        delete jsonObject;
+    }
 
     std::string UsuarioDAOJSON::ARQUIVO_USUARIOS =  "usuarios.json";
 
     UsuarioDAOJSON::UsuarioDAOJSON() {
         jsonObject = new JSONObject(ARQUIVO_USUARIOS);
     }
-
+    
     Modelo::Usuario* UsuarioDAOJSON::cadastrar(Modelo::Usuario usuario) {
-        //Talvez dar um Throw em um erro novo?
-        //if (loginExiste(usuario.getLogin()) )
-        //    return false;
+
+        if (loginExiste(usuario.getLogin()) )
+            throw std::invalid_argument( "Login já existe" );
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "nome"},usuario.getNome());
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "senha"},usuario.getSenha());
         jsonObject->setIntPropertyByPath({usuario.getLogin(), "id"},usuario.getId());
