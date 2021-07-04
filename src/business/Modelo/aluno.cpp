@@ -2,8 +2,8 @@
 
 namespace Modelo{
     bool Aluno::isEmTurma(int idTurma){
-        for(Turma turma : this->turmas){
-            if(turma.getId()==idTurma){
+        for(int idMinhaTurma : this->turmas){
+            if(idMinhaTurma==idTurma){
                 return true;
             }
         }
@@ -11,16 +11,16 @@ namespace Modelo{
         return false;
     }
 
-    void Aluno::adicionarTurma(Turma turma){
-        if(!this->isEmTurma(turma.getId())){
-            this->turmas.push_back(turma);
+    void Aluno::adicionarTurma(int idTurma){
+        if(!this->isEmTurma(idTurma)){
+            this->turmas.push_back(idTurma);
         }
     }
 
     void Aluno::removerTurma(int id){
-        std::list<Turma>::iterator turmaIterator;
+        std::list<int>::iterator turmaIterator;
         for(turmaIterator = this->turmas.begin(); turmaIterator != this->turmas.end(); turmaIterator++){
-            if(turmaIterator->getId() == id){
+            if(*turmaIterator == id){
                 this->turmas.erase(turmaIterator);
                 break;
             }
