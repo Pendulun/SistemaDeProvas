@@ -40,7 +40,8 @@ add_executable(sistema_provas
     src/persistence/DAO/UsuarioDAOJSON.cpp
     src/persistence/Inicializador.cpp
     src/persistence/DAO/JSONFileHandler.cpp
-    src/persistence/DAO/JSONObject.cpp)
+    src/persistence/DAO/JSONObject.cpp
+    src/persistence/DAO/TurmaDAOJSON.cpp)
 #Aqui está indicado aonde estarão os arquivos .hpp do projeto, não é necessário mudar
 target_include_directories(sistema_provas 
     PUBLIC ${PROJECT_SOURCE_DIR}/include/)
