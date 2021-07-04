@@ -4,15 +4,18 @@ namespace Modelo{
     Turma::Turma(){
         this->id = -1;
         this->nome = "";
+        this->provas.clear();
     }
     Turma::Turma(int id){
         this->id = id;
         this->nome = "";
+        this->provas.clear();
     }
 
     Turma::Turma(int id, std::string nome){
-         this->id = id;
+        this->id = id;
         this->nome = nome;
+        this->provas.clear();
     }
 
     void Turma::cadastrarAluno(int idAluno){
