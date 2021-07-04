@@ -1,6 +1,10 @@
 #include "business/Modelo/turma.hpp"
 
 namespace Modelo{
+    Turma::Turma(){
+        this->id = -1;
+        this->nome = "";
+    }
     Turma::Turma(int id){
         this->id = id;
         this->nome = "";

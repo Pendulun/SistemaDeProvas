@@ -9,6 +9,7 @@ namespace Modelo{
             void removerAluno(int id);
             Turma(int id, std::string nome);
             Turma(int id);
+            Turma();
             int getId();
             std::string getNome();
             void setNome(std::string);
