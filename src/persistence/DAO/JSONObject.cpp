@@ -31,6 +31,16 @@ namespace Persistence  {
         document[nlohmann::json::json_pointer(path)] = property;
     }
 
+    void JSONObject::setIntArrayPropertyByPath(const std::vector<std::string>& Path,const std::vector<int>& values) {
+        nlohmann::json array = nlohmann::json::array();
+        for (auto value : values)
+        {
+            array.push_back(value);
+        };
+        std::string path = getPathFromVector(Path);
+        document[nlohmann::json::json_pointer(path)] = array;
+    }
+
     void JSONObject::setBoolPropertyByPath(const std::vector<std::string>& Path, bool property) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = property;
@@ -70,6 +80,19 @@ namespace Persistence  {
             throw std::exception("Invalid Path");
     }
 
+    std::vector<int> JSONObject::getIntArrayPropertyByPath(const std::vector<std::string> &Path) {
+        std::vector<int> array;
+        nlohmann::json Property = getObjectPropertyByPath(Path);
+        if(Property.is_array()) {
+            for(auto item : Property) {
+                if(item.is_number_integer()) {
+                    array.push_back(item);
+                }
+            }
+        }
+        return array;
+    }
+
     std::string JSONObject::getPathFromVector(const std::vector<std::string>& Steps) {
         std::string path;
         for (const auto& step : Steps) {
@@ -105,6 +128,10 @@ namespace Persistence  {
 
     void JSONObject::remover(nlohmann::json key) {
         document.erase(document.find(key));
+    }
+
+    bool JSONObject::contains(const nlohmann::json& key) {
+        return document.contains(key);
     }
 
 

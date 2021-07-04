@@ -13,10 +13,14 @@ namespace Persistence {
         JSONObject(nlohmann::json);
         void setDocument(nlohmann::json);
         nlohmann::json getDocument();
+
+        bool contains(const nlohmann::json&);
+
         std::string getStringPropertyByPath(const std::vector<std::string>&);
         double getNumberPropertyByPath(const std::vector<std::string>& Path);
         bool getBoolPropertyByPath(const std::vector<std::string>&);
         nlohmann::json getObjectPropertyByPath(const std::vector<std::string>&);
+        std::vector<int> getIntArrayPropertyByPath(const std::vector<std::string>&);
 
         std::string pesquisar(std::string,nlohmann::json);
 
@@ -25,12 +29,14 @@ namespace Persistence {
         void setStringPropertyByPath(const std::vector<std::string>& , const std::string&);
         void setIntPropertyByPath(const std::vector<std::string>& , int);
         void setBoolPropertyByPath(const std::vector<std::string>& , bool);
+        void setIntArrayPropertyByPath(const std::vector<std::string> &Path, const std::vector<int> &values);
 
         void salvarNoArquivo(std::string);
 
     private:
         nlohmann::json document;
         static std::string getPathFromVector(const std::vector<std::string>&);
+
     };
 }
 
