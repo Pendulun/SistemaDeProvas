@@ -2,6 +2,14 @@
 
 namespace Modelo{
 
+    Usuario::Usuario(){
+        this->id = -1;
+        this->nome = "";
+        this->login = "";
+        this->senha = "";
+        this->tipoUsuario = Modelo::TipoUsuario::ALUNO;
+    }
+
     Usuario::Usuario(int id, Modelo::TipoUsuario tipoUsuario){
         this->id = id;
         this->nome = "";

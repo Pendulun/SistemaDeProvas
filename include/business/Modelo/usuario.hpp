@@ -25,6 +25,7 @@ namespace Modelo{
             Usuario(int id, TipoUsuario);
             Usuario(int id, TipoUsuario, std::string nome, std::string login, std::string senha);
             Usuario(int id, TipoUsuario, std::string login, std::string senha);
+            Usuario();
     };
 }
 #endif
