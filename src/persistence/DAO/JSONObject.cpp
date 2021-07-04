@@ -91,5 +91,15 @@ namespace Persistence  {
         jsonHandler.SalvarEmArquivo(std::move(Arquivo),document);
     }
 
+    std::string JSONObject::pesquisar(std::string property,nlohmann::json value) {
+        for (auto row = document.begin(); row != document.end(); ++row) {
+            if(row->contains(property) && (*row)[property].type_name() == value.type_name()) {
+                if((*row)[property] == value) {
+                    return row.key();
+                }
+            }
+        }
+    }
+
 
 }
