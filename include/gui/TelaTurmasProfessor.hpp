@@ -6,6 +6,7 @@
 #include "gui/TerminalUteis.hpp"
 #include <list>
 #include "business/fachadas/manterTurma.hpp"
+#include "gui/TelaTurmaEscolhidaProfessor.hpp"
 
 namespace GUI{
     class TelaTurmasProfessor{

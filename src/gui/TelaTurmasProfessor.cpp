@@ -128,7 +128,6 @@ namespace GUI{
 
                         int j = 1;
                         for (std::list<Modelo::Turma>::iterator it=turmasProfessor.begin(); it != turmasProfessor.end(); ++it){
-                            std::cout<<i<<" - "<<(*it).getNome()<<std::endl;
                             if(j == opcao){
                                 turmaEscolhida = *it;
                                 break;
@@ -136,10 +135,11 @@ namespace GUI{
                             j++;
                         }
 
-                        //Ir para tela de escolher turma
-
                         util.limparTerminal();
-                        
+
+                        TelaTurmaEscolhidaProfessor telaTurmaEscolhidaProfessor(turmaEscolhida);
+                        telaTurmaEscolhidaProfessor.show();
+
                         break;
                     }
                     else if(opcao == i){
