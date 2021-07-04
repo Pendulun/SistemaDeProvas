@@ -27,6 +27,10 @@ namespace Business{
         return this->alunoDAO;
     }
 
+    TurmaDAO* Application::getTurmaDAO(){
+        return this->turmaDAO;
+    }
+
     void Application::createNewInstanceIfPossible(UserGUI* userGUI){
         if(Application::instance == nullptr){
             Application::instance = new Application(userGUI);;
@@ -58,6 +62,10 @@ namespace Business{
 
         if(this->alunoDAO != nullptr){
             delete this->alunoDAO;
+        }
+
+        if(this->turmaDAO != nullptr){
+            delete this->turmaDAO;
         }
     }
 }

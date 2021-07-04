@@ -5,6 +5,7 @@
 #include "business/DAO/UsuarioDAO.hpp"
 #include "business/DAO/ProfessorDAO.hpp"
 #include "business/DAO/AlunoDAO.hpp"
+#include "business/DAO/TurmaDAO.hpp"
 #include <iostream>
 
 namespace Business{
@@ -16,6 +17,7 @@ namespace Business{
             UsuarioDAO* getUsuarioDAO();
             ProfessorDAO* getProfessorDAO();
             AlunoDAO* getAlunoDAO();
+            TurmaDAO* getTurmaDAO();
             ~Application();   
         protected:
             Application(UserGUI*);
@@ -25,6 +27,7 @@ namespace Business{
         ProfessorDAO* professorDAO;
         AlunoDAO* alunoDAO;
         UserGUI* userGUI;
+        TurmaDAO* turmaDAO;
     };
 }
 
