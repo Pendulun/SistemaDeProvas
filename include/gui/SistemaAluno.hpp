@@ -2,6 +2,7 @@
 #define __SISTEMAALUNO_H__
 #include <iostream>
 #include "gui/SistemaUsuario.hpp"
+#include "gui/TerminalUteis.hpp"
 #include "business/Modelo/aluno.hpp"
 
 namespace GUI{
@@ -12,6 +13,10 @@ namespace GUI{
             ~SistemaAluno();
         private:
             Modelo::Aluno* aluno;
+            enum OpcaoMenuInicialAluno{TURMAS=1, PERFIL=2, SAIR=3, OPERRADAALUNO=4};
+            void mostrarSaudacoes();
+            void mapeiaEntrada(OpcaoMenuInicialAluno);
+            OpcaoMenuInicialAluno mostrarOpcoesMenu();
     };
 }
 #endif
