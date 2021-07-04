@@ -14,7 +14,8 @@ namespace GUI{
         private:
             Modelo::Turma turma; 
             void verProvas();
-            void listarProvas();      
+            void listarProvas();
+            void cadastrarProva();   
     };
 }
 #endif

@@ -13,13 +13,12 @@ namespace GUI{
             SistemaProfessor(Modelo::Professor*);
             ~SistemaProfessor();
         private:
-            enum OpcaoMenuInicial{TURMAS=1, PROVAS=2, PERFIL=3, SAIR=4, OPERRADA=5};
+            enum OpcaoMenuInicial{TURMAS=1, PERFIL=2, SAIR=3, OPERRADA=4};
             Modelo::Professor* professor;
             void mostrarSaudacoes();
             OpcaoMenuInicial mostrarOpcoesMenu();
             void mapeiaEntrada(OpcaoMenuInicial);
 
-            void cadastrarProva();
             bool alterarPerfil();
     };
 }
