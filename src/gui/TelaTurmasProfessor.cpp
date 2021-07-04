@@ -59,12 +59,102 @@ namespace GUI{
             }
             case OpcoesMenuTurmasProfessor::LISTAR :
             {
-                std::cout<<"Listar todas as turmas\n";
+                listarTurmasProfessor();
                 break;
             }
             default:
                 break;
             }
+    }
+
+    void TelaTurmasProfessor::listarTurmasProfessor(){
+        TerminalUteis util;
+        util.limparTerminal();
+
+        Business::ManterTurma manterTurma;
+        std::list<Modelo::Turma> turmasProfessor = manterTurma.pesquisarTurmas(this->professor->getTurmas());
+
+        bool voltar = false;
+
+        while(!voltar){
+
+            std::cout<<"-------------------\n";
+            std::cout<<"TURMAS DO PROFESSOR\n";
+            std::cout<<"-------------------\n\n";
+
+            if(turmasProfessor.size()==0){
+                std::cout<<"Professor sem turmas cadastradas.\n\n";
+                std::cout<<"Digite 1 para voltar.\n";
+
+                std::string opcao;
+
+                while(true){
+
+                    std::cin>>opcao;
+                    util.limparEntrada();
+
+                    if(opcao.compare("1")==0){
+                        util.limparTerminal();
+                        voltar = true;
+                        break;
+                    }
+                    else{
+                        std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+                    }
+                }
+            }
+            else{
+                std::cout<<"Escolha a turma:\n\n";
+
+                int i = 1;
+                for (std::list<Modelo::Turma>::iterator it=turmasProfessor.begin(); it != turmasProfessor.end(); ++it){
+                    std::cout<<i<<" - "<<(*it).getNome()<<std::endl;
+                    i++;
+                }
+
+                std::cout<<i<<" - Voltar\n";
+
+                int opcao;
+
+                while(true){
+
+                    std::cin>>opcao;
+                    util.limparEntrada();
+
+                    if(opcao>0 && opcao<=turmasProfessor.size()){
+                        util.limparTerminal();
+
+                        Modelo::Turma turmaEscolhida;
+
+                        int j = 1;
+                        for (std::list<Modelo::Turma>::iterator it=turmasProfessor.begin(); it != turmasProfessor.end(); ++it){
+                            std::cout<<i<<" - "<<(*it).getNome()<<std::endl;
+                            if(j == opcao){
+                                turmaEscolhida = *it;
+                                break;
+                            }
+                            j++;
+                        }
+
+                        //Ir para tela de escolher turma
+
+                        util.limparTerminal();
+                        
+                        break;
+                    }
+                    else if(opcao == i){
+                        voltar = true;
+
+                        util.limparTerminal();
+                        break;
+                    }
+                    else{
+                        std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+                    }
+                }
+            }
+
+        }
     }
 
     void TelaTurmasProfessor::cadastrarNovaTurma(){

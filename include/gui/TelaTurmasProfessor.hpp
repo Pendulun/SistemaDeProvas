@@ -4,6 +4,9 @@
 #include <string>
 #include "business/Modelo/professor.hpp" 
 #include "gui/TerminalUteis.hpp"
+#include <list>
+#include "business/fachadas/manterTurma.hpp"
+
 namespace GUI{
     class TelaTurmasProfessor{
         public:
@@ -18,6 +21,7 @@ namespace GUI{
             void mapeiaEntrada(OpcoesMenuTurmasProfessor);
             void cadastrarNovaTurma();
             bool confirmarNomeNovaTurma(std::string);
+            void listarTurmasProfessor();
     };
 }
 

@@ -16,7 +16,15 @@ namespace Business{
     }
 
     std::list<Modelo::Turma> ManterTurma::pesquisarTurmas(std::list<int> idsTurmas){
-        return Business::Application::getInstance()->getTurmaDAO()->pesquisar(idsTurmas);
+        std::list<Modelo::Turma> turmas;
+
+        Modelo::Turma novaTurma;
+        novaTurma.setNome("Turma Teste 1");
+
+        turmas.push_back(novaTurma);
+
+        return turmas;
+        //return Business::Application::getInstance()->getTurmaDAO()->pesquisar(idsTurmas);
     }
 
 }
