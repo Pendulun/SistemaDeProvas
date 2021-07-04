@@ -47,5 +47,9 @@ namespace Business{
         if(this->usuarioDAO != nullptr){
             delete this->usuarioDAO;
         }
+
+        if(this->professorDAO != nullptr){
+            delete this->professorDAO;
+        }
     }
 }
