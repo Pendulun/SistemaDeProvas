@@ -11,4 +11,19 @@ namespace Business{
         return dummyAluno;
     }
 
+    bool ManterAluno::cadastrarEmNovaTurma(Modelo::Aluno* aluno, int idTurma){
+        bool cadastrou = false;
+        if(!aluno->isEmTurma(idTurma)){
+            Modelo::Turma* turma = Application::getInstance()->getAlunoDAO()->cadastrarEmTurma(*aluno, idTurma);
+            if(turma!=nullptr){
+                cadastrou = true;
+                aluno->adicionarTurma(*turma);
+            }else{
+                cadastrou=false;
+            }
+        }else{
+            cadastrou = false;
+        }
+        return cadastrou;
+    }
 }
