@@ -18,6 +18,10 @@ namespace Business{
             ProfessorDAO* getProfessorDAO();
             AlunoDAO* getAlunoDAO();
             TurmaDAO* getTurmaDAO();
+            void setUsuarioDAO(UsuarioDAO*);
+            void setProfessorDAO(ProfessorDAO*);
+            void setAlunoDAO(AlunoDAO*);
+            void setTurmaDAO(TurmaDAO*);
             ~Application();   
         protected:
             Application(UserGUI*);

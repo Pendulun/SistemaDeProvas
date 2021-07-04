@@ -19,6 +19,22 @@ namespace Business{
         return this->usuarioDAO;
     }
 
+    void Application::setUsuarioDAO(UsuarioDAO* usuarioDAO){
+        this->usuarioDAO = usuarioDAO;
+    }
+
+    void Application::setAlunoDAO(AlunoDAO* alunoDAO){
+        this->alunoDAO = alunoDAO;
+    }
+
+    void Application::setProfessorDAO(ProfessorDAO* professorDAO){
+        this->professorDAO = professorDAO;
+    }
+
+    void Application::setTurmaDAO(TurmaDAO* turmaDAO){
+        this->turmaDAO = turmaDAO;
+    }
+
     ProfessorDAO* Application::getProfessorDAO(){
         return this->professorDAO;
     }
