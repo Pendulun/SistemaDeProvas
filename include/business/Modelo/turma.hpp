@@ -10,10 +10,13 @@ namespace Modelo{
         public:
             void cadastrarAluno(int id);
             void removerAluno(int id);
+            std::set<int> getAlunosCadastrados();
+            void setAlunosCadastrados(std::set<int>);
             Turma(int id, std::string nome);
             Turma(int id);
             Turma();
             int getId();
+            void setId(int);
             std::string getNome();
             void setNome(std::string);
             std::list<Prova> getProvas();

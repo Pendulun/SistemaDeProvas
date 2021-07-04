@@ -42,4 +42,16 @@ namespace Modelo{
     void Turma::adicionarProva(Modelo::Prova prova){
         this->provas.push_back(prova);
     }
+    
+    void Turma::setId(int id) {
+        this->id = id;
+    }
+
+    std::set<int> Turma::getAlunosCadastrados() {
+        return this->idsAlunos;
+    }
+
+    void Turma::setAlunosCadastrados(std::set<int> alunoIds) {
+        this->idsAlunos = std::move(alunoIds);
+    }
 }
