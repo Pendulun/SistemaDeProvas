@@ -34,4 +34,8 @@ namespace Modelo{
     std::string Turma::getNome(){
         return this->nome;
     }
+
+    std::list<Prova> Turma::getProvas(){
+        return this->provas;
+    }
 }

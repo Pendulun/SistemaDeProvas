@@ -2,6 +2,9 @@
 #define __TURMA_H__
 #include <string>
 #include <set>
+#include <list>
+#include "business/Modelo/prova.hpp"
+
 namespace Modelo{
     class Turma {
         public:
@@ -13,7 +16,9 @@ namespace Modelo{
             int getId();
             std::string getNome();
             void setNome(std::string);
+            std::list<Prova> getProvas();
         private:
+            std::list<Prova> provas;
             std::set<int> idsAlunos;
             int id;
             std::string nome;
