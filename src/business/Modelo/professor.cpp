@@ -13,7 +13,9 @@ namespace Modelo{
     }
 
     void Professor::adicionarTurma(Turma turma){
-        this->turmas.push_back(turma);
+        if(!this->possuiTurma(turma.getNome())){
+            this->turmas.push_back(turma);
+        }
     }
 
     void Professor::removerTurma(int id){
