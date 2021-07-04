@@ -1,13 +1,13 @@
 #include "business/fachadas/manterProfessor.hpp"
 
 namespace Business{
-    Modelo::Professor ManterProfessor::pesquisarProfessor(int idProfessor){
+    Modelo::Professor* ManterProfessor::pesquisarProfessor(int idProfessor){
         //Application::getInstance()->getProfessorDAO()->pesquisar(idProfessor);
         // TODO - Pegar do banco
-        Modelo::Professor dummyProfessor(idProfessor, Modelo::TipoUsuario::PROFESSOR);
-        dummyProfessor.setNome("Professor Fulano");
-        dummyProfessor.setLogin("loginteste");
-        dummyProfessor.setSenha("123");
+        Modelo::Professor* dummyProfessor = new Modelo::Professor(idProfessor, Modelo::TipoUsuario::PROFESSOR);
+        dummyProfessor->setNome("Professor Fulano");
+        dummyProfessor->setLogin("loginteste");
+        dummyProfessor->setSenha("123");
         return dummyProfessor;
     }
 
@@ -33,10 +33,11 @@ namespace Business{
     }
 
     std::list<Modelo::Turma> ManterProfessor::pesquisarTurmasProfessor(int idProfessor){
-        Modelo::Professor professor;
+        Modelo::Professor* professor;
         std::list<Modelo::Turma> turmas;
         professor = Business::Application::getInstance()->getProfessorDAO()->pesquisar(idProfessor);
-        turmas = Business::Application::getInstance()->getTurmaDAO()->pesquisar(professor.getTurmas());
+        turmas = Business::Application::getInstance()->getTurmaDAO()->pesquisar(professor->getTurmas());
+        delete professor;
         return turmas;
     }
 

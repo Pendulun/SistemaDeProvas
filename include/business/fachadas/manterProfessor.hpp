@@ -11,7 +11,7 @@
 namespace Business{
     class ManterProfessor{
         public:
-            Modelo::Professor pesquisarProfessor(int id);
+            Modelo::Professor* pesquisarProfessor(int id);
             Modelo::Turma cadastrarNovaTurma(std::string, Modelo::Professor*);
             std::list<Modelo::Turma> pesquisarTurmasProfessor(int idProfessor);
         private:

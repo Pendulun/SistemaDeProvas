@@ -35,12 +35,12 @@ namespace GUI
     GUI::SistemaUsuario* UserTerminalGUI::configSistema(Modelo::Usuario* user){
         if(user->isProfessor()){
             Business::ManterProfessor manterProfessor;
-            Modelo::Professor professor = manterProfessor.pesquisarProfessor(user->getId());
-            return new SistemaProfessor(&professor);
+            Modelo::Professor* professor = manterProfessor.pesquisarProfessor(user->getId());
+            return new SistemaProfessor(professor);
         }else if(user->isAluno()){
             Business::ManterAluno manterAluno;
-            Modelo::Aluno aluno = manterAluno.pesquisarAluno(user->getId());
-            return new SistemaAluno(&aluno);
+            Modelo::Aluno* aluno = manterAluno.pesquisarAluno(user->getId());
+            return new SistemaAluno(aluno);
         }else{
             return nullptr;
         }
