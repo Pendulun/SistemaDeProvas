@@ -20,6 +20,8 @@ namespace Persistence {
 
         std::string pesquisar(std::string,nlohmann::json);
 
+        void remover(nlohmann::json);
+
         void setStringPropertyByPath(const std::vector<std::string>& , const std::string&);
         void setIntPropertyByPath(const std::vector<std::string>& , int);
         void setBoolPropertyByPath(const std::vector<std::string>& , bool);

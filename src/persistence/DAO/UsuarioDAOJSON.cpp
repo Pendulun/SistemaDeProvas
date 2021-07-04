@@ -71,7 +71,11 @@ namespace Persistence{
         return lista;
     }
 
-    bool UsuarioDAOJSON::remover(Modelo::Usuario) {
+    bool UsuarioDAOJSON::remover(Modelo::Usuario usuario) {
+        if(loginExiste(usuario.getLogin())) {
+            jsonObject->remover(usuario.getLogin());
+            return true;
+        }
         return false;
     }
 

@@ -103,5 +103,9 @@ namespace Persistence  {
         return "";
     }
 
+    void JSONObject::remover(nlohmann::json key) {
+        document.erase(document.find(key));
+    }
+
 
 }
