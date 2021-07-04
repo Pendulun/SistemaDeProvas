@@ -7,7 +7,7 @@
 namespace Business{
     class AlunoDAO : public BaseDAO<Modelo::Aluno>{
         public:
-            virtual Modelo::Turma* cadastrarEmTurma(Modelo::Aluno, int) = 0;
+            virtual bool cadastrarEmTurma(Modelo::Aluno, int) = 0;
             virtual ~AlunoDAO() = 0;
     };
 }
