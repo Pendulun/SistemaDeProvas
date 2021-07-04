@@ -78,4 +78,8 @@ namespace Modelo{
         int idCopia = this->id;
         return idCopia;
     }
+
+    void Usuario::setId(int id) {
+        this->id = id;
+    }
 }

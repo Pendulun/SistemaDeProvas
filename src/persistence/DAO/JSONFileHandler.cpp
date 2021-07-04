@@ -50,7 +50,7 @@ namespace Persistence {
 
     void JsonHandler::SalvarEmArquivo(std::string arquivo,nlohmann::json doc) {
         std::ofstream ofs(getCaminhoArquivo(arquivo).c_str());
-        doc >> ofs;
+        ofs << doc;
     }
 
     std::string JsonHandler::getCaminhoArquivo(std::string arquivo) {
