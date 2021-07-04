@@ -16,12 +16,15 @@ add_executable(sistema_provas
     src/business/DAO/BaseDAO.cpp
     src/business/DAO/UsuarioDAO.cpp
     src/business/DAO/ProfessorDAO.cpp
+    src/business/DAO/AlunoDAO.cpp
     src/business/fachadas/manterUsuario.cpp
     src/business/fachadas/manterAluno.cpp
     src/business/fachadas/manterProfessor.cpp
+    src/business/fachadas/manterTurma.cpp
     src/business/fachadas/excecoes/UserNotFoundException.cpp
     src/business/fachadas/excecoes/AlunoNotFoundException.cpp
     src/business/fachadas/excecoes/ProfessorNotFoundException.cpp
+    src/business/fachadas/excecoes/TurmaNotFoundException.cpp
     src/business/Modelo/prova.cpp
     src/business/Modelo/questao.cpp
     src/business/Modelo/usuario.cpp
