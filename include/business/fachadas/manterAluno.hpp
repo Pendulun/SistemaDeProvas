@@ -12,7 +12,7 @@ namespace Business{
     class ManterAluno{
         public:
             Modelo::Aluno* pesquisarAluno(int id);
-            bool cadastrarEmNovaTurma(Modelo::Aluno*, int);
+            bool cadastrarEmNovaTurma(Modelo::Aluno*, const int);
     };
 }
 #endif
