@@ -17,6 +17,7 @@ namespace Modelo{
             std::string getNome();
             void setNome(std::string);
             std::list<Prova> getProvas();
+            void adicionarProva(Modelo::Prova);
         private:
             std::list<Prova> provas;
             std::set<int> idsAlunos;

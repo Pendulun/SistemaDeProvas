@@ -38,4 +38,8 @@ namespace Modelo{
     std::list<Prova> Turma::getProvas(){
         return this->provas;
     }
+
+    void Turma::adicionarProva(Modelo::Prova prova){
+        this->provas.push_back(prova);
+    }
 }
