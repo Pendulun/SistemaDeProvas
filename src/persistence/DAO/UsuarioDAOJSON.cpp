@@ -9,15 +9,16 @@ namespace Persistence{
         jsonObject = new JSONObject(ARQUIVO_USUARIOS);
     }
 
-    bool UsuarioDAOJSON::cadastrar(Modelo::Usuario usuario) {
-        if (loginExiste(usuario.getLogin()) )
-            return false;
+    Modelo::Usuario UsuarioDAOJSON::cadastrar(Modelo::Usuario usuario) {
+        //Talvez dar um Throw em um erro novo?
+        //if (loginExiste(usuario.getLogin()) )
+        //    return false;
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "nome"},usuario.getNome());
         jsonObject->setStringPropertyByPath({usuario.getLogin(), "senha"},usuario.getSenha());
         jsonObject->setIntPropertyByPath({usuario.getLogin(), "id"},usuario.getId());
         jsonObject->setIntPropertyByPath({usuario.getLogin(), "tipoUsuario"},(int)usuario.getTipoUsuario());
         jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
-        return true;
+        return usuario;
     }
 
     bool UsuarioDAOJSON::loginExiste(std::string login) {

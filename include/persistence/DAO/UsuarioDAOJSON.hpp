@@ -14,7 +14,7 @@ namespace Persistence {
         static std::string ARQUIVO_USUARIOS;
 
         bool loginExiste(std::string);
-        bool cadastrar(Modelo::Usuario ) override;
+        Modelo::Usuario cadastrar(Modelo::Usuario ) override;
         bool login(std::string, std::string);
         ~UsuarioDAOJSON();
 
