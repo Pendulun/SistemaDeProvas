@@ -20,14 +20,7 @@ namespace Persistence{
     Modelo::Turma* TurmaDAOJSON::cadastrar(Modelo::Turma Turma) {
         int maxId = getMaxId()+ 1;
         Turma.setId(maxId);
-        jsonObject->setStringPropertyByPath({std::to_string(Turma.getId()), "nome"},Turma.getNome());
-        jsonObject->setIntPropertyByPath({std::to_string(Turma.getId()), "id"},Turma.getId());
-
-        std::set<int> idSet = Turma.getAlunosCadastrados();
-        std::vector<int> alunosIds;
-        std::copy(idSet.begin(),idSet.end(),std::back_inserter(alunosIds));
-        jsonObject->setIntArrayPropertyByPath({std::to_string(Turma.getId()), "idsAlunos"},alunosIds);
-
+        atualizarRegistro(Turma);
         setMaxId(Turma.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
         return &Turma;
@@ -85,6 +78,26 @@ namespace Persistence{
         catch (...) {
             jsonObject->setIntPropertyByPath({"maxId"},0);
         }
+    }
+
+    bool TurmaDAOJSON::atualizar(Modelo::Turma Turma) {
+        std::string key = std::to_string(Turma.getId());
+        if(!jsonObject->contains(key))
+            throw std::invalid_argument("Turma não existe");
+        atualizarRegistro(Turma);
+        jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
+        return true;
+    }
+
+    void TurmaDAOJSON::atualizarRegistro(Modelo::Turma Turma) {
+
+        jsonObject->setStringPropertyByPath({std::to_string(Turma.getId()), "nome"},Turma.getNome());
+        jsonObject->setIntPropertyByPath({std::to_string(Turma.getId()), "id"},Turma.getId());
+
+        std::set<int> idSet = Turma.getAlunosCadastrados();
+        std::vector<int> alunosIds;
+        std::copy(idSet.begin(),idSet.end(),std::back_inserter(alunosIds));
+        jsonObject->setIntArrayPropertyByPath({std::to_string(Turma.getId()), "idsAlunos"},alunosIds);
     }
 
 }

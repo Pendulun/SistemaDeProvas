@@ -19,11 +19,7 @@ namespace Persistence{
         usuario.setId(maxId);
         if (loginExiste(usuario.getLogin()) )
             throw std::invalid_argument( "Login já existe" );
-        jsonObject->setStringPropertyByPath({usuario.getLogin(), "nome"},usuario.getNome());
-        jsonObject->setStringPropertyByPath({usuario.getLogin(), "login"},usuario.getLogin());
-        jsonObject->setStringPropertyByPath({usuario.getLogin(), "senha"},usuario.getSenha());
-        jsonObject->setIntPropertyByPath({usuario.getLogin(), "id"},usuario.getId());
-        jsonObject->setIntPropertyByPath({usuario.getLogin(), "tipoUsuario"},(int)usuario.getTipoUsuario());
+        atualizarRegistro(usuario);
         setMaxId(usuario.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
         return &usuario;
@@ -102,6 +98,26 @@ namespace Persistence{
         catch (...) {
             jsonObject->setIntPropertyByPath({"maxId"},0);
         }
+    }
+
+    bool UsuarioDAOJSON::atualizar(Modelo::Usuario usuario) {
+        if (!loginExiste(usuario.getLogin()) )
+            throw std::invalid_argument( "Usuário não existe" );
+        atualizarRegistro(usuario);
+        jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
+        return true;
+    }
+
+    void UsuarioDAOJSON::atualizarRegistro(Modelo::Usuario usuario) {
+
+        jsonObject->setStringPropertyByPath({usuario.getLogin(), "nome"},usuario.getNome());
+        jsonObject->setStringPropertyByPath({usuario.getLogin(), "login"},usuario.getLogin());
+        jsonObject->setStringPropertyByPath({usuario.getLogin(), "senha"},usuario.getSenha());
+        jsonObject->setIntPropertyByPath({usuario.getLogin(), "id"},usuario.getId());
+        jsonObject->setIntPropertyByPath({usuario.getLogin(), "tipoUsuario"},(int)usuario.getTipoUsuario());
+        std::list<int> turmas = usuario.getTurmas();
+        std::vector<int> turmasCadastrar(turmas.begin(),turmas.end());
+        jsonObject->setIntArrayPropertyByPath({usuario.getLogin(), "turmas"},turmasCadastrar);
     }
 
 }

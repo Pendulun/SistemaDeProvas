@@ -9,6 +9,7 @@ namespace Business{
             virtual T* pesquisar(int) = 0;
             virtual std::list<T> pesquisar(const std::list<int>) = 0;
             virtual bool remover(T) = 0;
+            virtual bool atualizar(T) = 0;
     };
 }
 #endif
