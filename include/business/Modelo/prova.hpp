@@ -2,37 +2,34 @@
 #define PROVA_H
 
 //isso precisa ser movido pra outro arquivo depois
-enum Status
-{
-    PENDING,
-    OPEN,
-    FINISHED
-};
+
 
 #include "business/Modelo/questao.hpp"
+#include "business/Modelo/status.hpp"
 #include <string>
 #include <list>
 #include <iterator>
 #include <iostream>
 
-using namespace std;
 
 //por enquanto, estou pensando apenas no professor
-namespace Modelo{
-    class Prova{
+namespace Modelo {
+    class Prova {
     private:
-        list<Questao> listaQuestoes;
+        std::list<Questao> listaQuestoes;
         int dataInicio;
         int dataFinal;
-        string nome;
+        std::string nome;
+        int id;
+        Status status;
 
     public:
-        Prova(string);                             //prova sem data definida
-        Prova(int, int, string);                   //prova com data definida
-        Prova(int, int, list<Questao>, string); //reutilizar questões
+        Prova(std::string);                             //prova sem data definida
+        Prova(int, int, std::string);                   //prova com data definida
+        Prova(int, int, std::list<Questao>, std::string); //reutilizar questões
         ~Prova();
 
-        list<Questao> getQuestaos();
+        std::list<Questao> getQuestaos();
         void setQuestao(Questao, Questao);
         void RemoveQuestao(Questao);
         void InsertQuestao(Questao);
@@ -41,8 +38,11 @@ namespace Modelo{
         int getDataFinal();
         void setDataFinal(int);
         Status getStatus();
-        string getNome();
-        void setNome(string);
+        void setStatus(Status);
+        std::string getNome();
+        void setNome(std::string);
+        void setId(int);
+        int getId();
 
         void mostrarProva();
     };

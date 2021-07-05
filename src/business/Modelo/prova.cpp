@@ -4,21 +4,21 @@
 
 namespace Modelo
 {
-    Prova::Prova(string name){
+    Prova::Prova(std::string name){
         this->nome = name;
         this->dataInicio = 0;
         this->dataFinal = 0;
         this->listaQuestoes.clear();
     }
 
-    Prova::Prova(int startDate, int endDate, string name){
+    Prova::Prova(int startDate, int endDate, std::string name){
         this->nome = name;
         this->dataInicio = startDate;
         this->dataFinal = endDate;
         this->listaQuestoes.clear(); 
     }
 
-    Prova::Prova(int startDate, int endDate, list<Questao> questaoList, string name){
+    Prova::Prova(int startDate, int endDate, std::list<Questao> questaoList, std::string name){
         this->nome = name;
         this->dataInicio = startDate;
         this->dataFinal = endDate;
@@ -31,15 +31,15 @@ namespace Modelo
         this->listaQuestoes.push_back(q);
     }
 
-    list<Questao> Prova::getQuestaos(){
+    std::list<Questao> Prova::getQuestaos(){
         return this->listaQuestoes;
     }
 
-    string Prova::getNome(){
+    std::string Prova::getNome(){
         return this->nome;
     }
 
-    void Prova::setNome(string name){
+    void Prova::setNome(std::string name){
         this->nome=name;
     }
 
@@ -60,5 +60,37 @@ namespace Modelo
             std::cout<<"\n";
             i++;
         }
+    }
+
+    void Prova::setId(int id) {
+        this->id = id;
+    }
+
+    int Prova::getId() {
+        return this->id;
+    }
+
+    int Prova::getDataInicio() {
+        return this->dataInicio;
+    }
+
+    void Prova::setDataInicio(int dataInicio) {
+        this->dataInicio = dataInicio;
+    }
+
+    int Prova::getDataFinal() {
+        return this->dataFinal;
+    }
+
+    void Prova::setDataFinal(int dataFinal) {
+        this->dataFinal = dataFinal;
+    }
+
+    Status Prova::getStatus() {
+        return this->status;
+    }
+
+    void Prova::setStatus(Status status) {
+        this->status = status;
     }
 }

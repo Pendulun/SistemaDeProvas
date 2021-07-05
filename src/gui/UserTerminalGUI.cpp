@@ -48,7 +48,7 @@ namespace GUI
 
     Modelo::Prova* UserTerminalGUI::CreateProva(){
         std::cout << "Entre um nome para essa Prova:" << std::endl;
-        string name;
+        std::string name;
         std::cin >> name;
         Modelo::Prova *t = new Modelo::Prova(name);
         std::cout << "Adicionar uma questão a essa prova?" << std::endl;
