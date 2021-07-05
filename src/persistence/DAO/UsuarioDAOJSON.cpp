@@ -1,3 +1,5 @@
+#include <business/Modelo/professor.hpp>
+#include <business/Modelo/aluno.hpp>
 #include "persistence/DAO/UsuarioDAOJSON.hpp"
 
 namespace Persistence{
@@ -43,14 +45,20 @@ namespace Persistence{
     }
 
     Modelo::Usuario* UsuarioDAOJSON::pesquisar(int id) {
-        Modelo::Usuario* usuario = new Modelo::Usuario();
         std::string key = jsonObject->pesquisar("id",id);
         if(key != "") {
+            Modelo::Usuario* usuario;
+            Modelo::TipoUsuario tipo = (Modelo::TipoUsuario)jsonObject->getNumberPropertyByPath({key, "tipoUsuario"});
+            if(tipo == Modelo::TipoUsuario::ALUNO)
+                usuario = new Modelo::Professor;
+            else
+                usuario = new Modelo::Aluno;
+
             usuario->setNome(jsonObject->getStringPropertyByPath({key, "nome"}));
             usuario->setSenha(jsonObject->getStringPropertyByPath({key, "senha"}));
             usuario->setLogin(jsonObject->getStringPropertyByPath({key, "login"}));
             usuario->setId(jsonObject->getNumberPropertyByPath({key, "id"}));
-            usuario->setTipoUsuario((Modelo::TipoUsuario)jsonObject->getNumberPropertyByPath({key, "tipoUsuario"}));
+            usuario->setTipoUsuario(tipo);
 
             return usuario;
         }

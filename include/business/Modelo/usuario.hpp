@@ -1,15 +1,17 @@
 #ifndef __USUARIO_H__
 #define __USUARIO_H__
 #include <string>
+#include <list>
 #include "business/Modelo/tipoUsuario.hpp"
 namespace Modelo{
     class Usuario{
-        private:
+        protected:
             std::string nome;
             std::string login;
             std::string senha;
             TipoUsuario tipoUsuario;
             int id;
+            std::list<int> turmas;
         public:
             std::string getNome();
             void setNome(std::string);
@@ -23,6 +25,8 @@ namespace Modelo{
             bool isProfessor();
             int getId();
             void setId(int);
+            const std::list<int> getTurmas();
+            void  setTurmas(std::list<int>);
             Usuario(int id, TipoUsuario);
             Usuario(int id, TipoUsuario, std::string nome, std::string login, std::string senha);
             Usuario(int id, TipoUsuario, std::string login, std::string senha);

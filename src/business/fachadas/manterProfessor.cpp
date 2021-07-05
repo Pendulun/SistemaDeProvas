@@ -17,7 +17,10 @@ namespace Business{
         turmasProfessor = Application::getInstance()->getTurmaDAO()->pesquisar(professor->getTurmas());
 
         if(!this->existeTurma(nomeTurma,turmasProfessor)){
-            novaTurma = Application::getInstance()->getProfessorDAO()->cadastrarTurma(*professor, nomeTurma);
+            novaTurma.setNome(nomeTurma);
+            //novaTurma =
+            auto turmaCadastrada = Application::getInstance()->getTurmaDAO()->cadastrar(novaTurma);
+            novaTurma.setId(turmaCadastrada->getId());
             professor->adicionarTurma(novaTurma.getId());
         }
         return novaTurma;
@@ -35,7 +38,7 @@ namespace Business{
     std::list<Modelo::Turma> ManterProfessor::pesquisarTurmasProfessor(int idProfessor){
         Modelo::Professor* professor;
         std::list<Modelo::Turma> turmas;
-        professor = Business::Application::getInstance()->getProfessorDAO()->pesquisar(idProfessor);
+        professor = (Modelo::Professor*) Business::Application::getInstance()->getUsuarioDAO()->pesquisar(idProfessor);
         turmas = Business::Application::getInstance()->getTurmaDAO()->pesquisar(professor->getTurmas());
         delete professor;
         return turmas;

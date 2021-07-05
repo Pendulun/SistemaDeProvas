@@ -5,7 +5,6 @@
 #include "business/Modelo/tipoUsuario.hpp"
 #include "business/Modelo/professor.hpp"
 #include "business/Modelo/turma.hpp"
-#include "business/DAO/ProfessorDAO.hpp"
 #include "business/fachadas/excecoes/ProfessorNotFoundException.hpp"
 
 namespace Business{

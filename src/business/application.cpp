@@ -23,24 +23,8 @@ namespace Business{
         this->usuarioDAO = usuarioDAO;
     }
 
-    void Application::setAlunoDAO(AlunoDAO* alunoDAO){
-        this->alunoDAO = alunoDAO;
-    }
-
-    void Application::setProfessorDAO(ProfessorDAO* professorDAO){
-        this->professorDAO = professorDAO;
-    }
-
     void Application::setTurmaDAO(TurmaDAO* turmaDAO){
         this->turmaDAO = turmaDAO;
-    }
-
-    ProfessorDAO* Application::getProfessorDAO(){
-        return this->professorDAO;
-    }
-
-    AlunoDAO* Application::getAlunoDAO(){
-        return this->alunoDAO;
     }
 
     TurmaDAO* Application::getTurmaDAO(){
@@ -70,14 +54,6 @@ namespace Business{
 
         if(this->usuarioDAO != nullptr){
             delete this->usuarioDAO;
-        }
-
-        if(this->professorDAO != nullptr){
-            delete this->professorDAO;
-        }
-
-        if(this->alunoDAO != nullptr){
-            delete this->alunoDAO;
         }
 
         if(this->turmaDAO != nullptr){

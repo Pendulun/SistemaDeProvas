@@ -82,4 +82,12 @@ namespace Modelo{
     void Usuario::setId(int id) {
         this->id = id;
     }
+
+    const std::list<int> Usuario::getTurmas(){
+        return this->turmas;
+    }
+
+    void Usuario::setTurmas(std::list<int> turmas) {
+        this->turmas = std::move(turmas);
+    }
 }

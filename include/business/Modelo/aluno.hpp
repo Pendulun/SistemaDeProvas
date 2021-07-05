@@ -15,7 +15,6 @@ namespace Modelo{
             void adicionarTurma(int);
             void removerTurma(int);
         private:
-            std::list<int> turmas;
     };
 }
 #endif

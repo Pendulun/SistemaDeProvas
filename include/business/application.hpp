@@ -3,8 +3,6 @@
 
 #include "business/gui/UserGUI.hpp"
 #include "business/DAO/UsuarioDAO.hpp"
-#include "business/DAO/ProfessorDAO.hpp"
-#include "business/DAO/AlunoDAO.hpp"
 #include "business/DAO/TurmaDAO.hpp"
 #include <iostream>
 
@@ -15,12 +13,8 @@ namespace Business{
             static Application* getInstance();
             static void createNewInstanceIfPossible(UserGUI*);
             UsuarioDAO* getUsuarioDAO();
-            ProfessorDAO* getProfessorDAO();
-            AlunoDAO* getAlunoDAO();
             TurmaDAO* getTurmaDAO();
             void setUsuarioDAO(UsuarioDAO*);
-            void setProfessorDAO(ProfessorDAO*);
-            void setAlunoDAO(AlunoDAO*);
             void setTurmaDAO(TurmaDAO*);
             ~Application();   
         protected:
@@ -28,8 +22,6 @@ namespace Business{
             static Application* instance;
         private:
         UsuarioDAO* usuarioDAO;
-        ProfessorDAO* professorDAO;
-        AlunoDAO* alunoDAO;
         UserGUI* userGUI;
         TurmaDAO* turmaDAO;
     };
