@@ -20,6 +20,7 @@ namespace Persistence {
         std::list<Modelo::Usuario> pesquisar(const std::list<int>) override;
         bool remover(Modelo::Usuario) override;
         bool atualizar(Modelo::Usuario) override;
+        bool cadastrarEmTurma(Modelo::Usuario, int) override;
         ~UsuarioDAOJSON() override;
 
     private:

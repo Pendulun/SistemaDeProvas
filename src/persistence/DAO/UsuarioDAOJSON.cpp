@@ -78,6 +78,7 @@ namespace Persistence{
     bool UsuarioDAOJSON::remover(Modelo::Usuario usuario) {
         if(loginExiste(usuario.getLogin())) {
             jsonObject->remover(usuario.getLogin());
+            jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
             return true;
         }
         return false;
@@ -118,6 +119,18 @@ namespace Persistence{
         std::list<int> turmas = usuario.getTurmas();
         std::vector<int> turmasCadastrar(turmas.begin(),turmas.end());
         jsonObject->setIntArrayPropertyByPath({usuario.getLogin(), "turmas"},turmasCadastrar);
+    }
+
+    bool UsuarioDAOJSON::cadastrarEmTurma(Modelo::Usuario usuario, int idTurma) {
+        if(!loginExiste(usuario.getLogin())) {
+            return false;
+        }
+        auto turmasUsuario = jsonObject->getIntArrayPropertyByPath({usuario.getLogin(),"turmas"});
+        turmasUsuario.push_back(idTurma);
+        jsonObject->setIntArrayPropertyByPath({usuario.getLogin(),"turmas"},turmasUsuario);
+        jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
+
+        return true;
     }
 
 }

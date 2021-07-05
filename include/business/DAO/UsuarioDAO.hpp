@@ -8,7 +8,7 @@ namespace Business{
         public:
             virtual bool login(std::string, std::string) = 0;
             virtual bool loginExiste(std::string) = 0;
-        virtual bool cadastrarEmTurma(Modelo::Usuario, int) = 0;
+            virtual bool cadastrarEmTurma(Modelo::Usuario, int) = 0;
             virtual ~UsuarioDAO() = 0;
     };
 }

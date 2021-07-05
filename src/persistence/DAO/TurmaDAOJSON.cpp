@@ -58,6 +58,7 @@ namespace Persistence{
         std::string key = std::to_string(Turma.getId());
         if(jsonObject->contains(key)) {
             jsonObject->remover(key);
+            jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
             return true;
         }
         return false;
