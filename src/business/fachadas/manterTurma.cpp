@@ -27,4 +27,16 @@ namespace Business{
         //return Business::Application::getInstance()->getTurmaDAO()->pesquisar(idsTurmas);
     }
 
+    bool ManterTurma::cadastrarProva(Modelo::Turma* turma, Modelo::Prova prova){
+         int idRetornadoProva = 1;
+         //idRetornadoProva = Application::getInstance()->getTurmaDAO()->cadastrarProva(turma->getId(), prova);
+         if(idRetornadoProva >= 0){
+             prova.setId(idRetornadoProva);
+             turma->adicionarProva(prova);
+             return true;
+         }else{
+             return false;
+         }
+    }
+
 }
