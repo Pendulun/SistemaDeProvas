@@ -1,6 +1,7 @@
 #include "business/fachadas/manterUsuario.hpp"
 
 namespace Business{
+
     bool ManterUsuario::cadastrarUsuario(std::string nome, std::string login, std::string senha, Modelo::TipoUsuario tipoUsuario){
         bool cadastrou = false;
         Modelo::Usuario* user = new Modelo::Usuario();
@@ -30,9 +31,31 @@ namespace Business{
         return cadastrou;
     }
 
+    bool ManterUsuario::atualizarUsuario(Modelo::Usuario& usuarioVelho, Modelo::Usuario& usuarioNovo){
+        /*
+        Application* app = Application::getInstance();
+        if(app->getUsuarioDAO()->atualizar(usuarioNovo)){
+            usuarioVelho.setLogin(usuarioNovo.getLogin());
+            usuarioVelho.setNome(usuarioNovo.getNome());
+            usuarioVelho.setSenha(usuarioNovo.getSenha());
+            return true;
+        }else{
+            return false;
+        }
+        */
+        return true;
+    }
+
     Modelo::Usuario* ManterUsuario::login(std::string login,std::string senha){
         // TODO
-        // app->getUsuarioDAO()->login()
+        /*
+        Application* app = Application::getInstance();
+        Modelo::Usuario* usuarioLogado = app->getUsuarioDAO()->login(login, senha);
+        if(usuarioLogado == nullptr){
+            throw Business::UserNotFoundException("Usuario nao encontrado");
+        }
+        return usuarioLogado;
+        */
         int idUser = 1;
         std::string nomeUser = "Usuario Teste";
         std::string loginUser = login;
@@ -45,4 +68,6 @@ namespace Business{
             return dummyUser;
         }
     }
+
+
 }
