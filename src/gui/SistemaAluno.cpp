@@ -74,7 +74,9 @@ namespace GUI{
 
     SistemaAluno::~SistemaAluno(){
         std::cout<<"Destruindo Sistema Aluno"<<std::endl;
-        delete this->aluno;
+        if(this->aluno != nullptr){
+            delete this->aluno;
+        }
     }
 }
 
