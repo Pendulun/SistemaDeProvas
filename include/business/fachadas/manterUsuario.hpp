@@ -1,6 +1,7 @@
 #ifndef __MANTERUSUARIO_H__
 #define __MANTERUSUARIO_H__
 #include <string>
+#include <exception>
 #include "business/application.hpp"
 #include "business/Modelo/tipoUsuario.hpp"
 #include "business/Modelo/usuario.hpp"
