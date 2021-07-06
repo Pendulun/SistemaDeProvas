@@ -174,11 +174,17 @@ namespace GUI{
                 }
                 else if (opcao.compare("2")==0){
                     util.limparTerminal();
-                    std::cout<<"Prova criada com sucesso!!\n\n";
-                    
+                                        
                     Business::ManterTurma manterTurma;
-                    manterTurma.cadastrarProva(this->turma, prova);
-                    adicionando = false;            
+                    bool cadastroFeito = manterTurma.cadastrarProva(this->turma, prova);
+                    adicionando = false;       
+
+                    if (cadastroFeito){
+                        std::cout<<"Prova criada com sucesso!!\n\n";
+                    }
+                    else{
+                        std::cout<<"Nao foi possivel cadastrar a prova.\n\n";
+                    }
                     break;
                 }
                 else{
