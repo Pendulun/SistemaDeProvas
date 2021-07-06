@@ -24,6 +24,7 @@ add_executable(sistema_provas
     src/business/fachadas/excecoes/TurmaNotFoundException.cpp
     src/business/Modelo/prova.cpp
     src/business/Modelo/questao.cpp
+    src/business/Modelo/alternativa.cpp
     src/business/Modelo/usuario.cpp
     src/business/Modelo/aluno.cpp
     src/business/Modelo/professor.cpp
