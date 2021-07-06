@@ -14,8 +14,10 @@ void configApplicationDAOS(Business::Application* app){
 Business::Application* config(){
     GUI::UserTerminalGUI* userTerminal = new GUI::UserTerminalGUI();
     Business::Application::createNewInstanceIfPossible(userTerminal);
-    configApplicationDAOS(Business::Application::getInstance());
+    //Não inverter a order dessas duas linhas de baixo, senão o programa não funciona
+    //por algum motivo
     Persistence::ConfiguracaoDAO::Configurar();
+    configApplicationDAOS(Business::Application::getInstance());
     return Business::Application::getInstance();
 }
 
