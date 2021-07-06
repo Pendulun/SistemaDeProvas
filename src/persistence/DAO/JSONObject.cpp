@@ -41,6 +41,11 @@ namespace Persistence  {
         document[nlohmann::json::json_pointer(path)] = array;
     }
 
+    void JSONObject::setEmptyObjectPropertyByPath(const std::vector<std::string> &Path) {
+        std::string path = getPathFromVector(Path);
+        document[nlohmann::json::json_pointer(path)] = nlohmann::json::object();
+    }
+
     void JSONObject::setBoolPropertyByPath(const std::vector<std::string>& Path, bool property) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = property;

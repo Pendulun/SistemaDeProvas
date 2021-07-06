@@ -11,6 +11,8 @@ namespace Persistence{
     }
 
     std::string TurmaDAOJSON::ARQUIVO_TURMA =  "turmas.json";
+    std::string TurmaDAOJSON::MAX_ID_TURMA = "maxId";
+    std::string TurmaDAOJSON::MAX_ID_PROVA = "maxIdProva";
 
     TurmaDAOJSON::TurmaDAOJSON() {
         jsonObject = new JSONObject(ARQUIVO_TURMA);
@@ -18,10 +20,11 @@ namespace Persistence{
     }
 
     Modelo::Turma* TurmaDAOJSON::cadastrar(Modelo::Turma Turma) {
-        int maxId = getMaxId()+ 1;
+        int maxId = getMaxId(MAX_ID_TURMA)+ 1;
         Turma.setId(maxId);
         atualizarRegistro(Turma);
-        setMaxId(Turma.getId());
+        jsonObject->setEmptyObjectPropertyByPath({std::to_string(Turma.getId()), "provas"});
+        setMaxId(MAX_ID_TURMA,Turma.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
         return &Turma;
     }
@@ -64,20 +67,23 @@ namespace Persistence{
         return false;
     }
 
-    int TurmaDAOJSON::getMaxId() {
-        return jsonObject->getNumberPropertyByPath({"maxId"});
+    int TurmaDAOJSON::getMaxId(std::string Path) {
+        return jsonObject->getNumberPropertyByPath({Path});
     }
 
-    void TurmaDAOJSON::setMaxId(int maxId) {
-        jsonObject->setIntPropertyByPath({"maxId"},maxId);
+    void TurmaDAOJSON::setMaxId(std::string Path,int maxId) {
+        jsonObject->setIntPropertyByPath({Path},maxId);
     }
 
     void TurmaDAOJSON::checkMaxId() {
-        try {
-            jsonObject->getNumberPropertyByPath({"maxId"});
-        }
-        catch (...) {
-            jsonObject->setIntPropertyByPath({"maxId"},0);
+        auto maxIds = { MAX_ID_PROVA, MAX_ID_TURMA};
+        for(auto path : maxIds) {
+            try {
+                jsonObject->getNumberPropertyByPath({path});
+            }
+            catch (...) {
+                jsonObject->setIntPropertyByPath({path},0);
+            }
         }
     }
 
@@ -99,6 +105,22 @@ namespace Persistence{
         std::vector<int> alunosIds;
         std::copy(idSet.begin(),idSet.end(),std::back_inserter(alunosIds));
         jsonObject->setIntArrayPropertyByPath({std::to_string(Turma.getId()), "idsAlunos"},alunosIds);
+    }
+
+    bool TurmaDAOJSON::cadastrarProva(int idTurma,Modelo::Prova prova) {
+        std::string keyTurma = std::to_string(idTurma);
+        prova.setId(getMaxId(MAX_ID_PROVA) + 1);
+        std::string keyProva = std::to_string(prova.getId());
+
+        jsonObject->setStringPropertyByPath({keyTurma,"provas",keyProva, "nome"},prova.getNome());
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "id"},prova.getId());
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "dataInicio"},prova.getDataInicio());
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "dataFinal"},prova.getDataFinal());
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "status"},(int)prova.getStatus());
+        setMaxId(MAX_ID_PROVA,prova.getId());
+        jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
+
+        return false;
     }
 
 }

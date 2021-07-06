@@ -15,18 +15,21 @@ namespace Persistence {
         TurmaDAOJSON();
 
         static std::string ARQUIVO_TURMA;
+        static std::string MAX_ID_TURMA;
+        static std::string MAX_ID_PROVA;
 
         Modelo::Turma* cadastrar(Modelo::Turma ) override;
         Modelo::Turma* pesquisar(int ) override;
         std::list<Modelo::Turma> pesquisar(const std::list<int>) override;
         bool remover(Modelo::Turma) override;
         bool atualizar(Modelo::Turma) override;
+        bool cadastrarProva(int,Modelo::Prova) override;
         ~TurmaDAOJSON() override;
 
     private:
         void checkMaxId();
-        int getMaxId();
-        void setMaxId(int);
+        int getMaxId(std::string);
+        void setMaxId(std::string,int);
         void atualizarRegistro(Modelo::Turma);
         JSONObject* jsonObject;
     };

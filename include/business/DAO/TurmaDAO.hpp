@@ -7,6 +7,7 @@
 namespace Business{
     class TurmaDAO : public BaseDAO<Modelo::Turma>{
         public:
+            virtual bool cadastrarProva(int,Modelo::Prova) = 0;
             virtual ~TurmaDAO() = 0;
     };
 }

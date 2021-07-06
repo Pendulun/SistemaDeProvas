@@ -30,6 +30,7 @@ namespace Persistence {
         void setIntPropertyByPath(const std::vector<std::string>& , int);
         void setBoolPropertyByPath(const std::vector<std::string>& , bool);
         void setIntArrayPropertyByPath(const std::vector<std::string> &Path, const std::vector<int> &values);
+        void setEmptyObjectPropertyByPath(const std::vector<std::string> &Path);
 
         void salvarNoArquivo(std::string);
 
