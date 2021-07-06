@@ -31,6 +31,10 @@ namespace Modelo{
         }
     }
 
+    const std::vector<Modelo::Alternativa> Questao::getAlternativas(){
+        return this->alternativas; 
+    }
+
     const std::string Questao::getEnunciado(){
         return this->enunciado;
     }
@@ -54,15 +58,7 @@ namespace Modelo{
     const int Questao::getNumeroQuestao(){
         return this->numeroQuestao;
     }
-
-    const std::string Questao::getTextoAlternativa(int numero){
-        if(numero>0 && numero<=this->alternativas.size()){
-            return this->alternativas.at(numero-1).getTexto();
-        }else{
-            return NULL;
-        }
-    }
-
+    
     void Questao::setTextoAlternativa(int numero, std::string texto){
         if(numero>0 && numero<=this->alternativas.size()){
             this->alternativas.at(numero-1).setTexto(texto);
@@ -74,7 +70,7 @@ namespace Modelo{
     }
 
     void Questao::setAlternativaCorreta(int numero){
-        if(numero>0&&numero<=this->alternativas.size()){
+        if(numero>0 && numero<=this->alternativas.size()){
             this->alternativaCorreta=numero;
         }
     }

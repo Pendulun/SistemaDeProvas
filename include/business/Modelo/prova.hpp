@@ -5,9 +5,11 @@
 
 
 #include "business/Modelo/questao.hpp"
+#include "business/Modelo/alternativa.hpp"
 #include "business/Modelo/status.hpp"
 #include <string>
 #include <list>
+#include <vector>
 #include <iterator>
 #include <iostream>
 

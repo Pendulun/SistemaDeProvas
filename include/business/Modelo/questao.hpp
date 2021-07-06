@@ -16,10 +16,8 @@ namespace Modelo{
             void atualizarNumerosTodasAlternativas();
         public:
             Questao();
-            Questao();
             const std::string getEnunciado();
             void setEnunciado(std::string);
-            const std::string getTextoAlternativa(int);
             void setTextoAlternativa(int,std::string);
             void addAlternativa(Modelo::Alternativa);
             bool removerAlternativa(int);
@@ -29,6 +27,7 @@ namespace Modelo{
             const int getValor();
             void setNumeroQuestao(int);
             const int getNumeroQuestao();
+            const std::vector<Modelo::Alternativa> getAlternativas();
     };
 }
 #endif
