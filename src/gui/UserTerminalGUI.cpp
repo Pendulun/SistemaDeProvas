@@ -46,31 +46,6 @@ namespace GUI
         }
     }
 
-    Modelo::Prova* UserTerminalGUI::CreateProva(){
-        std::cout << "Entre um nome para essa Prova:" << std::endl;
-        std::string name;
-        std::cin >> name;
-        Modelo::Prova *t = new Modelo::Prova(name);
-        std::cout << "Adicionar uma questão a essa prova?" << std::endl;
-        std::cout << "1 - Sim" << std::endl;
-        std::cout << "2 - Não" << std::endl;
-        int addQuestaoToProva;
-        std::cin >> addQuestaoToProva;
-        while (addQuestaoToProva != 2){
-            addQuestao(t);
-            std::cout << "Adicionar outra questão a essa prova?" << std::endl;
-            std::cout << "1 - Sim" << std::endl;
-            std::cout << "2 - Não" << std::endl;
-            std::cin >> addQuestaoToProva;
-        }
-        return t;
-    }
-
-    void UserTerminalGUI::addQuestao(Modelo::Prova *t){
-        Questao q=Questao("a","1","2","3","4",1);
-        t->InsertQuestao(q);
-    }
-
     UserTerminalGUI::~UserTerminalGUI(){
         std::cout << "Destroying UserTerminalGUI\n";
     }

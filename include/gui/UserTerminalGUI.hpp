@@ -20,8 +20,6 @@ namespace GUI{
             void show() override;
             ~UserTerminalGUI() override;
         private:
-            Modelo::Prova *CreateProva();
-            void addQuestao(Modelo::Prova *t);
             SistemaUsuario* configSistema(Modelo::Usuario*);
 
     };
