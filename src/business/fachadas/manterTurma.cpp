@@ -7,8 +7,10 @@ namespace Business{
     }
 
     Modelo::Turma* ManterTurma::pesquisarTurma(int id){
+        /*
         Application* app = Application::getInstance();
-        // TODO - Pegar do banco
+        return app->getTurmaDAO()->pesquisar(id);
+        */
         int idTurma = id;
         std::string nomeTurma = "Matematica";
         Modelo::Turma* dummyTurma = new Modelo::Turma(idTurma,nomeTurma);
