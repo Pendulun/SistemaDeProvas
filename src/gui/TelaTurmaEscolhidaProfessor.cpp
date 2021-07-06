@@ -175,7 +175,7 @@ namespace GUI{
                 else if (opcao.compare("2")==0){
                     util.limparTerminal();
                     std::cout<<"Prova criada com sucesso!!\n\n";
-                    //TODO - Persistir prova
+                    
                     Business::ManterTurma manterTurma;
                     manterTurma.cadastrarProva(this->turma, prova);
                     adicionando = false;            
@@ -309,12 +309,12 @@ namespace GUI{
                     if(opcao>0 && opcao<=this->turma.getProvas().size()){
                         util.limparTerminal();
 
-                    Modelo::Prova provaEscolhida("Nome");
+                        Modelo::Prova provaEscolhida("Nome");
 
                         int j = 1;
-                        for (std::list<Modelo::Prova>::iterator it=this->turma.getProvas().begin(); it != this->turma.getProvas().end(); ++it){
+                        for(Modelo::Prova prova : this->turma.getProvas()){
                             if(j == opcao){
-                                provaEscolhida = *it;
+                                provaEscolhida = prova;
                                 break;
                             }
                             j++;
@@ -323,8 +323,8 @@ namespace GUI{
                         util.limparTerminal();
 
                         std::cout<<"Vai para TelaProvaEscolhidaProfessor\n";
-                        //TelaTurmaEscolhidaProfessor telaTurmaEscolhidaProfessor(turmaEscolhida);
-                        //telaTurmaEscolhidaProfessor.show();
+                        //TelaProvaEscolhidaProfessor telaProvaEscolhidaProfessor(provaEscolhida);
+                        //telaProvaEscolhidaProfessor.show();
 
                         break;
                     }
