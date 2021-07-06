@@ -2,7 +2,7 @@
 
 namespace Business{
 
-    Modelo::Turma* ManterTurma::cadastrarTurma(const Modelo::Turma turma){
+    int ManterTurma::cadastrarTurma(const Modelo::Turma turma){
         return Business::Application::getInstance()->getTurmaDAO()->cadastrar(turma);
     }
 

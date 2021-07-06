@@ -7,13 +7,16 @@ namespace Business{
         Modelo::Usuario* user = new Modelo::Usuario();
         Application* app = Application::getInstance();
         try{
+            std::cout<<"UM\n";
             if(!app->getUsuarioDAO()->loginExiste(login)){
                 user->setNome(nome);
                 user->setLogin(login);
                 user->setSenha(senha);
                 user->setTipoUsuario(tipoUsuario);
-                Modelo::Usuario* userCadastrado = app->getUsuarioDAO()->cadastrar(*user);
-                if(userCadastrado->getId()==-1){
+                std::cout<<"DOIS\n";
+                int idRetornado = app->getUsuarioDAO()->cadastrar(*user);
+                std::cout<<"TRES\n";
+                if(idRetornado<0){
                     cadastrou = false;
                 }else{
                     cadastrou = true;

@@ -19,14 +19,14 @@ namespace Persistence{
         checkMaxId();
     }
 
-    Modelo::Turma* TurmaDAOJSON::cadastrar(Modelo::Turma Turma) {
+    int TurmaDAOJSON::cadastrar(Modelo::Turma Turma) {
         int maxId = getMaxId(MAX_ID_TURMA)+ 1;
         Turma.setId(maxId);
         atualizarRegistro(Turma);
         jsonObject->setEmptyObjectPropertyByPath({std::to_string(Turma.getId()), "provas"});
         setMaxId(MAX_ID_TURMA,Turma.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
-        return &Turma;
+        return Turma.getId();
     }
 
     Modelo::Turma* TurmaDAOJSON::pesquisar(int id) {

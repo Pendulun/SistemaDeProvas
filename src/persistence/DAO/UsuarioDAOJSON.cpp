@@ -14,7 +14,7 @@ namespace Persistence{
         checkMaxId();
     }
 
-    Modelo::Usuario* UsuarioDAOJSON::cadastrar(Modelo::Usuario usuario) {
+    int UsuarioDAOJSON::cadastrar(Modelo::Usuario usuario) {
         int maxId = getMaxId()+ 1;
         usuario.setId(maxId);
         if (loginExiste(usuario.getLogin()) )
@@ -22,7 +22,7 @@ namespace Persistence{
         atualizarRegistro(usuario);
         setMaxId(usuario.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
-        return &usuario;
+        return usuario.getId();
     }
 
     bool UsuarioDAOJSON::loginExiste(std::string login) {

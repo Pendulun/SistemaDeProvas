@@ -19,8 +19,8 @@ namespace Business{
         if(!this->existeTurma(nomeTurma,turmasProfessor)){
             novaTurma.setNome(nomeTurma);
             //novaTurma =
-            auto turmaCadastrada = Application::getInstance()->getTurmaDAO()->cadastrar(novaTurma);
-            novaTurma.setId(turmaCadastrada->getId());
+            int idTurmaCadastrada = Application::getInstance()->getTurmaDAO()->cadastrar(novaTurma);
+            novaTurma.setId(idTurmaCadastrada);
             professor->adicionarTurma(novaTurma.getId());
         }
         return novaTurma;

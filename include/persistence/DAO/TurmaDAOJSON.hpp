@@ -18,7 +18,7 @@ namespace Persistence {
         static std::string MAX_ID_TURMA;
         static std::string MAX_ID_PROVA;
 
-        Modelo::Turma* cadastrar(Modelo::Turma ) override;
+        int cadastrar(Modelo::Turma ) override;
         Modelo::Turma* pesquisar(int ) override;
         std::list<Modelo::Turma> pesquisar(const std::list<int>) override;
         bool remover(Modelo::Turma) override;
