@@ -9,13 +9,15 @@ namespace Modelo
         this->dataInicio = 0;
         this->dataFinal = 0;
         this->listaQuestoes.clear();
+        this->status = Status::PENDING;
     }
 
     Prova::Prova(int startDate, int endDate, std::string name){
         this->nome = name;
         this->dataInicio = startDate;
         this->dataFinal = endDate;
-        this->listaQuestoes.clear(); 
+        this->listaQuestoes.clear();
+        this->status = Status::PENDING;
     }
 
     Prova::Prova(int startDate, int endDate, std::list<Questao> questaoList, std::string name){
@@ -23,6 +25,7 @@ namespace Modelo
         this->dataInicio = startDate;
         this->dataFinal = endDate;
         this->listaQuestoes = questaoList;
+        this->status = Status::PENDING;
     }
 
     Prova::~Prova(){}
