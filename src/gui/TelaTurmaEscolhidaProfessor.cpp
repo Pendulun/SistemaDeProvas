@@ -82,10 +82,10 @@ namespace GUI{
         Modelo::Prova prova(inicio, fim, nome);
 
         util.limparTerminal();
-
+        const int NUMEROALTERNATIVAS = 4;
         std::string enunciado;
         std::string alternativa;
-        std::string alternativas[4];
+        std::string alternativas[NUMEROALTERNATIVAS];
         int alternativaCerta;
 
         while(adicionando){
@@ -96,8 +96,7 @@ namespace GUI{
             std::cout<<"\n";
 
             std::cout<<"Digite a alternativa 1: \n";
-            std::getline(std::cin, alternativa);
-            alternativas[0] = alternativa;
+            std::getline(std::cin, alternativas[0]);
             std::cout<<"\n";
 
             std::cout<<"Digite a alternativa 2: \n";
@@ -112,10 +111,50 @@ namespace GUI{
             std::getline(std::cin, alternativas[3]);
             std::cout<<"\n";
 
-            std::cout<<"Digite o numero da alternativa correta (1, 2, 3 ou 4): \n";
-            std::cin>>alternativaCerta;
+            while(true){
+                try{
+                    std::cout<<"Digite o numero da alternativa correta (1, 2, 3 ou 4): \n";
+                    std::cin>>alternativaCerta;
+                    util.limparEntrada();
+                    if(alternativaCerta > 0 && alternativaCerta <=NUMEROALTERNATIVAS){
+                        break;
+                    }else{
+                        std::cout<<"Valor invalido, digite novamente!\n";
+                    }
+                }catch(std::exception& e){
+                    std::cout<<"Valor invalido, digite novamente!\n";
+                }
+            }
 
-            Questao questao(enunciado, alternativas[0], alternativas[1], alternativas[2], alternativas[3], alternativaCerta);
+            int valorQuestao=0;
+
+            while(true){
+                try{
+                    std::cout<<"Digite o valor da questao (Apenas numeros inteiros): \n";
+                    std::cin>>valorQuestao;
+                    util.limparEntrada();
+                    if(valorQuestao > 0){
+                        break;
+                    }else{
+                        std::cout<<"Valor invalido, digite novamente!\n";
+                    }
+                }catch(std::exception& e){
+                    std::cout<<"Valor invalido, digite novamente!\n";
+                }
+            }
+
+            Modelo::Questao questao;
+            
+            for(int i = 0; i<NUMEROALTERNATIVAS; i++){
+                Modelo::Alternativa alternativa;
+                alternativa.setTexto(alternativas[i]);
+                alternativa.setNumeroAlternativa(i+1);
+                questao.addAlternativa(alternativa);
+            }
+
+            questao.setAlternativaCorreta(alternativaCerta);
+            questao.setValor(valorQuestao);
+            
             prova.InsertQuestao(questao);
 
             util.limparTerminal();
