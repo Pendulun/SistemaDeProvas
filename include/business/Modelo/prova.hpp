@@ -44,7 +44,7 @@ namespace Modelo {
         void setStatus(Status);
         std::string getNome();
         void setNome(std::string);
-        void setAssuntos(std::string assunto);
+        void addAssunto(std::string assunto);
         std::list<std::string> getAssuntos();
         void setId(int);
         int getId();

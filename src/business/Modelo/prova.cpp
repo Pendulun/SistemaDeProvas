@@ -46,7 +46,7 @@ namespace Modelo
         this->nome=name;
     }
 
-    void Prova::setAssuntos(std::string assunto){
+    void Prova::addAssunto(std::string assunto){
         this->assuntos.push_back(assunto);
     }
     
@@ -57,6 +57,18 @@ namespace Modelo
     void Prova::mostrarProva(){
         std::cout<<"A prova ocorre entre os dias: "<<this->dataInicio<<" e "<<this->dataFinal<<std::endl;
         std::cout<<"O titulo da prova eh: "<<this->nome<<std::endl;
+
+        std::cout<<"\nOs assuntos da prova sao: "<<std::endl;
+        
+        if(this->assuntos.size()==0){
+            std::cout<<"Prova sem assuntos listados.\n\n";
+        }
+        else{
+            for(std::string assunto : this->assuntos){
+                std::cout<<" -->"<<assunto<<std::endl;
+            }
+        }
+
 
         std::cout<<"\nAs questoes da prova sao: \n\n";
         

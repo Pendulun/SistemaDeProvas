@@ -81,12 +81,40 @@ namespace GUI{
 
         Modelo::Prova prova(inicio, fim, nome);
 
+        while(true){
+            std::string opcao;
+            util.limparTerminal();
+            std::cout<<"\nGostaria de adicionar algum assunto na lista de assuntos da prova?\n";
+            std::cout<<"1-Sim\n";
+            std::cout<<"2-Nao\n";
+            std::cin>>opcao;
+
+            if(opcao.compare("1")==0){
+                util.limparTerminal();
+                std::cout<<"\nDigite um assunto para a lista de assuntos da prova: \n";
+                std::string assunto;
+
+                std::cin.ignore(); //Isso às vezes dá problema
+                std::getline(std::cin, assunto);
+
+                prova.addAssunto(assunto);
+            }
+            else if (opcao.compare("2")==0){
+                break;
+            }
+            else{
+                std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+            }
+        }
+
         util.limparTerminal();
         const int NUMEROALTERNATIVAS = 4;
         std::string enunciado;
         std::string alternativa;
         std::string alternativas[NUMEROALTERNATIVAS];
         int alternativaCerta;
+
+        util.limparEntrada();
 
         while(adicionando){
             util.limparTerminal();
