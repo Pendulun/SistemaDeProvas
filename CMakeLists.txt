@@ -31,6 +31,7 @@ add_executable(sistema_provas
     src/business/Modelo/turma.cpp
     src/gui/UserTerminalGUI.cpp
     src/gui/TelaLogin.cpp
+    src/gui/TelaPerfil.cpp
     src/gui/TelaTurmasProfessor.cpp
     src/gui/TelaTurmaEscolhidaProfessor.cpp
     src/gui/SistemaUsuario.cpp
