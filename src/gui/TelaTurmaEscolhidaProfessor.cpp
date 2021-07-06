@@ -152,6 +152,7 @@ namespace GUI{
                 questao.addAlternativa(alternativa);
             }
 
+            questao.setEnunciado(enunciado);
             questao.setAlternativaCorreta(alternativaCerta);
             questao.setValor(valorQuestao);
             
@@ -176,7 +177,7 @@ namespace GUI{
                     std::cout<<"Prova criada com sucesso!!\n\n";
                     //TODO - Persistir prova
                     Business::ManterTurma manterTurma;
-                    //manterTurma.cadastrarProva(this->turma, prova);
+                    manterTurma.cadastrarProva(this->turma, prova);
                     adicionando = false;            
                     break;
                 }

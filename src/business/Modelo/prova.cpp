@@ -54,8 +54,9 @@ namespace Modelo
         
         int i = 1;
         for (std::list<Questao>::iterator it=this->listaQuestoes.begin(); it != this->listaQuestoes.end(); ++it){
-            std::cout<<"Questao "<<i<<": "<<(*it).getEnunciado();
-            std::cout<<", Valor: "<<(*it).getValor()<<std::endl;
+            std::cout<<"(Valor: "<<(*it).getValor()<<")";
+            std::cout<<" Questao "<<i<<": "<<(*it).getEnunciado()<<std::endl;
+            
             for(Modelo::Alternativa alternativa : (*it).getAlternativas()){
                 std::cout<<"Alternativa "<<alternativa.getNumeroAlternativa()<<": ";
                 std::cout<<alternativa.getTexto()<<std::endl;
