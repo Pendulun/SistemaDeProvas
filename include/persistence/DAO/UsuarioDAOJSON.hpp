@@ -14,7 +14,7 @@ namespace Persistence {
         static std::string ARQUIVO_USUARIOS;
 
         bool loginExiste(std::string);
-        Modelo::Usuario* cadastrar(Modelo::Usuario ) override;
+        int cadastrar(Modelo::Usuario ) override;
         Modelo::Usuario* pesquisar(int ) override;
         bool login(std::string, std::string) override;
         std::list<Modelo::Usuario> pesquisar(const std::list<int>) override;
