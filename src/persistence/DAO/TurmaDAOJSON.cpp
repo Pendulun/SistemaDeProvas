@@ -107,7 +107,7 @@ namespace Persistence{
         jsonObject->setIntArrayPropertyByPath({std::to_string(Turma.getId()), "idsAlunos"},alunosIds);
     }
 
-    bool TurmaDAOJSON::cadastrarProva(int idTurma,Modelo::Prova prova) {
+    int TurmaDAOJSON::cadastrarProva(int idTurma,Modelo::Prova prova) {
         std::string keyTurma = std::to_string(idTurma);
         prova.setId(getMaxId(MAX_ID_PROVA) + 1);
         std::string keyProva = std::to_string(prova.getId());
@@ -120,7 +120,7 @@ namespace Persistence{
         setMaxId(MAX_ID_PROVA,prova.getId());
         jsonObject->salvarNoArquivo(ARQUIVO_TURMA);
 
-        return false;
+        return prova.getId();
     }
 
 }

@@ -23,7 +23,7 @@ namespace Persistence {
         std::list<Modelo::Turma> pesquisar(const std::list<int>) override;
         bool remover(Modelo::Turma) override;
         bool atualizar(Modelo::Turma) override;
-        bool cadastrarProva(int,Modelo::Prova) override;
+        int cadastrarProva(int,Modelo::Prova) override;
         ~TurmaDAOJSON() override;
 
     private:
