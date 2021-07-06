@@ -1,16 +1,37 @@
 #include "business/Modelo/questao.hpp"
 
 namespace Modelo{
-    Questao::Questao(std::string enunciado, std::string alternativa1, std::string alternativa2, std::string alternativa3, std::string alternativa4, int alternativaCorreta){
-        this->enunciado=enunciado;
-        this->textoAlternativas[0]=alternativa1;
-        this->textoAlternativas[1]=alternativa2;
-        this->textoAlternativas[2]=alternativa3;
-        this->textoAlternativas[3]=alternativa4;
-        this->alternativaCorreta=alternativaCorreta;
+    Questao::Questao(){
+        this->enunciado="";
+        this->alternativas.clear();
+        this->alternativaCorreta=-1;
+        this->valor=-1;
+        this->numeroQuestao=-1;
     }
 
-    std::string Questao::getEnunciado(){
+    void Questao::addAlternativa(Modelo::Alternativa alternativa){
+        this->alternativas.push_back(alternativa);
+    }
+
+    bool Questao::removerAlternativa(int numeroAlternativa){
+        if(numeroAlternativa>0 && numeroAlternativa<=this->alternativas.size()){
+            if(numeroAlternativa == this->alternativaCorreta){
+                this->alternativaCorreta=-1;
+            }
+            this->alternativas.erase(this->alternativas.begin() + numeroAlternativa -1);
+            this->atualizarNumerosTodasAlternativas();
+            return true;
+        }
+        return false;
+    }
+
+    void Questao::atualizarNumerosTodasAlternativas(){
+        for(int i = 0; i< this->alternativas.size(); i++){
+            this->alternativas.at(i).setNumeroAlternativa(i+1);
+        }
+    }
+
+    const std::string Questao::getEnunciado(){
         return this->enunciado;
     }
 
@@ -18,26 +39,42 @@ namespace Modelo{
         this->enunciado=enunciado;
     }
 
-    std::string Questao::getTextoAlternativa(int numero){
-        if(numero>0&&numero<=4){
-            return this->textoAlternativas[numero-1];
+    void Questao::setValor(int valor){
+        this->valor = valor;
+    }
+
+    const int Questao::getValor(){
+        return this->valor;
+    }
+
+    void Questao::setNumeroQuestao(int numero){
+        this->numeroQuestao = numero;
+    }
+
+    const int Questao::getNumeroQuestao(){
+        return this->numeroQuestao;
+    }
+
+    const std::string Questao::getTextoAlternativa(int numero){
+        if(numero>0 && numero<=this->alternativas.size()){
+            return this->alternativas.at(numero-1).getTexto();
         }else{
             return NULL;
         }
     }
 
     void Questao::setTextoAlternativa(int numero, std::string texto){
-        if(numero>0&&numero<=4){
-            this->textoAlternativas[numero-1]=texto;
+        if(numero>0 && numero<=this->alternativas.size()){
+            this->alternativas.at(numero-1).setTexto(texto);
         }
     }
 
-    int Questao::getAlternativaCorreta(){
+    const int Questao::getAlternativaCorreta(){
         return this->alternativaCorreta;
     }
 
     void Questao::setAlternativaCorreta(int numero){
-        if(numero>0&&numero<=4){
+        if(numero>0&&numero<=this->alternativas.size()){
             this->alternativaCorreta=numero;
         }
     }

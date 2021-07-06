@@ -1,21 +1,34 @@
 #ifndef QUESTAO_H
 #define QUESTAO_H
 #include <string>
+#include <vector>
+#include <iterator>
+#include "business/Modelo/alternativa.hpp"
 
 namespace Modelo{
     class Questao{
         private:
             std::string enunciado;
-            std::string textoAlternativas[4];
+            std::vector<Modelo::Alternativa> alternativas;
             int alternativaCorreta;
+            int valor;
+            int numeroQuestao;
+            void atualizarNumerosTodasAlternativas();
         public:
-            Questao(std::string, std::string, std::string, std::string, std::string, int);
-            std::string getEnunciado();
+            Questao();
+            Questao();
+            const std::string getEnunciado();
             void setEnunciado(std::string);
-            std::string getTextoAlternativa(int);
+            const std::string getTextoAlternativa(int);
             void setTextoAlternativa(int,std::string);
-            int getAlternativaCorreta();
+            void addAlternativa(Modelo::Alternativa);
+            bool removerAlternativa(int);
+            const int getAlternativaCorreta();
             void setAlternativaCorreta(int);
+            void setValor(int);
+            const int getValor();
+            void setNumeroQuestao(int);
+            const int getNumeroQuestao();
     };
 }
 #endif
