@@ -41,6 +41,16 @@ namespace Persistence  {
         document[nlohmann::json::json_pointer(path)] = array;
     }
 
+    void JSONObject::setStringArrayPropertyByPath(const std::vector<std::string> &Path,const std::vector<std::string> &values) {
+        nlohmann::json array = nlohmann::json::array();
+        for (const auto& value : values)
+        {
+            array.push_back(value);
+        };
+        std::string path = getPathFromVector(Path);
+        document[nlohmann::json::json_pointer(path)] = array;
+    }
+
     void JSONObject::setEmptyObjectPropertyByPath(const std::vector<std::string> &Path) {
         std::string path = getPathFromVector(Path);
         document[nlohmann::json::json_pointer(path)] = nlohmann::json::object();
@@ -98,6 +108,19 @@ namespace Persistence  {
         return array;
     }
 
+    std::vector<std::string> JSONObject::getStringArrayPropertyByPath(const std::vector<std::string> &Path) {
+        std::vector<std::string> array;
+        nlohmann::json Property = getObjectPropertyByPath(Path);
+        if(Property.is_array()) {
+            for(auto item : Property) {
+                if(item.is_string()) {
+                    array.push_back(item);
+                }
+            }
+        }
+        return array;
+    }
+
     std::string JSONObject::getPathFromVector(const std::vector<std::string>& Steps) {
         std::string path;
         for (const auto& step : Steps) {
@@ -137,6 +160,10 @@ namespace Persistence  {
 
     bool JSONObject::contains(const nlohmann::json& key) {
         return document.contains(key);
+    }
+
+    bool JSONObject::containsPath(const std::vector<std::string> &Path) {
+        return document.contains(nlohmann::json::json_pointer(getPathFromVector(Path)));
     }
 
 

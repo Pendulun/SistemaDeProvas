@@ -32,31 +32,18 @@ namespace Persistence{
         return !(existe);
     }
 
-    bool UsuarioDAOJSON::login(std::string login, std::string senha) {
+    Modelo::Usuario* UsuarioDAOJSON::login(std::string login, std::string senha) {
         std::vector<std::string> path = { login, "senha"};
         auto senhaBanco = jsonObject->getStringPropertyByPath(path);
         if (senha == senhaBanco)
-            return true;
-        return false;
+            return buscarUsuarioPeloLogin(login);
+        return nullptr;
     }
 
     Modelo::Usuario* UsuarioDAOJSON::pesquisar(int id) {
         std::string key = jsonObject->pesquisar("id",id);
         if(key != "") {
-            Modelo::Usuario* usuario;
-            Modelo::TipoUsuario tipo = (Modelo::TipoUsuario)jsonObject->getNumberPropertyByPath({key, "tipoUsuario"});
-            if(tipo == Modelo::TipoUsuario::ALUNO)
-                usuario = new Modelo::Professor;
-            else
-                usuario = new Modelo::Aluno;
-
-            usuario->setNome(jsonObject->getStringPropertyByPath({key, "nome"}));
-            usuario->setSenha(jsonObject->getStringPropertyByPath({key, "senha"}));
-            usuario->setLogin(jsonObject->getStringPropertyByPath({key, "login"}));
-            usuario->setId(jsonObject->getNumberPropertyByPath({key, "id"}));
-            usuario->setTipoUsuario(tipo);
-
-            return usuario;
+            return buscarUsuarioPeloLogin(key);
         }
         else {
 
@@ -131,6 +118,25 @@ namespace Persistence{
         jsonObject->salvarNoArquivo(ARQUIVO_USUARIOS);
 
         return true;
+    }
+
+    Modelo::Usuario *UsuarioDAOJSON::buscarUsuarioPeloLogin(std::string key) {
+        if(!loginExiste(key))
+            return nullptr;
+        Modelo::Usuario* usuario;
+        Modelo::TipoUsuario tipo = (Modelo::TipoUsuario)jsonObject->getNumberPropertyByPath({key, "tipoUsuario"});
+        if(tipo == Modelo::TipoUsuario::ALUNO)
+            usuario = new Modelo::Professor;
+        else
+            usuario = new Modelo::Aluno;
+
+        usuario->setNome(jsonObject->getStringPropertyByPath({key, "nome"}));
+        usuario->setSenha(jsonObject->getStringPropertyByPath({key, "senha"}));
+        usuario->setLogin(jsonObject->getStringPropertyByPath({key, "login"}));
+        usuario->setId(jsonObject->getNumberPropertyByPath({key, "id"}));
+        usuario->setTipoUsuario(tipo);
+
+        return usuario;
     }
 
 }

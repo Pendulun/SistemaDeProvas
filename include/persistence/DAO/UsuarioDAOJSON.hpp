@@ -16,12 +16,13 @@ namespace Persistence {
         bool loginExiste(std::string);
         int cadastrar(Modelo::Usuario ) override;
         Modelo::Usuario* pesquisar(int ) override;
-        bool login(std::string, std::string) override;
+        Modelo::Usuario* login(std::string, std::string) override;
         std::list<Modelo::Usuario> pesquisar(const std::list<int>) override;
         bool remover(Modelo::Usuario) override;
         bool atualizar(Modelo::Usuario) override;
         bool cadastrarEmTurma(Modelo::Usuario, int) override;
         ~UsuarioDAOJSON() override;
+        Modelo::Usuario* buscarUsuarioPeloLogin(std::string ) override;
 
     private:
         void checkMaxId();

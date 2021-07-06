@@ -4,6 +4,11 @@
 
 namespace Modelo
 {
+
+    Prova::Prova() {
+        this->status = Status::PENDING;
+        this->listaQuestoes.clear();
+    }
     Prova::Prova(std::string name){
         this->nome = name;
         this->dataInicio = 0;

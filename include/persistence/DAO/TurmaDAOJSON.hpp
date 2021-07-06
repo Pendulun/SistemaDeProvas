@@ -24,6 +24,8 @@ namespace Persistence {
         bool remover(Modelo::Turma) override;
         bool atualizar(Modelo::Turma) override;
         int cadastrarProva(int,Modelo::Prova) override;
+        bool atualizarProva(int,Modelo::Prova) override;
+        Modelo::Prova* pesquisarProva(int,int) override;
         ~TurmaDAOJSON() override;
 
     private:
@@ -31,6 +33,11 @@ namespace Persistence {
         int getMaxId(std::string);
         void setMaxId(std::string,int);
         void atualizarRegistro(Modelo::Turma);
+        void atualizarRegistroProva(int, Modelo::Prova);
+        void cadastrarQuestao(int,int,Modelo::Questao);
+    Modelo::Questao* buscarQuestao(int,int,int);
+        void cadastrarAlternativa(int,int,int,Modelo::Alternativa);
+        Modelo::Alternativa* buscarAlternativa(int,int,int,int);
         JSONObject* jsonObject;
     };
 }

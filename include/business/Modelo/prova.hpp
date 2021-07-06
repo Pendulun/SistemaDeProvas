@@ -27,6 +27,7 @@ namespace Modelo {
         Status status;
 
     public:
+        Prova();
         Prova(std::string);                             //prova sem data definida
         Prova(int, int, std::string);                   //prova com data definida
         Prova(int, int, std::list<Questao>, std::string); //reutilizar questões

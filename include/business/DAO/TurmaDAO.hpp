@@ -8,6 +8,8 @@ namespace Business{
     class TurmaDAO : public BaseDAO<Modelo::Turma>{
         public:
             virtual int cadastrarProva(int,Modelo::Prova) = 0;
+            virtual bool atualizarProva(int,Modelo::Prova) = 0;
+            virtual Modelo::Prova* pesquisarProva(int,int) = 0;
             virtual ~TurmaDAO() = 0;
     };
 }
