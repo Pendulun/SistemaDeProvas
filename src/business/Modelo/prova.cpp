@@ -6,8 +6,12 @@ namespace Modelo
 {
 
     Prova::Prova() {
+        this->nome = "";
+        this->dataInicio = -1;
+        this->dataFinal = -1;
         this->status = Status::PENDING;
         this->listaQuestoes.clear();
+        this->submissoesAlunos.clear();
     }
     Prova::Prova(std::string name){
         this->nome = name;
@@ -15,6 +19,7 @@ namespace Modelo
         this->dataFinal = 0;
         this->listaQuestoes.clear();
         this->status = Status::PENDING;
+        this->submissoesAlunos.clear();
     }
 
     Prova::Prova(int startDate, int endDate, std::string name){
@@ -23,6 +28,7 @@ namespace Modelo
         this->dataFinal = endDate;
         this->listaQuestoes.clear();
         this->status = Status::PENDING;
+        this->submissoesAlunos.clear();
     }
 
     Prova::Prova(int startDate, int endDate, std::list<Questao> questaoList, std::string name){
@@ -31,6 +37,7 @@ namespace Modelo
         this->dataFinal = endDate;
         this->listaQuestoes = questaoList;
         this->status = Status::PENDING;
+        this->submissoesAlunos.clear();
     }
 
     Prova::~Prova(){}
