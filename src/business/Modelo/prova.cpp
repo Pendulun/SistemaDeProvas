@@ -46,6 +46,14 @@ namespace Modelo
         this->nome=name;
     }
 
+    void Prova::setAssuntos(std::string assunto){
+        this->assuntos.push_back(assunto);
+    }
+    
+    std::list<std::string> Prova::getAssuntos(){
+        return this->assuntos;
+    }
+
     void Prova::mostrarProva(){
         std::cout<<"A prova ocorre entre os dias: "<<this->dataInicio<<" e "<<this->dataFinal<<std::endl;
         std::cout<<"O titulo da prova eh: "<<this->nome<<std::endl;

@@ -22,6 +22,7 @@ namespace Modelo {
         int dataInicio;
         int dataFinal;
         std::string nome;
+        std::list<std::string> assuntos;
         int id;
         Status status;
 
@@ -43,6 +44,8 @@ namespace Modelo {
         void setStatus(Status);
         std::string getNome();
         void setNome(std::string);
+        void setAssuntos(std::string assunto);
+        std::list<std::string> getAssuntos();
         void setId(int);
         int getId();
 
