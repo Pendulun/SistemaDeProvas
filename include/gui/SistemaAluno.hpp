@@ -3,6 +3,7 @@
 #include <iostream>
 #include "gui/SistemaUsuario.hpp"
 #include "gui/TerminalUteis.hpp"
+#include "gui/TelaPerfil.hpp"
 #include "business/Modelo/aluno.hpp"
 
 namespace GUI{

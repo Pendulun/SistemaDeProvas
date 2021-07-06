@@ -29,7 +29,9 @@ namespace GUI{
             }
             case OpcaoMenuInicialAluno::PERFIL:
             {
-                std::cout<<"Ir para Perfil Aluno\n";
+                
+                GUI::TelaPerfil telaPerfil(*this->aluno);
+                telaPerfil.show();
                 break;
             }
             default:
