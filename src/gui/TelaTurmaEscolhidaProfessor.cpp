@@ -175,6 +175,8 @@ namespace GUI{
                     util.limparTerminal();
                     std::cout<<"Prova criada com sucesso!!\n\n";
                     //TODO - Persistir prova
+                    Business::ManterTurma manterTurma;
+                    //manterTurma.cadastrarProva(this->turma, prova);
                     adicionando = false;            
                     break;
                 }
