@@ -21,6 +21,7 @@ namespace Modelo {
     class Prova {
     private:
         std::list<Questao> listaQuestoes;
+        bool notasLiberadas;
         int dataInicio;
         int dataFinal;
         std::string nome;
@@ -53,7 +54,8 @@ namespace Modelo {
         std::list<std::string> getAssuntos();
         void setId(int);
         int getId();
-
+        void setNotasLiberadas(bool);
+        bool isNotasLiberadas();
         void mostrarProva();
     };
 }

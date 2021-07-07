@@ -1,4 +1,5 @@
 #include "business/Modelo/usuario.hpp"
+#include "business/fachadas/manterTurma.hpp"
 
 namespace Modelo{
 
@@ -89,5 +90,15 @@ namespace Modelo{
 
     void Usuario::setTurmas(std::list<int> turmas) {
         this->turmas = std::move(turmas);
+    }
+
+    std::list<Prova> Usuario::getProvasPendentes(){
+        std::list<Prova> lista={};
+        Business::ManterTurma manterTurma;
+        for (std::list<int>::iterator it = this->turmas.begin(); it != this->turmas.end(); ++it){
+            Turma* t=manterTurma.pesquisarTurma(*it);
+            lista.splice( std::end( lista ), t->getProvasPendentes() );
+        }
+        return lista;
     }
 }

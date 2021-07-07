@@ -6,6 +6,7 @@
 #include "business/Modelo/questao.hpp"
 #include "business/Modelo/alternativa.hpp"
 #include "business/fachadas/manterTurma.hpp"
+#include "gui/TelaProvaEscolhidaProfessor.hpp"
 #include "gui/TerminalUteis.hpp"
 
 namespace GUI{

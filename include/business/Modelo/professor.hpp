@@ -15,6 +15,7 @@ namespace Modelo{
             bool possuiTurma(int);
             void adicionarTurma(int);
             void removerTurma(int);
+            void finalizarDisponibilidadeProva(int);
         private:
     };
 }
