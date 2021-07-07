@@ -139,9 +139,9 @@ namespace GUI{
             std::cout<<"-------------------\n\n";
 
             if(tentouCadastro && tentativaCadastroSucesso){
-                std::cout<<"Cadastro feito com sucesso!\n";
+                std::cout<<"Cadastro feito com sucesso!\n\n";
             }else if(tentouCadastro && !tentativaCadastroSucesso){
-                std::cout<<"Cadastro nao completado, tente novamente!\n";
+                std::cout<<"Cadastro nao completado, tente novamente!\n\n";
             }
 
             if(opcaoInvalida){

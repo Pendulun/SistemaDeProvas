@@ -31,6 +31,7 @@ namespace GUI{
     TelaProvaEscolhidaProfessor::OpcaoMenuProvaEscolhidaProfessor TelaProvaEscolhidaProfessor::mostrarOpcoesMenu(){
         std::string opcaoEscolhida = "";
         std::cout<<"Escolha o numero da opcao desejada:\n";
+        
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::EDITAR<<" - Editar\n";
         if(this->prova.isNotasLiberadas()){
             std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Nao Liberar Notas para alunos visualizarem\n";
@@ -38,6 +39,12 @@ namespace GUI{
             std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Liberar Notas para alunos visualizarem\n";
         }
         
+        if(this->prova.getStatus()==Modelo::Status::OPEN){
+            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Fechar Prova para os Alunos\n";
+        }else if(this->prova.getStatus()==Modelo::Status::PENDING){
+            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Disponibilizar Prova para os Alunos\n";
+        }
+
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::RECORRIGIR<<" - Re-Corrigir\n";
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::VOLTAR<<" - Voltar\n";
         std::cin>>opcaoEscolhida;
@@ -52,6 +59,8 @@ namespace GUI{
             return OpcaoMenuProvaEscolhidaProfessor::RECORRIGIR;
         }else if(opcaoEscolhida.compare(std::to_string(OpcaoMenuProvaEscolhidaProfessor::VOLTAR))==0){
             return OpcaoMenuProvaEscolhidaProfessor::VOLTAR;
+        }else if(opcaoEscolhida.compare(std::to_string(OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL))==0){
+            return OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL;
         }else{
             return OpcaoMenuProvaEscolhidaProfessor::OPERRADA;
         }
@@ -65,6 +74,39 @@ void TelaProvaEscolhidaProfessor::mapeiaEntrada(TelaProvaEscolhidaProfessor::Opc
             case OpcaoMenuProvaEscolhidaProfessor::EDITAR:
             {
                 std::cout<<"Ir para Tela de edicao de prova\n";
+                break;
+            }
+            case OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL:
+            {
+                if(this->prova.getStatus()==Modelo::Status::OPEN){
+                    std::cout<<"Tem certeza que fechar a prova para os Alunos?\n";
+                }else if(this->prova.getStatus()==Modelo::Status::PENDING){
+                    std::cout<<"Tem certeza que quer disponibilizar a prova para os Alunos?\n";
+                }
+                
+                std::cout<<"1 - Sim\n";
+                std::cout<<"2 - Nao\n";
+
+                while(true){
+                    std::string opcao = "";
+                    std::cin>>opcao;
+
+                    if(opcao.compare("1")==0){
+                        if(this->prova.getStatus()==Modelo::Status::OPEN){
+                            this->prova.setStatus(Modelo::Status::PENDING);
+                        }else if(this->prova.getStatus()==Modelo::Status::PENDING){
+                            this->prova.setStatus(Modelo::Status::OPEN);
+                        }
+                        Business::ManterTurma manterTurma;
+                        manterTurma.atualizarProvaEmTurma(this->idTurma, this->prova);
+                        
+                        break;
+                    }else if(opcao.compare("2")==0){
+                        break;
+                    }else{
+                        std::cout<<"Opcao invalida! Tente novamente.\n";
+                    }
+                }
                 break;
             }
             case OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS:

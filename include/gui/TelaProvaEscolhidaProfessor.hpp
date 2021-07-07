@@ -4,6 +4,7 @@
 #include <string>
 #include "business/fachadas/manterTurma.hpp"
 #include "business/Modelo/prova.hpp"
+#include "business/Modelo/status.hpp"
 #include "gui/TerminalUteis.hpp"
 
 namespace GUI{
@@ -13,8 +14,8 @@ namespace GUI{
             TelaProvaEscolhidaProfessor(int, Modelo::Prova prova);
 
         private:
-            enum OpcaoMenuProvaEscolhidaProfessor{EDITAR = 1,
-             LIBERARNOTAS = 2, RECORRIGIR = 3, VOLTAR = 4, OPERRADA = 5};
+            enum OpcaoMenuProvaEscolhidaProfessor{EDITAR = 1, DISPONIVEL=2,
+             LIBERARNOTAS = 3, RECORRIGIR = 4, VOLTAR = 5, OPERRADA = 6};
             void mostrarSaudacoes();
             OpcaoMenuProvaEscolhidaProfessor mostrarOpcoesMenu();
             void mapeiaEntrada(OpcaoMenuProvaEscolhidaProfessor);
