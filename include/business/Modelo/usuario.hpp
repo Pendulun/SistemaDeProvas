@@ -3,6 +3,8 @@
 #include <string>
 #include <list>
 #include "business/Modelo/tipoUsuario.hpp"
+#include "business/Modelo/turma.hpp"
+#include "business/Modelo/prova.hpp"
 namespace Modelo{
     class Usuario{
         protected:
@@ -31,6 +33,7 @@ namespace Modelo{
             Usuario(int id, TipoUsuario, std::string nome, std::string login, std::string senha);
             Usuario(int id, TipoUsuario, std::string login, std::string senha);
             Usuario();
+            std::list<Prova> getProvasPendentes();
     };
 }
 #endif

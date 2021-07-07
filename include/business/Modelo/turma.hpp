@@ -23,6 +23,7 @@ namespace Modelo{
             std::list<Prova> getProvas();
             void adicionarProva(Modelo::Prova);
             std::list<Prova> getProvasPendentes();
+            Prova* getProvaPorID(int);
         private:
             std::list<Prova> provas;
             std::set<int> idsAlunos;

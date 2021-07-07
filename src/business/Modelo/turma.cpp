@@ -68,4 +68,13 @@ namespace Modelo{
         return lista;
     }
 
+    Prova* Turma::getProvaPorID(int id){
+        for (std::list<Prova>::iterator it = this->provas.begin(); it != this->provas.end(); ++it){
+            if (it->getId()==id){
+                return &(*it);
+            }
+        }
+        return nullptr;
+    }
+
 }
