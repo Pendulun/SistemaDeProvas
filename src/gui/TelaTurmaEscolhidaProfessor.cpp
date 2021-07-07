@@ -15,7 +15,7 @@ namespace GUI{
         while(!voltar){
 
             std::cout<<"---------------------------------------\n";
-            std::cout<<"TELA DA TURMA "<<this->turma.getNome()<<std::endl;
+            std::cout<<"TELA DA TURMA "<<this->turma.getNome()<<" ID: "<<this->turma.getId()<<std::endl;
             std::cout<<"---------------------------------------\n\n";
 
             std::cout<<"Escolha a opcao:\n\n";
@@ -285,11 +285,6 @@ namespace GUI{
     }
 
     void TelaTurmaEscolhidaProfessor::listarProvas(){
-
-        /*Modelo::Prova provaTesteAdicionada("Nome Prova 1");
-        Modelo::Prova provaTesteAdicionada2("Nome Prova 2");
-        this->turma.adicionarProva(provaTesteAdicionada);
-        this->turma.adicionarProva(provaTesteAdicionada2);*/
 
         bool voltar = false;
 
