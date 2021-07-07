@@ -81,7 +81,7 @@ namespace Modelo
     }
 
     Modelo::ProvaResolvida Prova::getProvaResolvidaAluno(int idAluno){
-        this->submissoesAlunos.find(idAluno)->second;
+        return this->submissoesAlunos.find(idAluno)->second;
     }
 
     void Prova::mostrarProva(){
