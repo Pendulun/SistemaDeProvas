@@ -134,6 +134,10 @@ namespace Persistence{
         usuario->setSenha(jsonObject->getStringPropertyByPath({key, "senha"}));
         usuario->setLogin(jsonObject->getStringPropertyByPath({key, "login"}));
         usuario->setId(jsonObject->getNumberPropertyByPath({key, "id"}));
+        auto turmas = jsonObject->getIntArrayPropertyByPath({key, "turmas"});
+        std::list<int> turmasUsuario(turmas.begin(),turmas.end());
+        usuario->setTurmas(turmasUsuario);
+
         usuario->setTipoUsuario(tipo);
 
         return usuario;

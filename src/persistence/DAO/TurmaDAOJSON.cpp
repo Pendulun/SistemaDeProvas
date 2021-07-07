@@ -157,6 +157,7 @@ namespace Persistence{
         jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "dataInicio"},prova.getDataInicio());
         jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "dataFinal"},prova.getDataFinal());
         jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "status"},(int)prova.getStatus());
+        jsonObject->setBoolPropertyByPath({keyTurma,"provas",keyProva, "notasLiberadas"},prova.isNotasLiberadas());
         auto assuntos =  prova.getAssuntos();
         std::vector<std::string> assuntosInserir(assuntos.begin(),assuntos.end());
         jsonObject->setStringArrayPropertyByPath({keyTurma,"provas",keyProva, "assuntos"},assuntosInserir);
@@ -191,6 +192,7 @@ namespace Persistence{
         prova->setDataFinal(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva, "dataFinal"}));
         prova->setDataInicio(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva, "dataFinal"}));
         prova->setStatus((Modelo::Status)jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva, "status"}));
+        prova->setNotasLiberadas(jsonObject->getBoolPropertyByPath({keyTurma,"provas",keyProva, "notasLiberadas"}));
 
         auto assuntos = jsonObject->getStringArrayPropertyByPath({keyTurma,"provas",keyProva, "assuntos"});
         for(auto assunto : assuntos) {
