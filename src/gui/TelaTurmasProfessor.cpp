@@ -165,7 +165,7 @@ namespace GUI{
             std::cout<<"Digite o nome da nova turma ou \""<<OpcoesMenuTurmasProfessor::VOLTAR<<"\" para voltar\n";
             std::getline(std::cin, nomeTurma);
             GUI::TerminalUteis terminalUtil;
-            terminalUtil.limparTerminalEEntrada();
+            terminalUtil.limparTerminal();
 
             if(nomeTurma.compare(std::to_string(OpcoesMenuTurmasProfessor::VOLTAR))!=0){
                 if(this->confirmarNomeNovaTurma(nomeTurma)){
