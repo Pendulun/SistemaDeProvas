@@ -144,7 +144,7 @@ namespace GUI{
 
                         util.limparTerminal();
 
-                        TelaTurmaEscolhidaAluno telaTurmaEscolhidaAluno(turmaEscolhida);
+                        TelaTurmaEscolhidaAluno telaTurmaEscolhidaAluno(turmaEscolhida, this->aluno->getId());
                         telaTurmaEscolhidaAluno.show();
 
                         break;
