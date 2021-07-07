@@ -17,6 +17,8 @@ namespace Business{
             cadastrou = Application::getInstance()->getUsuarioDAO()->cadastrarEmTurma(*aluno, idTurma);
             if(cadastrou){
                 aluno->adicionarTurma(idTurma);
+                Business::ManterUsuario manterUsuario;
+                manterUsuario.atualizar(*aluno);
             }
         }else{
             cadastrou = false;

@@ -5,6 +5,7 @@
 #include "business/Modelo/aluno.hpp"
 #include "business/Modelo/turma.hpp"
 #include "business/fachadas/manterTurma.hpp"
+#include "business/fachadas/manterUsuario.hpp"
 #include "business/fachadas/excecoes/AlunoNotFoundException.hpp"
 
 namespace Business{
