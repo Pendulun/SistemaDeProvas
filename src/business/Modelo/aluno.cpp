@@ -9,7 +9,6 @@ namespace Modelo{
                 return true;
             }
         }
-
         return false;
     }
 
@@ -37,11 +36,16 @@ namespace Modelo{
 
     void Aluno::submeterTentativa(int idTurma,int idProva,ProvaResolvida respostas){
         Prova* p=this->findProvaPorID(idTurma,idProva);
-        p->submeterProva(this->id,respostas);
+        if(p!=nullptr){
+            p->submeterProva(this->id,respostas);
+        }
     }
 
     int Aluno::getPontuacaoEmProva(int idTurma,int idProva){
         Prova* p=this->findProvaPorID(idTurma,idProva);
-        return p->notaDeTentativaDoAluno(this->id); //retorna -1 se não foi encontrada uma submissão já corrigida
+        if(p!=nullptr){
+            return p->notaDeTentativaDoAluno(this->id); //retorna -1 se não foi encontrada uma submissão já corrigida
+        }
+        return -1;
     }
 }

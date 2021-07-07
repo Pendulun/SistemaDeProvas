@@ -16,7 +16,7 @@ namespace Modelo{
             void adicionarTurma(int);
             void removerTurma(int);
             void submeterTentativa(int,int,ProvaResolvida);
-            int getPontuacaoEmProva(int,int);
+            int getPontuacaoEmProva(int,int); //retorna -1 se não foi encontrada uma submissão já corrigida
         private:
             Prova* findProvaPorID(int,int);
     };
