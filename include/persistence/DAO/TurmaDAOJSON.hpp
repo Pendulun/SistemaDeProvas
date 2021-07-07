@@ -26,6 +26,9 @@ namespace Persistence {
         int cadastrarProva(int,Modelo::Prova) override;
         bool atualizarProva(int,Modelo::Prova) override;
         Modelo::Prova* pesquisarProva(int,int) override;
+        int salvarSubmissaoProva(int idAluno, int idTurma, int idProva, Modelo::ProvaResolvida submissao) override;
+        Modelo::ProvaResolvida* buscarSubmissaoProva(int, int, int) override;
+        std::list<Modelo::ProvaResolvida*> listarTodasSubmissoesProva(int, int) override;
         ~TurmaDAOJSON() override;
 
     private:

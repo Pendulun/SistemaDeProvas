@@ -161,6 +161,7 @@ namespace Persistence{
         std::vector<std::string> assuntosInserir(assuntos.begin(),assuntos.end());
         jsonObject->setStringArrayPropertyByPath({keyTurma,"provas",keyProva, "assuntos"},assuntosInserir);
         jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva, "questoes"});
+        jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos"});
 
         for(auto questao : prova.getQuestaos()) {
             cadastrarQuestao(idTurma,prova.getId(),questao);
@@ -239,6 +240,65 @@ namespace Persistence{
                                              "alternativas", keyQuestao, "texto"}));
 
         return alternativa ;
+    }
+
+    int TurmaDAOJSON::salvarSubmissaoProva(int idAluno, int idTurma, int idProva, Modelo::ProvaResolvida submissao) {
+        std::string keyAluno = std::to_string(idAluno);
+        std::string keyTurma = std::to_string(idTurma);
+        std::string keyProva = std::to_string(idProva);
+
+        if (!jsonObject->containsPath({keyTurma,"provas",keyProva}))
+            return -1;
+
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"pontuacao"},submissao.getPontuacao());
+        jsonObject->setBoolPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"corrigida"},submissao.isCorrigida());
+        auto alternativas =  submissao.getIdsAlternativasMarcadas();
+        std::vector<int> alternativasInserir(alternativas.begin(),alternativas.end());
+
+        jsonObject->setIntArrayPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"idsAlternativasMarcadas"},alternativasInserir);
+
+
+        return 0;
+    }
+
+    Modelo::ProvaResolvida *TurmaDAOJSON::buscarSubmissaoProva(int idAluno, int idTurma, int idProva) {
+        std::string keyAluno = std::to_string(idAluno);
+        std::string keyTurma = std::to_string(idTurma);
+        std::string keyProva = std::to_string(idProva);
+
+        if (!jsonObject->containsPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno}))
+            return nullptr;
+
+        auto submissao = new Modelo::ProvaResolvida();
+
+        submissao->setPontuacao(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"pontuacao"}));
+        submissao->setCorrigida(jsonObject->getBoolPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"corrigida"}));
+
+        auto alternativas =  jsonObject->getIntArrayPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos",keyAluno,"idsAlternativasMarcadas"});
+        for(auto alternativa : alternativas) {
+            submissao->adicionarIdAlternativasMarcadas(alternativa);
+        }
+
+
+        return submissao;
+    }
+
+    std::list<Modelo::ProvaResolvida *> TurmaDAOJSON::listarTodasSubmissoesProva(int idTurma, int idProva) {
+        std::string keyTurma = std::to_string(idTurma);
+        std::string keyProva = std::to_string(idProva);
+
+        if (!jsonObject->containsPath({keyTurma,"provas",keyProva, "submissoesAlunos"}))
+            return std::list<Modelo::ProvaResolvida *>();
+
+        std::list<Modelo::ProvaResolvida *> submissoes;
+
+        for(auto key : jsonObject->getObjectKeys({keyTurma,"provas",keyProva, "submissoesAlunos"})) {
+            auto submissao = buscarSubmissaoProva(std::stoi(key),idTurma,idProva);
+            if (submissao != nullptr)
+                submissoes.push_back(submissao);
+        }
+
+        return submissoes;
     }
 
 
