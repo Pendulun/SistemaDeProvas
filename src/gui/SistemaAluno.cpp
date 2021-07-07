@@ -24,7 +24,8 @@ namespace GUI{
             {
             case OpcaoMenuInicialAluno::TURMAS:
             {
-                std::cout<<"Ir para Tela Turmas Aluno\n";
+                TelaTurmasAluno telaTurmasAluno(this->aluno);
+                telaTurmasAluno.show();
                 break;
             }
             case OpcaoMenuInicialAluno::PERFIL:

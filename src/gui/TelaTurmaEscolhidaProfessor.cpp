@@ -355,11 +355,8 @@ namespace GUI{
                         }
 
                         util.limparTerminal();
-
-                        std::cout<<"Vai para TelaProvaEscolhidaProfessor\n";
-                        //TelaProvaEscolhidaProfessor telaProvaEscolhidaProfessor(provaEscolhida);
-                        //telaProvaEscolhidaProfessor.show();
-
+                        GUI::TelaProvaEscolhidaProfessor telaProvaEscolhida(provaEscolhida);
+                        telaProvaEscolhida.show();
                         break;
                     }
                     else if(opcao == i){

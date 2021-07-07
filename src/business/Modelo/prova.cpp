@@ -142,4 +142,13 @@ namespace Modelo
     void Prova::submeterProva(int id,ProvaResolvida tentativa){
         this->submissoesAlunos.insert(std::pair<int,Modelo::ProvaResolvida>(id,tentativa));
     }
+    void Prova::setNotasLiberadas(bool notasLiberadas){
+        this->notasLiberadas = notasLiberadas;
+    }
+
+    bool Prova::isNotasLiberadas(){
+        return this->notasLiberadas;
+    }
+
+    
 }
