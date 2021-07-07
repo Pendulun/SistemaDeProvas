@@ -163,4 +163,58 @@ namespace GUI{
 
         }
     }
+
+    void TelaTurmasAluno::cadastrarEmNovaTurma(){
+
+        TerminalUteis util;
+
+        std::string opcao;
+
+        bool voltar = false;
+        while(!voltar){
+            mostrarCabecalhoCadastroNovaTurma();
+            std::cout<<"1 - Digitar id da turma\n";
+            std::cout<<"2 - Voltar\n";
+            
+            while(true){
+                std::cin>>opcao;
+
+                if(opcao.compare("1")==0){
+                    util.limparTerminal();
+                    std::cout<<"Digite o id (numero inteiro) da turma: \n";
+                    while(true){
+                        try{
+                            int id;
+                            std::cin>>id;
+                            
+                            Business::ManterAluno manterAluno;
+                            bool entrouNaTurma = manterAluno.cadastrarEmNovaTurma(this->aluno, id);
+
+                            if(entrouNaTurma){
+                                util.limparTerminal();
+                                std::cout<<"Cadastro na turma realizado com sucesso!\n";
+                            }
+                            else{
+                                std::cout<<"Nao foi possivel cadastrar na turma.\n";
+                            }
+
+                            break;
+                        }catch(const std::exception& e){
+                            std::cout<<"Entrada invalida\n";
+                        }
+                    }
+                    
+
+                    break;
+                }else if(opcao.compare("2")==0){
+                    voltar = true;
+                    util.limparTerminal();
+                    break;
+                }else{
+                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+                }
+
+            }
+        }
+    }
 }
