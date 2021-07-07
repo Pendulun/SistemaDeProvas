@@ -57,6 +57,8 @@ namespace Modelo {
         void setNotasLiberadas(bool);
         bool isNotasLiberadas();
         void mostrarProva();
+        bool alunoFezProva(int);
+        Modelo::ProvaResolvida getProvaResolvidaAluno(int);
 
         void submeterProva(int,ProvaResolvida);
         int notaDeTentativaDoAluno(int);

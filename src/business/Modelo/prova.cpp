@@ -70,6 +70,20 @@ namespace Modelo
         return this->assuntos;
     }
 
+    bool Prova::alunoFezProva(int idAluno){
+        std::map<int,Modelo::ProvaResolvida>::iterator it;
+        it = this->submissoesAlunos.find(idAluno);
+        if(it != this->submissoesAlunos.end()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    Modelo::ProvaResolvida Prova::getProvaResolvidaAluno(int idAluno){
+        this->submissoesAlunos.find(idAluno)->second;
+    }
+
     void Prova::mostrarProva(){
         std::cout<<"A prova ocorre entre os dias: "<<this->dataInicio<<" e "<<this->dataFinal<<std::endl;
         std::cout<<"O titulo da prova eh: "<<this->nome<<std::endl;
