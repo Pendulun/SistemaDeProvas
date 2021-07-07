@@ -1,4 +1,5 @@
 #include "business/Modelo/aluno.hpp"
+#include "business/fachadas/manterTurma.hpp"
 
 namespace Modelo{
     bool Aluno::isEmTurma(int idTurma){
@@ -25,5 +26,15 @@ namespace Modelo{
                 break;
             }
         }
+    }
+
+    std::list<Prova> Aluno::getProvasPendentes(){
+        std::list<Prova> lista={};
+        Business::ManterTurma manterTurma;
+        for (std::list<int>::iterator it = this->turmas.begin(); it != this->turmas.end(); ++it){
+            Turma* t=manterTurma.pesquisarTurma(*it);
+            lista.splice( std::end( lista ), t->getProvasPendentes() );
+        }
+        return lista;
     }
 }

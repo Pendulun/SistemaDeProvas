@@ -3,6 +3,8 @@
 #include <list>
 #include "business/Modelo/usuario.hpp"
 #include "business/Modelo/tipoUsuario.hpp"
+#include "business/Modelo/turma.hpp"
+#include "business/Modelo/prova.hpp"
 
 namespace Modelo{
     class Aluno : public Usuario{
@@ -14,6 +16,7 @@ namespace Modelo{
             bool isEmTurma(int);
             void adicionarTurma(int);
             void removerTurma(int);
+            std::list<Prova> getProvasPendentes();
         private:
     };
 }

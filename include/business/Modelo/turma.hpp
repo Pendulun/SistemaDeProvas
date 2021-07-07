@@ -4,6 +4,7 @@
 #include <set>
 #include <list>
 #include "business/Modelo/prova.hpp"
+#include "business/Modelo/status.hpp"
 
 namespace Modelo{
     class Turma {
@@ -21,6 +22,7 @@ namespace Modelo{
             void setNome(std::string);
             std::list<Prova> getProvas();
             void adicionarProva(Modelo::Prova);
+            std::list<Prova> getProvasPendentes();
         private:
             std::list<Prova> provas;
             std::set<int> idsAlunos;

@@ -57,4 +57,15 @@ namespace Modelo{
     void Turma::setAlunosCadastrados(std::set<int> alunoIds) {
         this->idsAlunos = std::move(alunoIds);
     }
+
+    std::list<Prova> Turma::getProvasPendentes(){
+        std::list<Prova> lista={};
+        for (std::list<Prova>::iterator it = this->provas.begin(); it != this->provas.end(); ++it){
+            if (it->getStatus()==Status::PENDING){
+                lista.push_back(*it);
+            }
+        }
+        return lista;
+    }
+
 }
