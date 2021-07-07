@@ -163,14 +163,25 @@ namespace GUI{
         while(!voltar){
             this->mostrarCabecalhoCadastroNovaTurma();
             std::cout<<"Digite o nome da nova turma ou \""<<OpcoesMenuTurmasProfessor::VOLTAR<<"\" para voltar\n";
-            std::cin.ignore();
             std::getline(std::cin, nomeTurma);
             GUI::TerminalUteis terminalUtil;
             terminalUtil.limparTerminalEEntrada();
 
             if(nomeTurma.compare(std::to_string(OpcoesMenuTurmasProfessor::VOLTAR))!=0){
                 if(this->confirmarNomeNovaTurma(nomeTurma)){
-                    //Tentar turma com o manterProfessor
+                    Modelo::Turma turma;
+                    turma.setNome(nomeTurma);
+
+                    Business::ManterTurma manterTurma;
+                    bool cadastrou = manterTurma.cadastrarTurma(turma, this->professor);
+
+                    if(cadastrou){
+                        std::cout<<"Turma cadastrada com sucesso!\n";
+                    }
+                    else{
+                        std::cout<<"Nao foi possivel cadastrar a turma.\n";
+                    }
+
                     voltar = true;
                 }else{
                     //roda o while de novo
