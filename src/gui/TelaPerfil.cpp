@@ -57,6 +57,7 @@ namespace GUI{
         userNovo.setNome(this->user.getNome());
         userNovo.setLogin(this->user.getLogin());
         userNovo.setSenha(this->user.getSenha());
+        userNovo.setTipoUsuario(this->user.getTipoUsuario());
 
         bool voltar = false;
 
