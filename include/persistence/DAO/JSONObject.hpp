@@ -23,6 +23,7 @@ namespace Persistence {
         nlohmann::json getObjectPropertyByPath(const std::vector<std::string>&);
         std::vector<int> getIntArrayPropertyByPath(const std::vector<std::string>&);
         std::vector<std::string> getStringArrayPropertyByPath(const std::vector<std::string>&);
+        std::vector<std::string> getObjectKeys(const std::vector<std::string>&);
 
         std::string pesquisar(std::string,nlohmann::json);
 

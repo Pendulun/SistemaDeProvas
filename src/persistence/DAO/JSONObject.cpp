@@ -166,5 +166,16 @@ namespace Persistence  {
         return document.contains(nlohmann::json::json_pointer(getPathFromVector(Path)));
     }
 
+    std::vector<std::string> JSONObject::getObjectKeys(const std::vector<std::string> &Path) {
+        auto property = document[nlohmann::json::json_pointer(getPathFromVector(Path))];
+        std::vector<std::string> keys;
+
+        for (auto row = property.begin(); row != property.end(); ++row) {
+            keys.push_back(row.key());
+        }
+
+        return keys;
+    }
+
 
 }

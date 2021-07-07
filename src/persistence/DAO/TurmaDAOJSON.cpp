@@ -184,7 +184,6 @@ namespace Persistence{
         if (!jsonObject->containsPath({keyTurma,"provas",keyProva}))
             return nullptr;
         Modelo::Prova* prova = new Modelo::Prova();
-        //jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva, "questoes"});
 
         prova->setNome(jsonObject->getStringPropertyByPath({keyTurma,"provas",keyProva, "nome"}));
         prova->setId(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva, "id"}));
@@ -195,6 +194,11 @@ namespace Persistence{
         auto assuntos = jsonObject->getStringArrayPropertyByPath({keyTurma,"provas",keyProva, "assuntos"});
         for(auto assunto : assuntos) {
             prova->addAssunto(assunto);
+        }
+
+        for(auto key : jsonObject->getObjectKeys({keyTurma,"provas",keyProva, "questoes"})) {
+            auto questao = buscarQuestao(idTurma,idProva,std::stoi(key));
+            prova->addQuestao(*questao);
         }
 
         return prova;
@@ -212,12 +216,10 @@ namespace Persistence{
         questao->setNumeroQuestao(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "numeroQuestao"}));
         questao->setAlternativaCorreta(jsonObject->getNumberPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativaCorreta"}));
 
-
-        //jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas"});
-
-
-
-
+        for(auto key : jsonObject->getObjectKeys({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas"})) {
+            auto alternativa = buscarAlternativa(idTurma,idProva,numQuestao,std::stoi(key));
+            questao->addAlternativa(*alternativa);
+        }
 
         return questao;
     }
@@ -236,7 +238,7 @@ namespace Persistence{
         alternativa->setTexto(jsonObject->getStringPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao,
                                              "alternativas", keyQuestao, "texto"}));
 
-        return alternativa  ;
+        return alternativa ;
     }
 
 

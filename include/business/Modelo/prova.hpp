@@ -39,6 +39,7 @@ namespace Modelo {
         std::list<Questao> getQuestaos();
         void setQuestao(Questao, Questao);
         void RemoveQuestao(Questao);
+        void addQuestao(Questao);
         void InsertQuestao(Questao);
         int getDataInicio();
         void setDataInicio(int);
