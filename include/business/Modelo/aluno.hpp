@@ -16,7 +16,9 @@ namespace Modelo{
             void adicionarTurma(int);
             void removerTurma(int);
             void submeterTentativa(int,int,ProvaResolvida);
+            int getPontuacaoEmProva(int,int);
         private:
+            Prova* findProvaPorID(int,int);
     };
 }
 #endif

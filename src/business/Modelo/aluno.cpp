@@ -29,10 +29,19 @@ namespace Modelo{
         }
     }
 
-    void Aluno::submeterTentativa(int idTurma,int idProva,ProvaResolvida respostas){
+    Prova* Aluno::findProvaPorID(int idTurma,int idProva){
         Business::ManterTurma manterTurma;
         Turma* t=manterTurma.pesquisarTurma(idTurma);
-        Prova* p=t->getProvaPorID(idProva);
+        return t->getProvaPorID(idProva);
+    }
+
+    void Aluno::submeterTentativa(int idTurma,int idProva,ProvaResolvida respostas){
+        Prova* p=this->findProvaPorID(idTurma,idProva);
         p->submeterProva(this->id,respostas);
+    }
+
+    int Aluno::getPontuacaoEmProva(int idTurma,int idProva){
+        Prova* p=this->findProvaPorID(idTurma,idProva);
+        return p->notaDeTentativaDoAluno(this->id); //retorna -1 se não foi encontrada uma submissão já corrigida
     }
 }

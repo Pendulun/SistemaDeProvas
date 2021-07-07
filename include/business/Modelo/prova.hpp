@@ -59,6 +59,7 @@ namespace Modelo {
         void mostrarProva();
 
         void submeterProva(int,ProvaResolvida);
+        int notaDeTentativaDoAluno(int);
     };
 }
 

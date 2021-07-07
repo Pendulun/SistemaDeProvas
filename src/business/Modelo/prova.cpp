@@ -172,4 +172,15 @@ namespace Modelo
             it->second.setPontuacao(pontos);
         }
     }
+
+    int Prova::notaDeTentativaDoAluno(int idAluno){
+        std::map<int,Modelo::ProvaResolvida>::iterator it;       
+        for (it = this->submissoesAlunos.begin(); it != this->submissoesAlunos.end(); it++)
+        {
+            if(it->first==idAluno&&it->second.isCorrigida()){
+                return it->second.getPontuacao();
+            }
+        }
+        return -1;
+    }
 }
