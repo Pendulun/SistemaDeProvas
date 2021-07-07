@@ -170,7 +170,12 @@ namespace Persistence{
         jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva, "questoes"});
         jsonObject->setEmptyObjectPropertyByPath({keyTurma,"provas",keyProva, "submissoesAlunos"});
 
+        int numQuestao = 0;
         for(auto questao : prova.getQuestaos()) {
+            numQuestao++;
+            if (questao.getNumeroQuestao() <= 0) {
+                questao.setNumeroQuestao(numQuestao);
+            }
             cadastrarQuestao(idTurma,prova.getId(),questao);
         }
     }
