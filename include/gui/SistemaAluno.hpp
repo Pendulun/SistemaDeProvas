@@ -5,6 +5,7 @@
 #include "gui/TerminalUteis.hpp"
 #include "gui/TelaPerfil.hpp"
 #include "business/Modelo/aluno.hpp"
+#include "gui/TelaTurmasAluno.hpp"
 
 namespace GUI{
     class SistemaAluno : public SistemaUsuario{
