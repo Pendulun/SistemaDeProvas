@@ -85,7 +85,7 @@ namespace GUI{
                 if(dadosCorretos){
                     util.limparTerminal();
                     fezLogin = true;
-                    std::cout<<"ENTROU NO SISTEMA!!! \n";
+                    
                 }
                 else{
                     util.limparTerminal();
