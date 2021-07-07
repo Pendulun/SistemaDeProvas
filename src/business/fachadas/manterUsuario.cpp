@@ -7,15 +7,12 @@ namespace Business{
         Modelo::Usuario* user = new Modelo::Usuario();
         Application* app = Application::getInstance();
         try{
-            std::cout<<"UM\n";
             if(!app->getUsuarioDAO()->loginExiste(login)){
                 user->setNome(nome);
                 user->setLogin(login);
                 user->setSenha(senha);
                 user->setTipoUsuario(tipoUsuario);
-                std::cout<<"DOIS\n";
                 int idRetornado = app->getUsuarioDAO()->cadastrar(*user);
-                std::cout<<"TRES\n";
                 if(idRetornado<0){
                     cadastrou = false;
                 }else{
@@ -35,7 +32,6 @@ namespace Business{
     }
 
     bool ManterUsuario::atualizarUsuario(Modelo::Usuario& usuarioVelho, Modelo::Usuario& usuarioNovo){
-        /*
         Application* app = Application::getInstance();
         if(app->getUsuarioDAO()->atualizar(usuarioNovo)){
             usuarioVelho.setLogin(usuarioNovo.getLogin());
@@ -45,31 +41,15 @@ namespace Business{
         }else{
             return false;
         }
-        */
-        return true;
     }
 
-    Modelo::Usuario* ManterUsuario::login(std::string login,std::string senha){
-        // TODO
-        /*
+    Modelo::Usuario* ManterUsuario::login(std::string login,std::string senha){ 
         Application* app = Application::getInstance();
         Modelo::Usuario* usuarioLogado = app->getUsuarioDAO()->login(login, senha);
         if(usuarioLogado == nullptr){
             throw Business::UserNotFoundException("Usuario nao encontrado");
         }
         return usuarioLogado;
-        */
-        int idUser = 1;
-        std::string nomeUser = "Usuario Teste";
-        std::string loginUser = login;
-        std::string senhaUser = senha;
-        Modelo::TipoUsuario tipo = Modelo::TipoUsuario::PROFESSOR;
-        Modelo::Usuario* dummyUser = new Modelo::Usuario(idUser, tipo, nomeUser , loginUser, senhaUser);
-        if(dummyUser == nullptr){
-            throw Business::UserNotFoundException("Usuario nao encontrado");
-        }else{
-            return dummyUser;
-        }
     }
 
 
