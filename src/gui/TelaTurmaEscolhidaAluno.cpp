@@ -151,13 +151,13 @@ namespace GUI{
                     std::cin>>opcao;
                     util.limparEntrada();
 
-                    if(opcao>0 && opcao<=this->turma.getProvas().size()){
+                    if(opcao>0 && opcao<=provasRealizadas.size()){
                         util.limparTerminal();
 
                         Modelo::Prova provaEscolhida("Nome");
 
                         int j = 1;
-                        for(Modelo::Prova prova : this->turma.getProvas()){
+                        for(Modelo::Prova prova : provasRealizadas){
                             if(j == opcao){
                                 provaEscolhida = prova;
                                 break;
@@ -237,11 +237,19 @@ namespace GUI{
 
         while(!voltar){
 
+            std::list<Modelo::Prova> provasDisponiveis;
+
+            for(Modelo::Prova prova : this->turma.getProvas()){
+                if(prova.getStatus()==Modelo::Status::OPEN){
+                    provasDisponiveis.push_back(prova);
+                }
+            }
+
             std::cout<<"------------------\n";
             std::cout<<"PROVAS DISPONIVEIS\n";
             std::cout<<"------------------\n\n";
 
-            if(this->turma.getProvas().size()==0){
+            if(provasDisponiveis.size()==0){
                 std::cout<<"Aluno sem provas disponiveis para responder.\n\n";
                 std::cout<<"Digite 1 para voltar.\n";
 
@@ -267,7 +275,7 @@ namespace GUI{
                 std::cout<<"Escolha a prova:\n\n";
 
                 int i = 1;
-                for(Modelo::Prova prova : this->turma.getProvas()){
+                for(Modelo::Prova prova : provasDisponiveis){
                     std::cout<<i<<" - "<<prova.getNome()<<std::endl;
                     i++;
                 }
@@ -280,13 +288,13 @@ namespace GUI{
                     std::cin>>opcao;
                     util.limparEntrada();
 
-                    if(opcao>0 && opcao<=this->turma.getProvas().size()){
+                    if(opcao>0 && opcao<=provasDisponiveis.size()){
                         util.limparTerminal();
 
                         Modelo::Prova provaEscolhida("Nome");
 
                         int j = 1;
-                        for(Modelo::Prova prova : this->turma.getProvas()){
+                        for(Modelo::Prova prova : provasDisponiveis){
                             if(j == opcao){
                                 provaEscolhida = prova;
                                 break;
@@ -296,7 +304,28 @@ namespace GUI{
 
                         util.limparTerminal();
 
-                        std::cout<<"Vai para TelaProvaEscolhidaAluno\n";
+                        //std::cout<<"Vai para TelaProvaEscolhidaAluno\n";
+                        std::cout<<"Digite 1 para voltar.\n\n";
+
+                        provaEscolhida.mostrarProva();
+
+                        std::string opcao;
+
+                        while(true){
+
+                            std::cin>>opcao;
+                            util.limparEntrada();
+
+                            if(opcao.compare("1")==0){
+                                util.limparTerminal();
+                                voltar = true;
+                                break;
+                            }
+                            else{
+                                std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+                            }
+                        }
+                        
                         //TelaProvaEscolhidaProfessor telaProvaEscolhidaProfessor(provaEscolhida);
                         //telaProvaEscolhidaProfessor.show();
 

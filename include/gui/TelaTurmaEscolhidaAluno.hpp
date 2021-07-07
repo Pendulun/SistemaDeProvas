@@ -3,6 +3,7 @@
 #include <iostream>
 #include "business/Modelo/turma.hpp"
 #include "gui/TerminalUteis.hpp"
+#include "business/Modelo/status.hpp"
 
 namespace GUI{
     class TelaTurmaEscolhidaAluno{
