@@ -2,6 +2,7 @@
 #define SISTEMA_PROVAS_JSONOBJECT_HPP
 
 #include <string>
+#include <stdexcept>
 #include "libraries/nlohmann/json.hpp"
 
 namespace Persistence {
