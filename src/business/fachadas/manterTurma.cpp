@@ -2,8 +2,15 @@
 
 namespace Business{
 
-    bool ManterTurma::cadastrarTurma(const Modelo::Turma turma, Modelo::Professor* professor){
+    bool ManterTurma::cadastrarTurma(Modelo::Turma turma, Modelo::Professor* professor){
         int idTurmaCadastrada = -1;
+        std::list<Modelo::Turma> listaTurmasProfessor;
+        listaTurmasProfessor = Business::Application::getInstance()->getTurmaDAO()->pesquisar(professor->getTurmas());
+        for(Modelo::Turma turmaProf : listaTurmasProfessor){
+            if(turmaProf.getNome().compare(turma.getNome())==0){
+                return false;
+            }
+        }
         idTurmaCadastrada = Business::Application::getInstance()->getTurmaDAO()->cadastrar(turma);
         if(idTurmaCadastrada >=0){
             professor->adicionarTurma(idTurmaCadastrada);
