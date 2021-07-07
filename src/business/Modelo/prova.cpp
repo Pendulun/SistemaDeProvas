@@ -150,5 +150,23 @@ namespace Modelo
         return this->notasLiberadas;
     }
 
-    
+    void Prova::corrigirTentativas(){
+        std::map<int,Modelo::ProvaResolvida>::iterator it;       
+        for (it = this->submissoesAlunos.begin(); it != this->submissoesAlunos.end(); it++)
+        {
+            int pontos=0;
+            std::list<Questao>::iterator itCorreta=this->listaQuestoes.begin();
+            std::list<int> tentativa=it->second.getIdsAlternativasMarcadas();
+            std::list<int>::iterator itTentativa=tentativa.begin();
+            while(itCorreta!=this->listaQuestoes.end()){
+                if(itCorreta->getAlternativaCorreta()==*itTentativa){
+                    pontos+=itCorreta->getValor();
+                }
+                itCorreta++;
+                itTentativa++;
+            }
+            it->second.setCorrigida(true);
+            it->second.setPontuacao(pontos);
+        }
+    }
 }
