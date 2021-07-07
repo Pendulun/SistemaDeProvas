@@ -163,7 +163,8 @@ namespace GUI{
         while(!voltar){
             this->mostrarCabecalhoCadastroNovaTurma();
             std::cout<<"Digite o nome da nova turma ou \""<<OpcoesMenuTurmasProfessor::VOLTAR<<"\" para voltar\n";
-            std::cin>>nomeTurma;
+            std::cin.ignore();
+            std::getline(std::cin, nomeTurma);
             GUI::TerminalUteis terminalUtil;
             terminalUtil.limparTerminalEEntrada();
 
