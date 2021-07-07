@@ -3,6 +3,7 @@
 #include <list>
 #include "business/Modelo/usuario.hpp"
 #include "business/Modelo/tipoUsuario.hpp"
+#include "business/Modelo/provaResolvida.hpp"
 
 namespace Modelo{
     class Aluno : public Usuario{
@@ -14,6 +15,7 @@ namespace Modelo{
             bool isEmTurma(int);
             void adicionarTurma(int);
             void removerTurma(int);
+            void submeterTentativa(int,int,ProvaResolvida);
         private:
     };
 }

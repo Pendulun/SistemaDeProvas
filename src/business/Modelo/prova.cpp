@@ -139,5 +139,7 @@ namespace Modelo
         this->listaQuestoes.push_back(questao);
     }
 
-    
+    void Prova::submeterProva(int id,ProvaResolvida tentativa){
+        this->submissoesAlunos.insert(std::pair<int,Modelo::ProvaResolvida>(id,tentativa));
+    }
 }

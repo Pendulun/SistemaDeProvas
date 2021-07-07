@@ -1,4 +1,5 @@
 #include "business/Modelo/aluno.hpp"
+#include "business/fachadas/manterTurma.hpp"
 
 
 namespace Modelo{
@@ -28,5 +29,10 @@ namespace Modelo{
         }
     }
 
-    
+    void Aluno::submeterTentativa(int idTurma,int idProva,ProvaResolvida respostas){
+        Business::ManterTurma manterTurma;
+        Turma* t=manterTurma.pesquisarTurma(idTurma);
+        Prova* p=t->getProvaPorID(idProva);
+        p->submeterProva(this->id,respostas);
+    }
 }

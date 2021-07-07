@@ -29,7 +29,6 @@ namespace Modelo {
         std::map<int,Modelo::ProvaResolvida> submissoesAlunos;
         int id;
         Status status;
-
     public:
         Prova();
         Prova(std::string);                             //prova sem data definida
@@ -56,6 +55,8 @@ namespace Modelo {
         int getId();
 
         void mostrarProva();
+
+        void submeterProva(int,ProvaResolvida);
     };
 }
 
