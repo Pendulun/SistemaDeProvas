@@ -54,7 +54,8 @@ namespace Modelo {
         std::list<std::string> getAssuntos();
         void setId(int);
         int getId();
-
+        void setNotasLiberadas(bool);
+        bool isNotasLiberadas();
         void mostrarProva();
     };
 }

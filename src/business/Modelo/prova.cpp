@@ -139,5 +139,13 @@ namespace Modelo
         this->listaQuestoes.push_back(questao);
     }
 
+    void Prova::setNotasLiberadas(bool notasLiberadas){
+        this->notasLiberadas = notasLiberadas;
+    }
+
+    bool Prova::isNotasLiberadas(){
+        return this->notasLiberadas;
+    }
+
     
 }
