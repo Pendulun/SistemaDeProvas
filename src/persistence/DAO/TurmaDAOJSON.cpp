@@ -39,7 +39,7 @@ namespace Persistence{
             std::set<int> idSet(idArray.begin(),idArray.end());
             Turma->setAlunosCadastrados(idSet);
 
-            auto keyProvas = jsonObject->getObjectKeys({key, "idsAlunos"});
+            auto keyProvas = jsonObject->getObjectKeys({key, "provas"});
             for(auto keyProva : keyProvas) {
                 auto prova = pesquisarProva(Turma->getId(),std::stoi(keyProva));
                 Turma->adicionarProva(*prova);
