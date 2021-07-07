@@ -34,7 +34,7 @@ namespace GUI{
                 util.limparEntrada();
 
                 if(opcao.compare("1")==0){
-                    voltar = alterarPerfil();
+                    alterarPerfil();
                     break;
                 }
                 else if (opcao.compare("2")==0){
@@ -49,7 +49,7 @@ namespace GUI{
         }        
     }
 
-    bool TelaPerfil::alterarPerfil(){
+    void TelaPerfil::alterarPerfil(){
         TerminalUteis util;
         util.limparTerminal();
 
@@ -94,7 +94,6 @@ namespace GUI{
                     userNovo.setNome(alteracao);
                     util.limparTerminal();
                     break;
-                    //return false;
                 }
                 else if (opcao.compare("2")==0){
                     util.limparTerminal();
@@ -106,7 +105,6 @@ namespace GUI{
                     userNovo.setLogin(alteracao);
                     util.limparTerminal();
                     break;
-                    //return false;
                 }
                 else if (opcao.compare("3")==0){
                     util.limparTerminal();
@@ -118,7 +116,6 @@ namespace GUI{
                     userNovo.setSenha(alteracao);
                     util.limparTerminal();
                     break;
-                    //return false;
                 }
                 else if (opcao.compare("4")==0){
                     util.limparTerminal();

@@ -13,7 +13,7 @@ namespace GUI{
             
         private:
             Modelo::Usuario user;
-            bool alterarPerfil();
+            void alterarPerfil();
     };
 }
 #endif
