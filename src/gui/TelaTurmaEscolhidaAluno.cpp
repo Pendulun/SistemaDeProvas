@@ -304,8 +304,8 @@ namespace GUI{
 
                         util.limparTerminal();
 
-                        //std::cout<<"Vai para TelaProvaEscolhidaAluno\n";
-                        std::cout<<"Digite 1 para voltar.\n\n";
+                        std::cout<<"Vai para TelaProvaEscolhidaAluno\n";
+                        /*std::cout<<"Digite 1 para voltar.\n\n";
 
                         provaEscolhida.mostrarProva();
 
@@ -324,7 +324,7 @@ namespace GUI{
                             else{
                                 std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
                             }
-                        }
+                        }*/
                         
                         //TelaProvaEscolhidaProfessor telaProvaEscolhidaProfessor(provaEscolhida);
                         //telaProvaEscolhidaProfessor.show();
