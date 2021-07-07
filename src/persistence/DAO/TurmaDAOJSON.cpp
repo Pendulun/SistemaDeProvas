@@ -147,9 +147,9 @@ namespace Persistence{
         std::string keyQuestao = std::to_string(numQuestao);
         std::string keyAlternativa = std::to_string(alternativa.getNumeroAlternativa());
 
-        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas", keyQuestao, "numeroAlternativa"},
+        jsonObject->setIntPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas", keyAlternativa, "numeroAlternativa"},
                                          alternativa.getNumeroAlternativa());
-        jsonObject->setStringPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas", keyQuestao, "texto"},
+        jsonObject->setStringPropertyByPath({keyTurma,"provas",keyProva,"questoes", keyQuestao, "alternativas", keyAlternativa, "texto"},
                                          alternativa.getTexto());
 
     }
