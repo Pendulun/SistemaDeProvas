@@ -53,72 +53,97 @@ namespace GUI{
         TerminalUteis util;
         util.limparTerminal();
 
-        std::cout<<"-------------------\n";
-        std::cout<<"ALTERACAO DE PERFIL\n";
-        std::cout<<"-------------------\n\n";
+        Modelo::Usuario userNovo;
+        userNovo.setNome(this->user.getNome());
+        userNovo.setLogin(this->user.getLogin());
+        userNovo.setSenha(this->user.getSenha());
 
-        std::cout<<"Nome: "<<this->user.getNome()<<std::endl;
-        std::cout<<"Login: "<<this->user.getLogin()<<std::endl;
-        std::cout<<"Senha: "<<this->user.getSenha()<<std::endl;
+        bool voltar = false;
 
-        std::cout<<"\nDigite a opcao desejada:\n";
-        std::cout<<"1 - Alterar nome\n";
-        std::cout<<"2 - Alterar login\n";
-        std::cout<<"3 - Alterar senha\n";
-        std::cout<<"4 - Voltar\n\n";
+        while(!voltar){
 
-        std::string opcao;
-        std::string alteracao;
+            std::cout<<"-------------------\n";
+            std::cout<<"ALTERACAO DE PERFIL\n";
+            std::cout<<"-------------------\n\n";
 
-        while(true){
+            std::cout<<"Nome: "<<this->user.getNome()<<std::endl;
+            std::cout<<"Login: "<<this->user.getLogin()<<std::endl;
+            std::cout<<"Senha: "<<this->user.getSenha()<<std::endl;
 
-            std::cin>>opcao;
+            std::cout<<"\nDigite a opcao desejada:\n";
+            std::cout<<"1 - Alterar nome\n";
+            std::cout<<"2 - Alterar login\n";
+            std::cout<<"3 - Alterar senha\n";
+            std::cout<<"4 - Voltar\n\n";
 
-            if(opcao.compare("1")==0){
-                util.limparTerminal();
-                std::cout<<"Nome atual: "<<this->user.getNome()<<std::endl;
+            std::string opcao;
+            std::string alteracao;
 
-                std::cout<<"\nDigite o novo nome desejado: \n";
-                std::cin.ignore();
-                std::getline(std::cin, alteracao);
+            while(true){
 
-                this->user.setNome(alteracao);
-                util.limparTerminal();
+                std::cin>>opcao;
 
-                return false;
+                if(opcao.compare("1")==0){
+                    util.limparTerminal();
+                    std::cout<<"Nome atual: "<<this->user.getNome()<<std::endl;
+
+                    std::cout<<"\nDigite o novo nome desejado: \n";
+                    std::cin.ignore();
+                    std::getline(std::cin, alteracao);
+
+                    userNovo.setNome(alteracao);
+                    util.limparTerminal();
+                    break;
+                    //return false;
+                }
+                else if (opcao.compare("2")==0){
+                    util.limparTerminal();
+                    std::cout<<"Login atual: "<<this->user.getLogin()<<std::endl;
+                    
+                    std::cout<<"\nDigite o novo login desejado (SEM ESPACOS): \n";
+                    std::cin>>alteracao;
+
+                    userNovo.setLogin(alteracao);
+                    util.limparTerminal();
+                    break;
+                    //return false;
+                }
+                else if (opcao.compare("3")==0){
+                    util.limparTerminal();
+                    std::cout<<"Senha atual: "<<this->user.getSenha()<<std::endl;
+                    
+                    std::cout<<"\nDigite a nova senha desejada (SEM ESPACOS): \n";
+                    std::cin>>alteracao;
+
+                    userNovo.setSenha(alteracao);
+                    util.limparTerminal();
+                    break;
+                    //return false;
+                }
+                else if (opcao.compare("4")==0){
+                    util.limparTerminal();
+
+                    voltar = true;
+                    break;
+                }
+                else{
+                    std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
+                }
+            }  
+
+            if(!voltar){
+                Business::ManterUsuario manterUsuario;
+                bool atualizou = manterUsuario.atualizarUsuario(this->user, userNovo);
+
+                if(atualizou){
+                    std::cout<<"Perfil atualizado com sucesso!\n";
+                }
+                else{
+                    std::cout<<"Nao foi possivel atualizar o perfil.\n";
+                }
             }
-            else if (opcao.compare("2")==0){
-                util.limparTerminal();
-                std::cout<<"Login atual: "<<this->user.getLogin()<<std::endl;
-                
-                std::cout<<"\nDigite o novo login desejado (SEM ESPACOS): \n";
-                std::cin>>alteracao;
 
-                this->user.setLogin(alteracao);
-                util.limparTerminal();
-
-                return false;
-            }
-            else if (opcao.compare("3")==0){
-                util.limparTerminal();
-                std::cout<<"Senha atual: "<<this->user.getSenha()<<std::endl;
-                
-                std::cout<<"\nDigite a nova senha desejada (SEM ESPACOS): \n";
-                std::cin>>alteracao;
-
-                this->user.setSenha(alteracao);
-                util.limparTerminal();
-
-                return false;
-            }
-            else if (opcao.compare("4")==0){
-                util.limparTerminal();
-                return false;
-            }
-            else{
-                std::cout<<"OPCAO INVALIDA!!! Digite novamente.\n\n";
-            }
-        }          
+        }
         
     }
 

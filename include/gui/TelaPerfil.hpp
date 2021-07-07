@@ -3,6 +3,7 @@
 #include "business/Modelo/professor.hpp"
 #include "gui/TerminalUteis.hpp"
 #include "gui/TelaTurmasProfessor.hpp"
+#include "business/fachadas/manterUsuario.hpp"
 
 namespace GUI{
     class TelaPerfil {

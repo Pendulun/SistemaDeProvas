@@ -74,7 +74,7 @@ namespace Persistence  {
         if (Property.is_string())
             return Property;
         else
-            throw std::exception("Invalid Path");
+            throw std::exception();
     }
 
     double JSONObject::getNumberPropertyByPath(const std::vector<std::string>& Path) {
@@ -83,7 +83,7 @@ namespace Persistence  {
         if (Property.is_number())
             return Property;
         else
-            throw std::exception("Invalid Path");
+            throw std::exception();
     }
 
     bool JSONObject::getBoolPropertyByPath(const std::vector<std::string>& Path) {
@@ -92,7 +92,7 @@ namespace Persistence  {
         if (Property.is_boolean())
             return Property;
         else
-            throw std::exception("Invalid Path");
+            throw std::exception();
     }
 
     std::vector<int> JSONObject::getIntArrayPropertyByPath(const std::vector<std::string> &Path) {
