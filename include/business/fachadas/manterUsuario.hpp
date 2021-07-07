@@ -12,6 +12,7 @@ namespace Business{
         public:
             bool cadastrarUsuario(std::string, std::string, std::string, Modelo::TipoUsuario);
             bool atualizarUsuario(Modelo::Usuario&, Modelo::Usuario&);
+            bool atualizar(Modelo::Usuario&);
             Modelo::Usuario* login(std::string login,std::string senha);
     };
 }

@@ -7,6 +7,7 @@
 #include "business/Modelo/professor.hpp"
 #include "business/DAO/TurmaDAO.hpp"
 #include "business/fachadas/excecoes/TurmaNotFoundException.hpp"
+#include "business/fachadas/manterUsuario.hpp"
 
 namespace Business{
     class ManterTurma{

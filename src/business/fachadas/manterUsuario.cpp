@@ -42,6 +42,11 @@ namespace Business{
         }
     }
 
+    bool ManterUsuario::atualizar(Modelo::Usuario& usuario){
+        Application* app = Application::getInstance();
+        return app->getUsuarioDAO()->atualizar(usuario);
+    }
+
     Modelo::Usuario* ManterUsuario::login(std::string login,std::string senha){ 
         Application* app = Application::getInstance();
         Modelo::Usuario* usuarioLogado = app->getUsuarioDAO()->login(login, senha);

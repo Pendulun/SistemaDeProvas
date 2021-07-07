@@ -7,6 +7,8 @@ namespace Business{
         idTurmaCadastrada = Business::Application::getInstance()->getTurmaDAO()->cadastrar(turma);
         if(idTurmaCadastrada >=0){
             professor->adicionarTurma(idTurmaCadastrada);
+            Business::ManterUsuario manterUsuario;
+            manterUsuario.atualizar(*professor);
             return true;
         }else{
             return false;
