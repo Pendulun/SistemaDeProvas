@@ -23,7 +23,7 @@ namespace GUI{
 
     void TelaProvaEscolhidaProfessor::mostrarSaudacoes(){
         std::cout<<"------------------------------------------\n";
-        std::cout<<"TELA DE PROVA DE PROFESSOR\n";
+        std::cout<<"TELA DA PROVA "<<this->prova.getNome()<<std::endl;
         std::cout<<"------------------------------------------\n";
     }
 
@@ -32,9 +32,9 @@ namespace GUI{
         std::cout<<"Escolha o numero da opcao desejada:\n";
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::EDITAR<<" - Editar\n";
         if(this->prova.isNotasLiberadas()){
-            std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Liberar Notas para alunos visualizarem\n";
-        }else{
             std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Nao Liberar Notas para alunos visualizarem\n";
+        }else{
+            std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Liberar Notas para alunos visualizarem\n";
         }
         
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::RECORRIGIR<<" - Re-Corrigir\n";

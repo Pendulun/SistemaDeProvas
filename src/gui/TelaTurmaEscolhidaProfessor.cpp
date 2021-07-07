@@ -355,8 +355,6 @@ namespace GUI{
                         }
 
                         util.limparTerminal();
-
-                        std::cout<<"Vai para TelaProvaEscolhidaProfessor\n";
                         GUI::TelaProvaEscolhidaProfessor telaProvaEscolhida(provaEscolhida);
                         telaProvaEscolhida.show();
                         break;
