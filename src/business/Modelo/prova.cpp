@@ -144,6 +144,9 @@ namespace Modelo
     }
     void Prova::setNotasLiberadas(bool notasLiberadas){
         this->notasLiberadas = notasLiberadas;
+        if(notasLiberadas){
+            this->corrigirTentativas();
+        }
     }
 
     bool Prova::isNotasLiberadas(){
