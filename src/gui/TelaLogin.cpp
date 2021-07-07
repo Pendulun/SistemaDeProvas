@@ -28,8 +28,7 @@ namespace GUI{
 
                 if(opcao.compare("1")==0){
                     util.limparTerminal();
-                    fazLogin();
-                    loginSucesso = true;
+                    loginSucesso = fazLogin();
                     break;
                 }
                 else if (opcao.compare("2")==0){
@@ -49,12 +48,13 @@ namespace GUI{
         } 
     }
 
-    void TelaLogin::fazLogin(){
+    bool TelaLogin::fazLogin(){
 
         TerminalUteis util;
 
         bool voltar = false;
         bool dadosCorretos = false;
+        bool fezLogin = false;
 
         while(!voltar && !dadosCorretos){
             std::cout<<"-------------------\n";
@@ -84,6 +84,7 @@ namespace GUI{
 
                 if(dadosCorretos){
                     util.limparTerminal();
+                    fezLogin = true;
                     std::cout<<"ENTROU NO SISTEMA!!! \n";
                 }
                 else{
@@ -91,7 +92,7 @@ namespace GUI{
                     std::cout<<"Login invalido. Escolha a opcao:\n";
                     std::cout<<"1 - Tentar login novamente\n";
                     std::cout<<"2 - Voltar \n";
-
+                    fezLogin=false;
                     std::string opcao;
 
                     while(true){
@@ -113,6 +114,7 @@ namespace GUI{
                 }
             }
         }
+        return fezLogin;
     }
 
     void TelaLogin::cadastrar(){ 

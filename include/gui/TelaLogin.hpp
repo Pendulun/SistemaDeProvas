@@ -21,7 +21,7 @@ namespace GUI{
             Modelo::Usuario* user = nullptr;
 
             void cadastrar();
-            void fazLogin();
+            bool fazLogin();
 
             void pedirDados(std::string& nome, std::string& login, std::string& senha);
             bool checarDados(Modelo::TipoUsuario& opcaoTipoUsuario, std::string& nome, std::string& login, std::string& senha);       
