@@ -42,4 +42,8 @@ namespace Business{
          }
     }
 
+    bool ManterTurma::atualizarProvaEmTurma(const int idTurma, Modelo::Prova& prova){
+        return Application::getInstance()->getTurmaDAO()->atualizarProva(idTurma,prova);
+    }
+
 }

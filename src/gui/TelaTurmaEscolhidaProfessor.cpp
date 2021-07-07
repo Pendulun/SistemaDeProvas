@@ -355,7 +355,7 @@ namespace GUI{
                         }
 
                         util.limparTerminal();
-                        GUI::TelaProvaEscolhidaProfessor telaProvaEscolhida(provaEscolhida);
+                        GUI::TelaProvaEscolhidaProfessor telaProvaEscolhida(this->turma.getId(), provaEscolhida);
                         telaProvaEscolhida.show();
                         break;
                     }

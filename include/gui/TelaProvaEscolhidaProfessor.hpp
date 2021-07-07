@@ -2,6 +2,7 @@
 #define __TELAPROVAESCOLHIDAPROFESSOR_H__
 #include <iostream>
 #include <string>
+#include "business/fachadas/manterTurma.hpp"
 #include "business/Modelo/prova.hpp"
 #include "gui/TerminalUteis.hpp"
 
@@ -9,7 +10,7 @@ namespace GUI{
     class TelaProvaEscolhidaProfessor{
         public:
             void show();
-            TelaProvaEscolhidaProfessor(Modelo::Prova prova);
+            TelaProvaEscolhidaProfessor(int, Modelo::Prova prova);
 
         private:
             enum OpcaoMenuProvaEscolhidaProfessor{EDITAR = 1,
@@ -18,6 +19,7 @@ namespace GUI{
             OpcaoMenuProvaEscolhidaProfessor mostrarOpcoesMenu();
             void mapeiaEntrada(OpcaoMenuProvaEscolhidaProfessor);
             Modelo::Prova prova; 
+            int idTurma;
   
     };
 }

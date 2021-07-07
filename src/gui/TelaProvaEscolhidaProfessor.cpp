@@ -1,8 +1,9 @@
 #include "gui/TelaProvaEscolhidaProfessor.hpp"
 
 namespace GUI{
-    TelaProvaEscolhidaProfessor::TelaProvaEscolhidaProfessor(Modelo::Prova prova){
+    TelaProvaEscolhidaProfessor::TelaProvaEscolhidaProfessor(int idTurma, Modelo::Prova prova){
         this->prova = prova;
+        this->idTurma = idTurma;
     }
 
     void TelaProvaEscolhidaProfessor::show(){
@@ -84,6 +85,8 @@ void TelaProvaEscolhidaProfessor::mapeiaEntrada(TelaProvaEscolhidaProfessor::Opc
                     if(opcao.compare("1")==0){
                         if(this->prova.isNotasLiberadas()){
                             this->prova.setNotasLiberadas(false);
+                            Business::ManterTurma manterTurma;
+                            manterTurma.atualizarProvaEmTurma(this->idTurma, this->prova);
                         }else{
                             this->prova.setNotasLiberadas(true);
                         }
