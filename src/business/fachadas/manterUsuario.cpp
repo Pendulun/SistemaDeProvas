@@ -24,7 +24,6 @@ namespace Business{
         }catch(const std::exception& e){
             cadastrou = false;
             std::cout<<"ERRO!\n";
-            std::cout<<e.what()<<std::endl;
         }
 
         delete user;

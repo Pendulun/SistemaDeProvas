@@ -2,8 +2,15 @@
 
 namespace Business{
 
-    int ManterTurma::cadastrarTurma(const Modelo::Turma turma){
-        return Business::Application::getInstance()->getTurmaDAO()->cadastrar(turma);
+    bool ManterTurma::cadastrarTurma(const Modelo::Turma turma, Modelo::Professor* professor){
+        int idTurmaCadastrada = -1;
+        idTurmaCadastrada = Business::Application::getInstance()->getTurmaDAO()->cadastrar(turma);
+        if(idTurmaCadastrada >=0){
+            professor->adicionarTurma(idTurmaCadastrada);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     Modelo::Turma* ManterTurma::pesquisarTurma(int id){
