@@ -21,6 +21,7 @@ namespace Modelo {
     class Prova {
     private:
         std::list<Questao> listaQuestoes;
+        bool notasLiberadas;
         int dataInicio;
         int dataFinal;
         std::string nome;

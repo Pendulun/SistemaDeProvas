@@ -7,6 +7,7 @@ namespace Modelo
 
     Prova::Prova() {
         this->nome = "";
+        this->notasLiberadas=false;
         this->dataInicio = -1;
         this->dataFinal = -1;
         this->status = Status::PENDING;
@@ -15,6 +16,7 @@ namespace Modelo
     }
     Prova::Prova(std::string name){
         this->nome = name;
+        this->notasLiberadas=false;
         this->dataInicio = 0;
         this->dataFinal = 0;
         this->listaQuestoes.clear();
@@ -24,6 +26,7 @@ namespace Modelo
 
     Prova::Prova(int startDate, int endDate, std::string name){
         this->nome = name;
+        this->notasLiberadas=false;
         this->dataInicio = startDate;
         this->dataFinal = endDate;
         this->listaQuestoes.clear();
@@ -33,6 +36,7 @@ namespace Modelo
 
     Prova::Prova(int startDate, int endDate, std::list<Questao> questaoList, std::string name){
         this->nome = name;
+        this->notasLiberadas=false;
         this->dataInicio = startDate;
         this->dataFinal = endDate;
         this->listaQuestoes = questaoList;
