@@ -9,9 +9,10 @@ namespace GUI{
         public:
             void show();
 
-            TelaTurmaEscolhidaAluno(Modelo::Turma turma);
+            TelaTurmaEscolhidaAluno(Modelo::Turma turma, int idAluno);
 
         private:
+            int idAluno;
             Modelo::Turma turma; 
             void verProvas();
             void verProvasRealizadas();

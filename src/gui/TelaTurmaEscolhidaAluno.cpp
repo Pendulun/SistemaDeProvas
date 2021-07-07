@@ -2,8 +2,9 @@
 
 namespace GUI{
 
-    TelaTurmaEscolhidaAluno::TelaTurmaEscolhidaAluno (Modelo::Turma turma){
+    TelaTurmaEscolhidaAluno::TelaTurmaEscolhidaAluno (Modelo::Turma turma, int idAluno){
         this->turma = turma;
+        this->idAluno = idAluno;
     }
 
     void TelaTurmaEscolhidaAluno::show(){
@@ -103,7 +104,15 @@ namespace GUI{
             std::cout<<"PROVAS REALIZADAS\n";
             std::cout<<"-----------------\n\n";
 
-            if(this->turma.getProvas().size()==0){ //Esse é o vetor todo... Teria que ser só as realizadas.
+            std::list<Modelo::Prova> provasRealizadas;
+
+            for(Modelo::Prova prova : this->turma.getProvas()){
+                if(prova.alunoFezProva(this->idAluno)){
+                    provasRealizadas.push_back(prova); //Ainda não é a resolução do aluno
+                }
+            }
+
+            if(provasRealizadas.size()==0){
                 std::cout<<"Aluno sem provas realizadas.\n\n";
                 std::cout<<"Digite 1 para voltar.\n";
 
@@ -129,7 +138,7 @@ namespace GUI{
                 std::cout<<"Escolha a prova:\n\n";
 
                 int i = 1;
-                for(Modelo::Prova prova : this->turma.getProvas()){
+                for(Modelo::Prova prova : provasRealizadas){
                     std::cout<<i<<" - "<<prova.getNome()<<std::endl;
                     i++;
                 }
@@ -232,7 +241,7 @@ namespace GUI{
             std::cout<<"PROVAS DISPONIVEIS\n";
             std::cout<<"------------------\n\n";
 
-            if(this->turma.getProvas().size()==0){ //Esse é o vetor todo... Teria que ser só as disponíveis.
+            if(this->turma.getProvas().size()==0){
                 std::cout<<"Aluno sem provas disponiveis para responder.\n\n";
                 std::cout<<"Digite 1 para voltar.\n";
 
