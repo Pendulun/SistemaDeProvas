@@ -21,6 +21,8 @@ namespace Business{
             }else{
                 cadastrou = false;
             }
+        }catch(const std::invalid_argument& e){
+            std::cout<<"Erro!\n";
         }catch(const std::exception& e){
             cadastrou = false;
             std::cout<<"ERRO!\n";

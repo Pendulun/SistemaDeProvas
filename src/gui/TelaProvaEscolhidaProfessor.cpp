@@ -29,21 +29,25 @@ namespace GUI{
     }
 
     TelaProvaEscolhidaProfessor::OpcaoMenuProvaEscolhidaProfessor TelaProvaEscolhidaProfessor::mostrarOpcoesMenu(){
+        GUI::TerminalUteis util;
+        util.limparTerminal();
         std::string opcaoEscolhida = "";
         std::cout<<"Escolha o numero da opcao desejada:\n";
         
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::EDITAR<<" - Editar\n";
+        if(this->prova.getStatus()==Modelo::Status::OPEN){
+            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Fechar Prova para os Alunos\n";
+        }else if(this->prova.getStatus()==Modelo::Status::PENDING){
+            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Disponibilizar Prova para os Alunos\n";
+        }
+
         if(this->prova.isNotasLiberadas()){
             std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Nao Liberar Notas para alunos visualizarem\n";
         }else{
             std::cout<<OpcaoMenuProvaEscolhidaProfessor::LIBERARNOTAS<<" - Liberar Notas para alunos visualizarem\n";
         }
         
-        if(this->prova.getStatus()==Modelo::Status::OPEN){
-            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Fechar Prova para os Alunos\n";
-        }else if(this->prova.getStatus()==Modelo::Status::PENDING){
-            std::cout<<OpcaoMenuProvaEscolhidaProfessor::DISPONIVEL<<" - Disponibilizar Prova para os Alunos\n";
-        }
+        
 
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::RECORRIGIR<<" - Re-Corrigir\n";
         std::cout<<OpcaoMenuProvaEscolhidaProfessor::VOLTAR<<" - Voltar\n";
