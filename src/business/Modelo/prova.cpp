@@ -130,4 +130,8 @@ namespace Modelo
     void Prova::setStatus(Status status) {
         this->status = status;
     }
+
+    void Prova::addQuestao(Questao questao) {
+        this->listaQuestoes.push_back(questao);
+    }
 }
