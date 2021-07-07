@@ -75,6 +75,8 @@ namespace GUI{
 
     SistemaProfessor::~SistemaProfessor(){
         std::cout<<"Destruindo Sistema Professor"<<std::endl;
-        delete this->professor;
+        if(this->professor != nullptr){
+            delete this->professor;
+        }
     }
 }

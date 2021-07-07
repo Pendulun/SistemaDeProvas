@@ -255,6 +255,8 @@ namespace GUI{
     }
 
     TelaLogin::~TelaLogin(){
-        delete user;
+        if(this->user != nullptr){
+            delete user;
+        }
     }
 }

@@ -6,9 +6,11 @@
 
 #include "business/Modelo/questao.hpp"
 #include "business/Modelo/alternativa.hpp"
+#include "business/Modelo/provaResolvida.hpp"
 #include "business/Modelo/status.hpp"
 #include <string>
 #include <list>
+#include <map>
 #include <vector>
 #include <iterator>
 #include <iostream>
@@ -23,6 +25,7 @@ namespace Modelo {
         int dataFinal;
         std::string nome;
         std::list<std::string> assuntos;
+        std::map<int,Modelo::ProvaResolvida> submissoesAlunos;
         int id;
         Status status;
 

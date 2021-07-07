@@ -15,9 +15,10 @@ namespace GUI
             if(user!=nullptr){
                 try{
                     sistemaUsuario = configSistema(user);
-                    delete telaLogin;
                     sistemaUsuario->show();
+                    delete telaLogin;
                     delete sistemaUsuario;
+                    std::cout<<"Saiu delete\n";
                 }catch(const Business::ProfessorNotFoundException& e){
                     std::cout<<e.what()<<std::endl;
                 }catch(const Business::AlunoNotFoundException& e){
@@ -34,13 +35,9 @@ namespace GUI
 
     GUI::SistemaUsuario* UserTerminalGUI::configSistema(Modelo::Usuario* user){
         if(user->isProfessor()){
-            Business::ManterProfessor manterProfessor;
-            Modelo::Professor* professor = manterProfessor.pesquisarProfessor(user->getId());
-            return new SistemaProfessor(professor);
+            return new SistemaProfessor((Modelo::Professor*) user);
         }else if(user->isAluno()){
-            Business::ManterAluno manterAluno;
-            Modelo::Aluno* aluno = manterAluno.pesquisarAluno(user->getId());
-            return new SistemaAluno(aluno);
+            return new SistemaAluno((Modelo::Aluno*) user);
         }else{
             return nullptr;
         }
